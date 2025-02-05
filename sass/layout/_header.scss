@@ -1,0 +1,43 @@
+.header {
+    width: 100%;
+    height: $header-height;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: $header-box-shadow; // Ombre spécifique au header
+    background-color: $color-background; // Fond blanc
+
+    .logo {
+        width: auto; // Largeur ajustable
+        height: 36px; // Hauteur du logo en pixel (fixe)
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: $gap-medium; // Espacement en haut
+    }
+
+    &__location {
+        width: 100%;
+        height: 50px; // Hauteur de la section localisation (fixe)
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $gap-medium; // Espacement entre l'icône et le texte
+        padding: 0 7.406rem; // Padding latéral en rem
+        background-color: $color-location; // Fond gris clair
+        box-shadow: $box-shadow-light; // Ombre légère
+
+        .location__icon {
+            font-size: $font-size-xs; // Taille de l'icône
+            color: $color-primary; // Couleur principale (noir)
+        }
+
+        .location__text {
+            font-family: $font-primary; // Police principale
+            font-size: $font-size-small; // Taille de la police
+            font-weight: $font-weight-medium; // Poids de la police
+            text-align: left; // Alignement à gauche
+            white-space: nowrap; // Empêche le texte de passer à la ligne
+        }
+    }
+}

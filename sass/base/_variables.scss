@@ -35,6 +35,8 @@ $font-size-medium: 1.125rem;
 $font-size-large: 1.5rem;
 $font-size-xl: 1.75rem;
 
+
+
 // Hauteurs de ligne
 $line-height-xs: 1.1rem;
 $line-height-small: 1.245rem;
@@ -60,6 +62,9 @@ $header-height: 3.9375rem;
 $card-width: 18.75rem;
 $button-width: 13.625rem;
 $button-height: 3.125rem;
+// ===============================
+// 📐 Dimensions des boutons
+// ===============================
 
 // Dimensions des images
 $image-width: 23.4375rem;
@@ -88,3 +93,13 @@ $desktop-width: 1440px;
 // ===============================
 $button-radius: 25px;
 $button-text-color: #FFFFFF;
+
+// ===============================
+// 🌍 Footer
+// ===============================
+$color-footer-background: $color-primary; // Fond du footer en noir
+$color-footer-text: $color-background; // Texte en blanc
+$color-footer-links: $color-background; // Liens en blanc
+
+$footer-padding: 2rem; // Padding du footer
+$footer-gap: 1rem; // Espace entre les éléments

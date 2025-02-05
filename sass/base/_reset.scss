@@ -1,0 +1,83 @@
+// ===============================
+// 🔄 Reset CSS Global
+// ===============================
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input {
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+// ===============================
+// 📝 Typographies Globales
+// ===============================
+
+h2 {
+    font-family: $font-primary;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-top: 54px;
+}
+
+p {
+    font-family: $font-primary;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+// ===============================
+// 🍽️ Styles spécifiques aux restaurants
+// ===============================
+
+.restaurant-title {
+    font-family: $font-secondary;
+    font-size: $font-size-xl;
+    font-style: italic;
+    font-weight: 400;
+    line-height: $line-height-xl;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+// ===============================
+// 🃏 Styles pour les cartes
+// ===============================
+
+.card__title {
+    width: 267px;
+    height: 20px;
+    font-size: $font-size-xs;
+    font-weight: bold;
+}
+
+.menu__description {
+    font-family: $font-primary; // Police Roboto
+    font-size: $font-size-xs; // 15px (0.9375rem)
+    font-weight: $font-weight-light; // 300
+    line-height: $line-height-small; // 17.63px
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}

@@ -1,3 +1,74 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input {
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  margin-top: 54px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.restaurant-title {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 1.75rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 2.55rem;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+.card__title {
+  width: 267px;
+  height: 20px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+}
+
+.menu__description {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.245rem;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -31,4 +102,255 @@ main {
   main {
     width: 100%;
   }
+}
+.header {
+  width: 100%;
+  height: 3.9375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  background-color: #FFFFFF;
+}
+.header .logo {
+  width: auto;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.0625rem;
+}
+.header__location {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0625rem;
+  padding: 0 7.406rem;
+  background-color: #EAEAEA;
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+}
+.header__location .location__icon {
+  font-size: 0.9375rem;
+  color: #000000;
+}
+.header__location .location__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.footer {
+  width: 100%;
+  min-height: 186px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  position: relative;
+  background-color: #353535;
+  color: white;
+  padding: 22px 25px;
+}
+.footer__container {
+  max-width: 375px;
+  width: 375px;
+  padding: 0px;
+  display: flex;
+  justify-content: column;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer__logo {
+  width: 190px;
+  display: flex;
+}
+.footer__logo-text {
+  font-family: "Shrikhand", cursive;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 26.24px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: white;
+}
+.footer__nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  gap: 0;
+}
+.footer__links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: column;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.4375rem;
+}
+.footer__link-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer__link-item-icon {
+  width: 0.745rem;
+  height: 0.8125rem;
+}
+.footer__link-item-icon i {
+  font-size: 0.8125rem;
+}
+
+.intro {
+  width: 100%;
+  background-color: #F6F6F6;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0625rem;
+  text-align: center;
+  padding-bottom: 20px;
+  min-height: 179px;
+}
+
+.intro__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0625rem;
+  word-wrap: break-word;
+}
+
+.intro__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.55rem;
+  color: #000000;
+  padding-left: 40px;
+  padding-right: 58px;
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.intro__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.32rem;
+  color: #353535;
+  max-width: 100%;
+  text-align: center;
+}
+
+.btn {
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 13px 1rem;
+  transition: background 0.3s, box-shadow 0.3s;
+  width: 13.625rem;
+  height: 3.125rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+.btn:hover {
+  background-color: #FF79DA;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.btn--explore {
+  font-size: 1.125rem;
+}
+
+.steps {
+  width: 100%;
+  margin-top: 3rem;
+  padding: 0 1.25rem;
+  background-color: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+.steps__title {
+  margin-bottom: 1.625rem;
+}
+.steps__list {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(323px, 330px));
+}
+.steps .step {
+  width: 100%;
+  min-height: 72px;
+  background-color: #F6F6F6;
+  border-radius: 1.25rem;
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  flex-wrap: nowrap;
+  /* Empêche le passage à la ligne */
+}
+.steps .step .step__number {
+  position: absolute;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #9356DC;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 24px;
+}
+.steps .step .step__icon {
+  width: 0.81375rem;
+  height: 1.24375rem;
+  color: #7E7E7E;
+}
+.steps .step .step__text {
+  margin-left: 1.25rem;
+  justify-self: center;
+}
+
+.step__icon__store {
+  color: #9356DC;
 }/*# sourceMappingURL=style.css.map */

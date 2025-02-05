@@ -1,0 +1,64 @@
+// ===============================
+// 📌 Mixin pour une section centrée avec Flexbox
+// ===============================
+@mixin flex-column-center($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+// ===============================
+// 📌 Mixin pour Flexbox
+// ===============================
+@mixin flex-center($direction: row, $gap: 0px) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+// ===============================
+// 🎨 Mixin pour les Boutons
+// ===============================
+@mixin button-style($bg-color, $shadow, $text-color, $radius) {
+    background: $bg-color; // Couleur de fond du bouton
+    border-radius: $radius; // Coins arrondis
+    box-shadow: $shadow; // Ombre du bouton
+    color: $text-color; // Couleur du texte
+    font-family: $font-primary; // Police du bouton
+    font-size: $font-size-medium; // Taille du texte du bouton
+    text-align: center;
+    display: inline-flex; // Utilisation de flexbox pour centrer le texte
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none; // Enlever les soulignements
+    cursor: pointer;
+    padding: 13px 1rem; // Espacement interne
+    transition: background 0.3s, box-shadow 0.3s; // Animation au survol
+}
+
+
+// footer
+@mixin flex($justify: flex-start, $align: stretch, $direction: row, $gap: 0) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+// 📌 Mixin spécial pour aligner les éléments en ligne avec "space-between"
+@mixin flex-between($align: center) {
+    display: flex;
+    justify-content: space-between;
+    align-items: $align;
+}
+
+// 📌 Mixin pour Grid
+@mixin grid($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
+    display: grid;
+    grid-template-columns: $columns;
+    gap: $gap;
+}

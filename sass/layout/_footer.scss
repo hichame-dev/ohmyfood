@@ -1,0 +1,61 @@
+.footer {
+    width: 100%;
+    min-height: 186px;
+    @include flex(flex-start, center, row, 1rem);
+    position: relative;
+    background-color: #353535;
+    color: white; // Couleur de texte par défaut pour le footer
+    padding: 22px 25px;
+
+    &__container {
+        max-width: 375px;
+        width: 375px;
+        padding: 0px;
+        @include flex(column, flex-start, column, 16px);
+    }
+
+    &__logo {
+        // Retrait du style ici
+        width: 190px;
+        display: flex;
+
+    }
+
+    &__logo-text {
+        font-family: 'Shrikhand', cursive;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 26.24px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: white; // Couleur de texte du logo en blanc
+    }
+
+    &__nav {
+        width: 100%;
+        @include flex(flex-start);
+    }
+
+    &__links {
+        list-style: none;
+        padding: 0;
+        @include flex(column, flex-start, column, 0.4375rem);
+    }
+
+    &__link-item {
+        display: flex;
+        align-items: center;
+        gap: 10px; // Espacement entre l'icône et le texte
+    }
+
+    &__link-item-icon {
+        width: 0.745rem;
+        height: 0.8125rem;
+
+        i {
+            font-size: 0.8125rem;
+        }
+    }
+}

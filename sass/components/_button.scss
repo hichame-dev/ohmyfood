@@ -1,0 +1,15 @@
+.btn {
+    @include button-style($color-gradient, $color-button-shadow, $button-text-color, $button-radius);
+    width: $button-width;
+    height: $button-height;
+    @include flex-center(row, 0px); // Utilisation de la mixin pour centrer
+
+    &:hover {
+        background-color: $color-button-hover;
+        box-shadow: 0px 4px 10px 0px $color-button-shadow;
+    }
+
+    &--explore {
+        font-size: $font-size-medium;
+    }
+}
