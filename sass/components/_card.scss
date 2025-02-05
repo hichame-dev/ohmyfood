@@ -12,6 +12,7 @@
     gap: 1.125rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 4.125rem; // 66px (4.125rem)
 
     &__title h2 {
         margin-bottom: 1.625rem;
@@ -59,7 +60,7 @@
         &__content {
             padding-left: 1rem;
             padding-right: 1rem;
-            height: 4.8125rem;
+            height: auto; // ✅ Ajustement dynamique
             display: grid;
             grid-template-columns: 1fr auto;
             align-items: flex-start;
@@ -85,10 +86,12 @@
         &__location {
             font-family: $font-primary;
             font-size: $font-size-small;
-            font-weight: $font-weight-regular;
+            font-weight: $font-weight-light;
             line-height: $line-height-small;
-            color: $color-primary;
-            opacity: 0.7;
+            color: $color-primary; // ✅ Forcé en noir
+            opacity: 1; // ✅ Suppression de la transparence
+            margin-top: 0.25rem;
+            margin-bottom: 0.75rem; // ✅ Ajout des 12px sous `.card__location`
         }
 
         &__icon-pink {

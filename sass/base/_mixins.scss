@@ -93,7 +93,7 @@
 
 // ✅ Mixin pour les cartes sans tag "Nouveau"
 @mixin card-without-tag {
-    background-color: white;
+    background-color:$color-card-background;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
