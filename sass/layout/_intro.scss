@@ -1,0 +1,38 @@
+.intro {
+    width: 100%;
+    background-color: $color-card-background;
+    background-size: cover;
+    @include flex-column-center($gap-medium); // Utilisation de la mixin
+    text-align: center;
+    padding-bottom: 20px;
+    min-height: 179px;
+}
+
+.intro__content {
+    @include flex-column-center($gap-medium); // Réutilisation de la mixin
+    word-wrap: break-word;
+}
+
+.intro__title {
+    font-family: $font-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-xl;
+    color: $color-primary;
+    padding-left: 40px;
+    padding-right: 58px;
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.intro__text {
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-light;
+    line-height: 1.32rem;
+    color: $color-secondary;
+    max-width: 100%;
+    text-align: center;
+}

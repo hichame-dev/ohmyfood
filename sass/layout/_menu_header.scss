@@ -1,0 +1,40 @@
+@import "../base/variables";
+@import "../base/mixins"; // ✅ Import des mixins pour utiliser flex
+
+.restaurant-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1.0625rem; // 17px
+    padding-right: 1.0625rem; // 17px
+}
+
+.restaurant-banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    .banner-img {
+        width: 100%;
+        height: $image-height; // 275px
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.menu-container {
+    position: relative;
+    background-color: $color-card-background; // Fond gris clair
+    border-radius: 2.5rem 2.5rem 0 0; // 40px arrondi en haut
+    padding: 0.8125rem; // 13px
+    gap: 2.5rem; // 40px
+    margin-top: -2.3125rem; // -37px pour remonter
+    z-index: 2; // Pour passer au-dessus de la bannière
+}
+
+.menu-container h1 {
+    font-family: $font-secondary; // "Shrikhand"
+    font-style: italic;
+    font-weight: $font-weight-regular; // 400
+}

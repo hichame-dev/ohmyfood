@@ -1,0 +1,61 @@
+.steps {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 0 1.25rem;
+    background-color: $color-background;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+
+    &__title {
+        margin-bottom: 1.625rem;
+    }
+
+    &__list {
+        display: grid;
+        width: 100%;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(323px, 330px));
+    }
+
+    .step {
+        width: 100%;
+        min-height: 72px; // Taille adaptée (remplace la mixin step-style)
+        background-color: $color-card-background;
+        border-radius: 1.25rem;
+        box-shadow: $box-shadow-light;
+        padding: 20px;
+        @include flex-center(row, 0px); // ✅ Utilisation de la mixin flex-center
+        flex-wrap: nowrap;
+        /* Empêche le passage à la ligne */
+
+        .step__number {
+            position: absolute;
+            left: 10px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: $color-step;
+            color: #fff;
+            @include flex-center; // ✅ Utilisation de flex-center pour centrer l'élément
+            font-size: 1rem;
+            font-weight: bold;
+            margin-right: 24px;
+        }
+
+        .step__icon {
+            width: 0.81375rem; // 13px
+            height: 1.24375rem; // 19px
+            color: $color-icon;
+        }
+
+        .step__text {
+            margin-left: 1.25rem;
+            justify-self: center;
+        }
+    }
+}
+
+.step__icon__store {
+    color: $color-step;
+}

@@ -1,0 +1,104 @@
+// ===============================
+// 🎨 Mixin pour Flexbox
+// ===============================
+
+// ✅ Mixin générique pour flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+// ✅ Mixin pour centrer avec Flexbox
+@mixin flex-center($direction: row, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+}
+
+// ✅ Mixin pour aligner un élément à gauche avec flexbox
+@mixin flex-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+// ✅ Mixin spécial pour aligner les éléments avec "space-between"
+@mixin flex-between($align: center) {
+    display: flex;
+    justify-content: space-between;
+    align-items: $align;
+}
+
+// ✅ Mixin pour une section centrée avec Flexbox
+@mixin flex-column-center($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+
+// ===============================
+// 🎨 Mixin pour Grid Layout
+// ===============================
+
+@mixin grid-layout($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
+    display: grid;
+    grid-template-columns: $columns;
+    gap: $gap;
+}
+
+// ===============================
+// 🎨 Mixin pour les Boutons
+// ===============================
+@mixin button-style($bg-color, $shadow, $text-color, $radius) {
+    background: $bg-color;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    color: $text-color;
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 13px 1rem;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+// ===============================
+// 🎨 Mixin pour les Cartes (Cards)
+// ===============================
+
+// ✅ Mixin pour les cartes avec un tag "Nouveau"
+@mixin card-with-tag {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+// ✅ Mixin pour les cartes sans tag "Nouveau"
+@mixin card-without-tag {
+    background-color:$color-card-background;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    }
+}
