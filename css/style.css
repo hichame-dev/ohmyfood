@@ -25,6 +25,13 @@ h2 {
   margin-top: 54px;
 }
 
+.card__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #000000;
+}
+
 p {
   font-family: "Roboto", sans-serif;
 }
@@ -143,13 +150,93 @@ main {
   white-space: nowrap;
 }
 
+.menu-container {
+  width: 100%;
+}
+
+/* ✅ Bannière du restaurant */
+.restaurant-banner {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.restaurant-banner .banner-img {
+  width: 100%;
+  height: 17.1875rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* ✅ Titre & Icône Favori */
+.restaurant-header {
+  position: relative;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: space-between;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+}
+.restaurant-header .direction__icon {
+  position: absolute;
+  top: 1.0625rem;
+  left: 1rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+}
+.restaurant-header .direction__icon a {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+}
+.restaurant-header .direction__icon a i {
+  font-size: 1rem;
+  color: #000000;
+}
+.restaurant-header .restaurant-title {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #000000;
+}
+.restaurant-header .card__icon-pink {
+  width: 1.375rem;
+  height: 1.3125rem;
+  color: #FF79DA;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+}
+.restaurant-header .card__icon-pink:hover {
+  transform: scale(1.1);
+}
+.restaurant-header .card__icon-pink input {
+  display: none;
+}
+.restaurant-header .card__icon-pink .card__icon {
+  font-size: 1.125rem;
+  color: #000000;
+}
+
 .footer {
   width: 100%;
   min-height: 186px;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
+  flex-direction: flex-start;
+  justify-content: center;
+  align-items: row;
   gap: 1rem;
   position: relative;
   background-color: #353535;
@@ -161,9 +248,9 @@ main {
   width: 375px;
   padding: 0px;
   display: flex;
-  justify-content: column;
-  align-items: flex-start;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: column;
   gap: 16px;
 }
 .footer__logo {
@@ -185,18 +272,18 @@ main {
 .footer__nav {
   width: 100%;
   display: flex;
+  flex-direction: flex-start;
   justify-content: flex-start;
   align-items: stretch;
-  flex-direction: row;
   gap: 0;
 }
 .footer__links {
   list-style: none;
   padding: 0;
   display: flex;
-  justify-content: column;
-  align-items: flex-start;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: column;
   gap: 0.4375rem;
 }
 .footer__link-item {
@@ -279,8 +366,8 @@ main {
   height: 3.125rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 0px;
 }
 .btn:hover {
@@ -289,6 +376,121 @@ main {
 }
 .btn--explore {
   font-size: 1.125rem;
+}
+
+.restaurants {
+  width: 100%;
+  padding: 0 1.125rem;
+  padding-left: 1.0625rem;
+  margin-top: 3rem;
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.restaurants__title h2 {
+  margin-bottom: 1.625rem;
+  padding-left: 1.0625rem;
+  width: 100%;
+  margin-top: 3.375rem;
+}
+.restaurants__grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.restaurants .card {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-bottom: 1.125rem;
+  display: flex;
+  flex-direction: column;
+}
+.restaurants .card--new {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+.restaurants .card--new:hover {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+.restaurants .card:not(.card--new) {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.restaurants .card:not(.card--new):hover {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+.restaurants .card__image-container {
+  display: flex;
+  overflow: hidden;
+  max-height: 12.5rem;
+}
+.restaurants .card__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+}
+.restaurants .card__content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 4.8125rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-start;
+}
+.restaurants .card__text {
+  display: flex;
+  flex-direction: column;
+}
+.restaurants .card__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.32rem;
+  color: #000000;
+  margin-top: 1rem;
+  left: 0;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.restaurants .card__location {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.245rem;
+  color: #000000;
+  opacity: 0.7;
+}
+.restaurants .card__icon-pink {
+  width: 1.375rem;
+  height: 1.3125rem;
+  margin-top: 1rem;
+  justify-self: end;
+  align-self: start;
+}
+.restaurants .card__icon-pink:hover .card__icon {
+  color: #FF79DA;
+}
+.restaurants .card--new .card__tag {
+  position: absolute;
+  top: 0.8125rem;
+  right: 1rem;
+  background-color: #99E2D0;
+  color: #FFFFFF;
+  padding: 0.5rem 0.9375rem;
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
 }
 
 .steps {
@@ -318,8 +520,8 @@ main {
   padding: 20px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 0px;
   flex-wrap: nowrap;
   /* Empêche le passage à la ligne */
@@ -334,9 +536,9 @@ main {
   color: #fff;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  gap: 0px;
+  align-items: center;
+  gap: 0;
   font-size: 1rem;
   font-weight: bold;
   margin-right: 24px;

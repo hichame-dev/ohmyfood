@@ -32,6 +32,14 @@ h2 {
     margin-top: 54px;
 }
 
+.card__title {
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-light;
+    color: $color-primary;
+    
+}
+
 p {
     font-family: $font-primary;
 }

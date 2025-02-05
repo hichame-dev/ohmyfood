@@ -1,0 +1,75 @@
+@import "../base/variables";
+@import "../base/mixins"; // ✅ Import des mixins pour utiliser flex
+
+.menu-container {
+    width: 100%;
+}
+
+/* ✅ Bannière du restaurant */
+.restaurant-banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    .banner-img {
+        width: 100%;
+        height: 17.1875rem; // 275px
+        object-fit: cover;
+        display: block;
+    }
+}
+
+/* ✅ Titre & Icône Favori */
+.restaurant-header {
+    position: relative;
+    padding: 1.25rem; // 20px
+
+    @include flex(space-between, center); // ✅ Utilisation de la mixin flex
+.direction__icon {
+        position: absolute;
+        top: 1.0625rem; // 17px
+        left: 1rem; // 16px
+        width: 1.875rem; // 30px
+        height: 1.875rem;
+
+        @include flex(center, center); // ✅ Centrer l'icône dans son conteneur
+
+        a {
+            @include flex(center, center); // ✅ Alignement parfait
+
+            i {
+                font-size: 1rem; // 16px
+                color: $color-primary; // Noir
+            }
+        }
+    }
+    .restaurant-title {
+        font-family: $font-secondary;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-primary;
+    }
+
+    .card__icon-pink {
+        width: 1.375rem; // 22px
+        height: 1.3125rem; // 21px
+        color: $color-button-hover;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+
+        @include flex(center, center); // ✅ On centre le cœur avec flex
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        input {
+            display: none;
+        }
+
+        .card__icon {
+            font-size: 1.125rem; // 18px
+            color: $color-primary;
+        }
+    }
+}

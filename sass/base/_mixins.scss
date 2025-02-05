@@ -1,6 +1,40 @@
 // ===============================
-// 📌 Mixin pour une section centrée avec Flexbox
+// 🎨 Mixin pour Flexbox
 // ===============================
+
+// ✅ Mixin générique pour flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+// ✅ Mixin pour centrer avec Flexbox
+@mixin flex-center($direction: row, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+}
+
+// ✅ Mixin pour aligner un élément à gauche avec flexbox
+@mixin flex-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+// ✅ Mixin spécial pour aligner les éléments avec "space-between"
+@mixin flex-between($align: center) {
+    display: flex;
+    justify-content: space-between;
+    align-items: $align;
+}
+
+// ✅ Mixin pour une section centrée avec Flexbox
 @mixin flex-column-center($gap: 0) {
     display: flex;
     flex-direction: column;
@@ -8,57 +42,63 @@
     justify-content: center;
     gap: $gap;
 }
+
 // ===============================
-// 📌 Mixin pour Flexbox
+// 🎨 Mixin pour Grid Layout
 // ===============================
-@mixin flex-center($direction: row, $gap: 0px) {
-    display: flex;
-    flex-direction: $direction;
-    align-items: center;
-    justify-content: center;
+
+@mixin grid-layout($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
+    display: grid;
+    grid-template-columns: $columns;
     gap: $gap;
 }
+
 // ===============================
 // 🎨 Mixin pour les Boutons
 // ===============================
 @mixin button-style($bg-color, $shadow, $text-color, $radius) {
-    background: $bg-color; // Couleur de fond du bouton
-    border-radius: $radius; // Coins arrondis
-    box-shadow: $shadow; // Ombre du bouton
-    color: $text-color; // Couleur du texte
-    font-family: $font-primary; // Police du bouton
-    font-size: $font-size-medium; // Taille du texte du bouton
+    background: $bg-color;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    color: $text-color;
+    font-family: $font-primary;
+    font-size: $font-size-medium;
     text-align: center;
-    display: inline-flex; // Utilisation de flexbox pour centrer le texte
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    text-decoration: none; // Enlever les soulignements
+    text-decoration: none;
     cursor: pointer;
-    padding: 13px 1rem; // Espacement interne
-    transition: background 0.3s, box-shadow 0.3s; // Animation au survol
+    padding: 13px 1rem;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
+// ===============================
+// 🎨 Mixin pour les Cartes (Cards)
+// ===============================
 
-// footer
-@mixin flex($justify: flex-start, $align: stretch, $direction: row, $gap: 0) {
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    flex-direction: $direction;
-    gap: $gap;
+// ✅ Mixin pour les cartes avec un tag "Nouveau"
+@mixin card-with-tag {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    }
 }
 
-// 📌 Mixin spécial pour aligner les éléments en ligne avec "space-between"
-@mixin flex-between($align: center) {
-    display: flex;
-    justify-content: space-between;
-    align-items: $align;
-}
+// ✅ Mixin pour les cartes sans tag "Nouveau"
+@mixin card-without-tag {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 
-// 📌 Mixin pour Grid
-@mixin grid($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
-    display: grid;
-    grid-template-columns: $columns;
-    gap: $gap;
+    &:hover {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    }
 }
