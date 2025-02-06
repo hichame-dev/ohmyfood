@@ -1,0 +1,116 @@
+.menu__section h2 {
+    margin: 0;
+    position: relative;
+    margin-bottom: 2.625rem; // 42px d’espace en bas
+    
+
+    &::after {
+        content: "";
+        width: 50%;
+        width: 2.5rem; // 40px
+        border-top: 3px solid #99E2D0;
+        position: relative;
+        left: 0;
+        top: 5px; // 27px sous le h2
+        display: block;
+    }
+}
+
+.menu__section {
+    margin-top: 2.625rem; // 42px sous le titre
+    padding: 13px;
+    
+
+    h2 {
+        position: relative;
+        margin-bottom: 1.5625rem; // 25px d'espace avec la première carte
+        padding-left: 1.0625rem;
+    }
+}
+
+// menu
+
+.menu__item {
+    width: 349px;
+    padding: 12px 0;
+    border-radius: 15px;
+    box-shadow: 0px 4.01px 15.04px 0px #0000001A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    /* Ajout du gap entre les boîtes */
+}
+
+.menu__item:last-child {
+    margin-bottom: 0;
+    /* Supprime la marge du dernier élément */
+}
+
+.menu__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.menu__text {
+    width: 287px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.menu__title {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.09px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 0;
+}
+
+.menu__description {
+    font-family: Roboto, sans-serif;
+    font-size: 15.04px;
+    font-weight: 300;
+    line-height: 17.63px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    width: 100%;
+    margin: 0;
+}
+
+.menu__price {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 15px;
+    box-sizing: border-box;
+    align-self: flex-end;
+}
+
+
+
+.menu__check-input {
+    display: none;
+}
+
+.menu__check-icon {
+    color: white;
+    font-size: 20px;
+    transform: translateX(100px);
+    transition: transform 0.5s ease;
+}
+

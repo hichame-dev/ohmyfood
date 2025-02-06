@@ -34,6 +34,13 @@ input {
     text-decoration-skip-ink: none;
 }
 
+.menu__section h2 {
+    position: relative; // ✅ Nécessaire pour bien positionner le ::after
+    font-family: $font-primary;
+    font-size: 1rem; // 16px
+    font-weight: 300;
+}
+
 
 h2 {
     font-family: $font-primary;
@@ -58,7 +65,7 @@ h3 {
     font-size: $font-size-medium;
     font-weight: $font-weight-light;
     color: $color-primary;
-    
+
 }
 
 p {
@@ -120,7 +127,7 @@ ol {
     font-weight: $font-weight-bold;
     line-height: $line-height-price;
     text-align: center;
-    
+
 }
 
 .euro {
@@ -130,5 +137,5 @@ ol {
     line-height: $line-height-price;
     text-align: center;
     color: $color-background;
-    
+
 }
