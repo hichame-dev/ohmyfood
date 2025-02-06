@@ -1,3 +1,4 @@
+
 .steps {
     width: 100%;
     margin-top: 3rem;
@@ -50,6 +51,9 @@
         }
 
         .step__text {
+            font-family: $font-primary; // ✅ Roboto
+            font-size:$font-size-small; // ✅ 16px
+            font-weight: $font-weight-medium; // ✅ 500
             margin-left: 1.25rem;
             justify-self: center;
         }

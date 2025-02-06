@@ -23,6 +23,17 @@ input {
 // ===============================
 // 📝 Typographies Globales
 // ===============================
+.restaurant-title {
+    font-family: $font-secondary;
+    font-size: $font-size-xl;
+    font-style: italic;
+    font-weight: 400;
+    line-height: $line-height-xl;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
 
 h2 {
     font-family: $font-primary;
@@ -30,6 +41,16 @@ h2 {
     font-weight: $font-weight-bold;
     color: $color-primary;
     margin-top: 54px;
+}
+
+h3 {
+    font-family: $font-primary; // Roboto
+    font-size: $font-size-h3;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
 
 .card__title {
@@ -54,20 +75,22 @@ ol {
     list-style: none;
 }
 
+.step__text {
+    font-family: $font-primary; // ✅ Roboto
+    font-size: $font-size-small; // ✅ 16px
+    font-weight: $font-weight-medium; // ✅ 500
+    line-height: $line-height-small; // ✅ 18.75px
+    text-align: left;
+    color: $color-primary;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
 // ===============================
 // 🍽️ Styles spécifiques aux restaurants
 // ===============================
 
-.restaurant-title {
-    font-family: $font-secondary;
-    font-size: $font-size-xl;
-    font-style: italic;
-    font-weight: 400;
-    line-height: $line-height-xl;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-}
+
 
 // ===============================
 // 🃏 Styles pour les cartes
@@ -88,4 +111,24 @@ ol {
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+}
+
+
+.price {
+    font-family: $font-primary; // ✅ Roboto
+    font-size: $font-size-price;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-price;
+    text-align: center;
+    
+}
+
+.euro {
+    font-family: $font-primary;
+    font-size: $font-size-price;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-price;
+    text-align: center;
+    color: $color-background;
+    
 }
