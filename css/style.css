@@ -444,9 +444,10 @@ main {
   text-decoration: none;
   cursor: pointer;
   padding: 13px 1rem;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
   width: 13.625rem;
   height: 3.125rem;
+  margin-bottom: 57px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -673,7 +674,7 @@ main {
 }
 
 .menu__item {
-  width: 349px;
+  width: 100%;
   padding: 12px 0;
   border-radius: 15px;
   box-shadow: 0px 4.01px 15.04px 0px rgba(0, 0, 0, 0.1019607843);
@@ -750,8 +751,37 @@ main {
 }
 
 .menu__check-icon {
-  color: white;
+  opacity: 0;
   font-size: 20px;
   transform: translateX(100px);
   transition: transform 0.5s ease;
+}
+
+.order {
+  /* Hauteur fixe de 187px pour créer l’espace voulu */
+  height: 187px;
+  /* On centre le contenu dans cet espace (bouton) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--order {
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  border-radius: 25px;
+  box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 13px 1rem;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  width: 186px;
+  height: 50px;
 }/*# sourceMappingURL=style.css.map */
