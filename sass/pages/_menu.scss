@@ -2,7 +2,7 @@
     margin: 0;
     position: relative;
     margin-bottom: 2.625rem; // 42px d’espace en bas
-    
+
 
     &::after {
         content: "";
@@ -19,7 +19,7 @@
 .menu__section {
     margin-top: 2.625rem; // 42px sous le titre
     padding: 13px;
-    
+
 
     h2 {
         position: relative;
@@ -103,31 +103,30 @@
 
 
 
-.menu__check-input {
-    display: none;
-}
 
-.menu__check-icon {
-    opacity: 0;
-    font-size: 20px;
-    transform: translateX(100px);
-    transition: transform 0.5s ease;
-}
 
 .order {
-    /* Hauteur fixe de 187px pour créer l’espace voulu */
+    /* Hauteur fixe de 187px pour laisser un espace défini entre le menu et le footer */
     height: 187px;
 
-    /* On centre le contenu dans cet espace (bouton) */
+    /* On centre le bouton horizontalement et verticalement */
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .btn--order {
-    @include button-style(); // Style visuel du bouton
+    @include button-style();
+
+    /* Taille du bouton */
     width: 186px;
     height: 50px;
+
+    /* Au survol, on utilise un autre gradient + une ombre différente */
+    &:hover {
+        /* Définis un gradient "un peu plus clair" à la main */
+        background: linear-gradient(193.33deg, #A56CEC -11.44%, #FF9ADE 123.93%);
+        /* Ombre plus marquée */
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+    }
 }
