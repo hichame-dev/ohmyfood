@@ -313,6 +313,7 @@ main {
   font-weight: 400;
 }
 
+/* ✅ Style général du bouton cœur */
 .card__icon-pink {
   width: 1.375rem;
   height: 1.3125rem;
@@ -322,10 +323,11 @@ main {
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  /* Au survol */
-  /* Cache la checkbox */
-  /* Icône du cœur vide par défaut */
-  /* Quand la checkbox est cochée, on change l’icône en cœur plein */
+  /* ✅ Effet de zoom au survol */
+  /* ✅ Cache l'input */
+  /* ✅ Icône du cœur vide (par défaut) */
+  /* ✅ Icône du cœur plein (cachée par défaut) */
+  /* ✅ Quand on coche, le cœur plein apparaît et le cœur vide disparaît */
 }
 .card__icon-pink:hover {
   transform: scale(1.1);
@@ -333,16 +335,30 @@ main {
 .card__icon-pink .card__checkbox {
   display: none;
 }
-.card__icon-pink .card__icon {
+.card__icon-pink .card__icon--empty {
   font-size: 1.375rem;
+  /* 22px */
   color: #000000;
-  transition: color 0.3s ease-in-out;
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
 }
-.card__icon-pink .card__checkbox:checked + .card__icon {
-  color: #FF79DA;
-  font-weight: 900;
-  font-family: "Font Awesome 6 Free";
-  content: "\f004";
+.card__icon-pink .card__icon--full {
+  font-size: 1.375rem;
+  /* 22px */
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* ✅ Permet d'afficher le dégradé */
+  position: absolute;
+  opacity: 0;
+  /* Caché par défaut */
+  transition: opacity 0.3s ease-in-out;
+}
+.card__icon-pink .card__checkbox:checked ~ .card__icon--empty {
+  opacity: 0;
+}
+.card__icon-pink .card__checkbox:checked ~ .card__icon--full {
+  opacity: 1;
 }
 
 .footer {
@@ -599,7 +615,7 @@ main {
   align-self: start;
 }
 .restaurants .card__icon-pink:hover .card__icon {
-  color: #FF79DA;
+  color: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
 }
 .restaurants .card--new .card__tag {
   position: absolute;
@@ -981,7 +997,47 @@ main {
 }
 .btn--order:hover {
   /* Définis un gradient "un peu plus clair" à la main */
-  background: linear-gradient(193.33deg, #A56CEC -11.44%, #FF9ADE 123.93%);
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   /* Ombre plus marquée */
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ✅ Style du cœur */
+.card__icon-pink {
+  width: 1.375rem;
+  /* 22px */
+  height: 1.3125rem;
+  /* 21px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  /* ✅ Effet au survol */
+  /* ✅ Cache la checkbox */
+  /* ✅ Cœur vide par défaut */
+  /* ✅ Quand la checkbox est cochée, on change l’icône en cœur plein */
+}
+.card__icon-pink:hover {
+  transform: scale(1.1);
+}
+.card__icon-pink .card__checkbox {
+  display: none;
+}
+.card__icon-pink .card__icon {
+  font-size: 1.375rem;
+  /* 22px */
+  color: #000000;
+  transition: color 0.3s ease-in-out;
+}
+.card__icon-pink .card__checkbox:checked + .card__icon {
+  color: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  /* Rose pour le cœur plein */
+  font-weight: 900;
+  /* Passe en fa-solid */
+  font-family: "Font Awesome 6 Free";
+  /* Assure la compatibilité */
+  content: "\f004";
+  /* Unicode du cœur plein */
 }/*# sourceMappingURL=style.css.map */

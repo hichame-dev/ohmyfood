@@ -50,8 +50,13 @@
         <div class="restaurant-header">
             <h1 class="restaurant-title">La palette du goût</h1>
             <label class="card__icon-pink">
-                <input type="checkbox" class="card__checkbox" aria-label="Ajouter ce restaurant à vos favoris">
-                <i class="fa-regular fa-heart card__icon"></i>
+                <input type="checkbox" class="card__checkbox" title="Ajouter aux favoris">
+            
+                <!-- ✅ Icône du cœur vide (par défaut) -->
+                <i class="fa-regular fa-heart card__icon card__icon--empty"></i>
+            
+                <!-- ✅ Icône du cœur plein avec le dégradé -->
+                <i class="fa-solid fa-heart card__icon card__icon--full"></i>
             </label>
         </div>
 
@@ -69,9 +74,11 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
-                </article>
+                    </article>
 
                 <article class="menu__item">
                     <div class="menu__content">
@@ -83,9 +90,11 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
-                </article>
+                    </article>
 
                 <article class="menu__item">
                     <div class="menu__content">
@@ -97,7 +106,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
             </div><!-- Fin des entrées -->
@@ -116,7 +127,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
 
@@ -130,7 +143,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
 
@@ -144,7 +159,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
             </div><!-- Fin des plats -->
@@ -163,7 +180,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
 
@@ -177,7 +196,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
 
@@ -191,7 +212,9 @@
                     </div>
                     <label class="menu__check" aria-label="Plat sélectionnable">
                         <input type="checkbox" class="menu__check-input">
-                        <i class="fa-solid fa-check menu__check-icon"></i>
+                        <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                            <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                        </div>
                     </label>
                 </article>
             </div><!-- Fin des desserts -->

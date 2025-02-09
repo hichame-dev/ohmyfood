@@ -51,9 +51,15 @@
         <div class="restaurant-header">
             <h1 class="restaurant-title">La note enchantée</h1>
             <label class="card__icon-pink">
-                <input type="checkbox" class="card__checkbox" aria-label="Ajouter ce restaurant à vos favoris">
-                <i class="fa-regular fa-heart card__icon"></i>
+                <input type="checkbox" class="card__checkbox" title="Ajouter aux favoris">
+            
+                <!-- ✅ Icône du cœur vide (par défaut) -->
+                <i class="fa-regular fa-heart card__icon card__icon--empty"></i>
+            
+                <!-- ✅ Icône du cœur plein avec le dégradé -->
+                <i class="fa-solid fa-heart card__icon card__icon--full"></i>
             </label>
+
         </div>
 
                 <!-- ENTRÉES -->

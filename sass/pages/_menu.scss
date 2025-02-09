@@ -125,8 +125,52 @@
     /* Au survol, on utilise un autre gradient + une ombre différente */
     &:hover {
         /* Définis un gradient "un peu plus clair" à la main */
-        background: linear-gradient(193.33deg, #A56CEC -11.44%, #FF9ADE 123.93%);
+        background: $color-gradient;
         /* Ombre plus marquée */
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+    }
+}
+
+/* ✅ Style du cœur */
+.card__icon-pink {
+    width: 1.375rem;
+    /* 22px */
+    height: 1.3125rem;
+    /* 21px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    /* ✅ Effet au survol */
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    /* ✅ Cache la checkbox */
+    .card__checkbox {
+        display: none;
+    }
+
+    /* ✅ Cœur vide par défaut */
+    .card__icon {
+        font-size: 1.375rem;
+        /* 22px */
+        color: $color-primary;
+        transition: color 0.3s ease-in-out;
+    }
+
+    /* ✅ Quand la checkbox est cochée, on change l’icône en cœur plein */
+    .card__checkbox:checked+.card__icon {
+        color:$color-gradient;
+        /* Rose pour le cœur plein */
+        font-weight: 900;
+        /* Passe en fa-solid */
+        font-family: "Font Awesome 6 Free";
+        /* Assure la compatibilité */
+        content: "\f004";
+        /* Unicode du cœur plein */
     }
 }
