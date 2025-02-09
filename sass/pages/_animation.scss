@@ -35,53 +35,67 @@
         /* Pousse le prix de 59px à gauche */
     }
 }
-
 .menu__item {
     position: relative;
     overflow: hidden;
-    /* IMPORTANT: cache le check qui dépasse */
-}
-
-.menu__content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* IMPORTANT: Espace entre texte et prix */
-    align-items: center;
-    width: 100%;
-    /* IMPORTANT: Occupe toute la largeur disponible */
-    padding-right: 15px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-out;
-    /* Ajout de transition pour un effet plus doux */
+    /* Cache les éléments qui dépassent */
 }
 
 .menu__check {
-    /* Dimensions et positionnement */
     width: 0;
-    /* IMPORTANT : Commence caché ! */
+    /* Caché par défaut */
     height: 100%;
-    /* Couvre toute la hauteur */
     position: absolute;
     top: 0;
     right: 0;
-    /* IMPORTANT : Aligné à droite */
-    /* Apparence */
     background-color: #99E2D0;
     border-top-right-radius: 15px;
-    /* Arrondi SEULEMENT en haut à droite */
     border-bottom-right-radius: 15px;
-    /* Arrondi SEULEMENT en bas à droite */
-    /* Disposition interne (centrer) */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Comportement */
     cursor: pointer;
     z-index: 1;
-    /* Transition */
     transition: width 0.3s ease-out;
 }
+
+/* ANIMATION DU CHECK */
+.menu__check-input:checked+.menu__check {
+    animation: slideIn 0.3s ease-out forwards;
+    /* Garde la largeur après animation */
+}
+
+/* ANIMATION DU PRIX */
+/* ✅ Déplace le prix et le garde à gauche */
+.menu__check-input:checked+.menu__check+.menu__content .menu__price {
+    animation: slidePriceLeft 0.3s ease-out forwards;
+    transform: translateX(-59px);
+    /* Reste fixe */
+}
+
+/* ANIMATION DU CHECKMARK */
+/* ✅ Fixe l’animation du check après activation */
+.menu__check-input:checked+.menu__check {
+    animation: slideIn 0.3s ease-out forwards;
+    width: 59px;
+    /* Reste ouvert après animation */
+}
+
+/* ✅ Fixe l’opacité du checkmark après animation */
+.menu__check-input:checked+.menu__check .fa-check {
+    opacity: 1;
+    transition: opacity 0.3s ease-out 0.3s;
+}
+
+/* 🔴 SUPPRESSION DU :hover SUR CES ÉLÉMENTS 🔴 */
+.menu__item:hover .menu__check,
+.menu__item:hover .menu__price,
+.menu__item:hover .menu__check .fa-check,
+.menu__item:hover .menu__check-circle {
+    animation: none;
+    /* Désactive l'effet de réinitialisation au hover */
+}
+
 
 .menu__check-circle {
     width: 20px;
@@ -155,4 +169,17 @@
     /* Animation du cercle (inchangé) */
     opacity: 1;
     /* S'assurer que le cercle est bien visible aussi */
+}
+
+
+// coeur
+
+/* Animation du cœur au clic */
+.card__checkbox:checked+.card__icon {
+    transform: scale(1.2); // Effet zoom
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.card__checkbox:not(:checked)+.card__icon {
+    transform: scale(1);
 }
