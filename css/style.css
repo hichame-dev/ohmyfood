@@ -347,6 +347,7 @@ main {
   /* 22px */
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   /* ✅ Permet d'afficher le dégradé */
   position: absolute;
@@ -760,7 +761,6 @@ main {
 /* ✅ Déplace le prix et le garde à gauche */
 .menu__check-input:checked + .menu__check + .menu__content .menu__price {
   animation: slidePriceLeft 0.3s ease-out forwards;
-  transform: translateX(-59px);
   /* Reste fixe */
 }
 
@@ -768,13 +768,11 @@ main {
 /* ✅ Fixe l’animation du check après activation */
 .menu__check-input:checked + .menu__check {
   animation: slideIn 0.3s ease-out forwards;
-  width: 59px;
   /* Reste ouvert après animation */
 }
 
 /* ✅ Fixe l’opacité du checkmark après animation */
 .menu__check-input:checked + .menu__check .fa-check {
-  opacity: 1;
   transition: opacity 0.3s ease-out 0.3s;
 }
 
@@ -854,6 +852,19 @@ main {
   /* Animation du cercle (inchangé) */
   opacity: 1;
   /* S'assurer que le cercle est bien visible aussi */
+}
+
+/* Force les styles finaux avec !important et une spécificité maximale */
+.menu__item .menu__check-input:checked + .menu__check {
+  width: 59px !important;
+}
+
+.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__price {
+  transform: translateX(-59px) !important;
+}
+
+.menu__item .menu__check-input:checked + .menu__check .fa-check {
+  opacity: 1 !important;
 }
 
 /* Animation du cœur au clic */
