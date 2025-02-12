@@ -1,38 +1,15 @@
-/* Keyframes pour le volet (inchangé) */
-@keyframes slideIn {
+/* Keyframes pour l'animation simple de fondu */
+@keyframes simpleFade {
     0% {
-        width: 0;
-        /* IMPORTANT : Commence caché ! */
+        opacity: 0.5;
     }
 
+    /* Début légèrement transparent */
     100% {
-        width: 59px;
-        /* Termine visible */
-    }
-}
-
-/* Keyframes pour la rotation du cercle (inchangé) */
-@keyframes rotateCheck {
-    0% {
-        transform: rotate(0deg);
+        opacity: 1;
     }
 
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-/* Nouvelle Keyframes pour déplacer le PRIX à gauche (inchangé) */
-@keyframes slidePriceLeft {
-    0% {
-        transform: translateX(0);
-        /* Le prix ne bouge pas au début */
-    }
-
-    100% {
-        transform: translateX(-59px);
-        /* Pousse le prix de 59px à gauche */
-    }
+    /* Fondu vers complètement opaque */
 }
 
 .menu__item {
@@ -59,41 +36,6 @@
     transition: width 0.3s ease-out;
 }
 
-/* ANIMATION DU CHECK */
-.menu__check-input:checked+.menu__check {
-    animation: slideIn 0.3s ease-out forwards;
-    /* Garde la largeur après animation */
-}
-
-/* ANIMATION DU PRIX */
-/* ✅ Déplace le prix et le garde à gauche */
-.menu__check-input:checked+.menu__check+.menu__content .menu__price {
-    animation: slidePriceLeft 0.3s ease-out forwards;
-    /* Reste fixe */
-}
-
-/* ANIMATION DU CHECKMARK */
-/* ✅ Fixe l’animation du check après activation */
-.menu__check-input:checked+.menu__check {
-    animation: slideIn 0.3s ease-out forwards;
-    /* Reste ouvert après animation */
-}
-
-/* ✅ Fixe l’opacité du checkmark après animation */
-.menu__check-input:checked+.menu__check .fa-check {
-    transition: opacity 0.3s ease-out 0.3s;
-}
-
-/* 🔴 SUPPRESSION DU :hover SUR CES ÉLÉMENTS 🔴 */
-.menu__item:hover .menu__check,
-.menu__item:hover .menu__price,
-.menu__item:hover .menu__check .fa-check,
-.menu__item:hover .menu__check-circle {
-    animation: none;
-    /* Désactive l'effet de réinitialisation au hover */
-}
-
-
 .menu__check-circle {
     width: 20px;
     height: 20px;
@@ -103,82 +45,82 @@
     justify-content: center;
     align-items: center;
     color: #99E2D0;
-    /* Couleur du cercle (peut-être pas utilisée directement pour le check) */
-    transition: transform 0.5s ease;
     opacity: 0;
-    /* Commence caché (c'est correct) */
+    /* Commence caché */
 }
 
 .menu__check .fa-check {
     font-size: 12px;
     opacity: 0;
-    /* Commence caché (c'est correct) */
+    /* Commence caché */
     color: #99E2D0;
-    /* **CORRECTION IMPORTANTE : Couleur du checkmark : VERT (#99E2D0)** */
-}
-
-.menu__item:hover .menu__content {
-    border-right: 5px solid #99E2D0;
-    /* Bordure verte au survol (inchangé) */
-    z-index: 2;
-    /* Assure que la bordure est au-dessus du check (inchangé) */
-    /* Pas de translation ici pour .menu__content global */
-}
-
-.menu__item:hover {
-    transform: translateX(-5px);
-    /* Léger décalage de l'item entier au survol (inchangé) */
 }
 
 .menu__check-input {
     display: none;
+    /* Cache l'input checkbox */
 }
 
-.menu__item:hover .menu__check,
-.menu__check-input:checked+.menu__check {
-    animation: slideIn 0.3s ease-out forwards;
-    /* Animation du volet (inchangé) */
+/* EFFETS AU HOVER (menu__item:hover) - **PLACÉ AVANT LES STYLES :checked** */
+.menu__item:hover .menu__content {
+    border-right: 5px solid #99E2D0;
+    /* Bordure verte à droite */
+    z-index: 2;
+    /* Assure que la bordure est au-dessus du check */
 }
 
-.menu__item:hover .menu__price,
-/* Applique slidePriceLeft au PRIX au survol */
-.menu__check-input:checked+.menu__check+.menu__content .menu__price
-
-/* Applique slidePriceLeft au PRIX quand coché */
-    {
-    animation: slidePriceLeft 0.3s ease-out forwards;
-    /* Animation du PRIX */
+.menu__item:hover {
+    transform: translateX(-5px);
+    /* Léger décalage vers la gauche de l'item */
 }
 
-/* **AJOUT IMPORTANT : Animation pour l'opacité du checkmark** */
+.menu__item:hover .menu__check {
+    animation: simpleFade 0.3s ease-out forwards;
+    /* Animation simple au hover */
+    width: 59px;
+    /* Assurer que width est bien à 59px au hover */
+}
+
+.menu__item:hover .menu__content .menu__price {
+    /* Cible spécifiquement le prix dans menu__content */
+    animation: simpleFade 0.3s ease-out forwards;
+    /* Animation simple au hover */
+    transform: translateX(-59px);
+    /* Assurer que translateX est bien à -59px au hover */
+}
+
 .menu__item:hover .menu__check .fa-check,
-.menu__check-input:checked+.menu__check .fa-check {
+.menu__item:hover .menu__check .menu__check-circle {
     opacity: 1;
-    /* **FAIT APPARAÎTRE le checkmark en changeant son opacité à 1** */
-    transition: opacity 0.3s ease-out 0.3s;
-    /* Animation d'opacité (décalée pour synchro) */
+    /* Affiche checkmark et cercle au hover */
 }
 
-
-.menu__item:hover .menu__check-circle,
-.menu__check-input:checked+.menu__check .menu__check-circle {
-    animation: rotateCheck 0.5s ease forwards;
-    /* Animation du cercle (inchangé) */
-    opacity: 1;
-    /* S'assurer que le cercle est bien visible aussi */
-}
-
-/* Force les styles finaux avec !important et une spécificité maximale */
+/* ANIMATIONS AU CHECK (input:checked) - **PLACÉ APRÈS LES STYLES :hover POUR PRIORITÉ** */
 .menu__item .menu__check-input:checked+.menu__check {
+    animation: simpleFade 0.3s ease-out forwards;
+    /* Animation simple au CHECK */
     width: 59px !important;
+    /* Force la largeur à 59px après l'animation */
 }
 
 .menu__item .menu__check-input:checked+.menu__check+.menu__content .menu__price {
+    animation: simpleFade 0.3s ease-out forwards;
+    /* Animation simple au CHECK */
     transform: translateX(-59px) !important;
+    /* Force la position du prix */
 }
 
 .menu__item .menu__check-input:checked+.menu__check .fa-check {
     opacity: 1 !important;
+    /* Affiche le checkmark */
+    transition: opacity 0.3s ease-out 0.3s;
+}
+
+.menu__item .menu__check-input:checked+.menu__check .menu__check-circle {
+    animation: simpleFade 0.5s ease forwards;
+    /* Animation simple au CHECK */
+    opacity: 1 !important;
+    /* Affiche le cercle */
 }
 
 
@@ -192,5 +134,83 @@
 
 .card__checkbox:not(:checked)+.card__icon {
     transform: scale(1);
+}
+
+/* ✅ Conteneur du loader (plein écran au chargement) */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    animation: fadeOut 1s ease-out 3s forwards;
+    /* Disparaît après 3s */
+}
+
+/* ✅ Loader animé (cercle tournant) */
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid transparent;
+    border-top: 6px solid #9356DC;
+    /* Violet */
+    border-right: 6px solid #FF79DA;
+    /* Rose */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* ✅ Texte animé sous le loader */
+.loader-text {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    font-family: "Shrikhand", sans-serif;
+    color: black;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ✅ Animation de rotation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ✅ Animation du texte (effet battement) */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* ✅ Animation pour faire disparaître le loader après 3s */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
