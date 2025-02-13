@@ -1,41 +1,34 @@
-/* Keyframes pour l'animation simple de fondu */
-@keyframes simpleFade {
-    0% {
-        opacity: 0.5;
-    }
-
-    /* Début légèrement transparent */
-    100% {
-        opacity: 1;
-    }
-
-    /* Fondu vers complètement opaque */
-}
+// menu-animation.scss (ou menu-animation.css)
 
 .menu__item {
     position: relative;
+    /*  AJOUTÉ : Pour le positionnement absolu de .menu__check */
     overflow: hidden;
-    /* Cache les éléments qui dépassent */
+    /*  AJOUTÉ : Pour masquer le .menu__check au début */
 }
 
+/* Styles pour le .menu__check (volet vert) */
 .menu__check {
-    width: 0;
-    /* Caché par défaut */
-    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
+    width: 59px;
+    height: 100%;
     background-color: #99E2D0;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    z-index: 1;
-    transition: width 0.3s ease-out;
+    transform: translateX(100%);
+    /* Initialement caché à droite */
+    transition: transform 0.5s ease-out;
+    /* Transition pour l'apparition */
+    z-index: 3;
+    /*Pour qu'il reste visible*/
 }
 
+/* Styles pour le cercle et la coche (à l'intérieur de .menu__check) */
 .menu__check-circle {
     width: 20px;
     height: 20px;
@@ -44,85 +37,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #99E2D0;
-    opacity: 0;
-    /* Commence caché */
 }
 
-.menu__check .fa-check {
+.menu__check-icon {
+    color: #99E2D0;
     font-size: 12px;
-    opacity: 0;
-    /* Commence caché */
-    color: #99E2D0;
 }
 
+/* Cache la checkbox par défaut */
 .menu__check-input {
     display: none;
-    /* Cache l'input checkbox */
 }
 
-/* EFFETS AU HOVER (menu__item:hover) - **PLACÉ AVANT LES STYLES :checked** */
-.menu__item:hover .menu__content {
-    border-right: 5px solid #99E2D0;
-    /* Bordure verte à droite */
-    z-index: 2;
-    /* Assure que la bordure est au-dessus du check */
-}
-
-.menu__item:hover {
-    transform: translateX(-5px);
-    /* Léger décalage vers la gauche de l'item */
-}
-
-.menu__item:hover .menu__check {
-    animation: simpleFade 0.3s ease-out forwards;
-    /* Animation simple au hover */
-    width: 59px;
-    /* Assurer que width est bien à 59px au hover */
-}
-
-.menu__item:hover .menu__content .menu__price {
-    /* Cible spécifiquement le prix dans menu__content */
-    animation: simpleFade 0.3s ease-out forwards;
-    /* Animation simple au hover */
+/* Styles quand la checkbox est cochée */
+.menu__check-input:checked~.menu__content .menu__price {
     transform: translateX(-59px);
-    /* Assurer que translateX est bien à -59px au hover */
+    /* Décale le prix vers la gauche */
+    transition: transform 0.5s ease-out;
+    /* Ajoute la transition pour le prix */
 }
 
-.menu__item:hover .menu__check .fa-check,
-.menu__item:hover .menu__check .menu__check-circle {
-    opacity: 1;
-    /* Affiche checkmark et cercle au hover */
+.menu__check-input:checked+.menu__check {
+    transform: translateX(0);
+    /* Fait apparaître le volet vert */
 }
 
-/* ANIMATIONS AU CHECK (input:checked) - **PLACÉ APRÈS LES STYLES :hover POUR PRIORITÉ** */
-.menu__item .menu__check-input:checked+.menu__check {
-    animation: simpleFade 0.3s ease-out forwards;
-    /* Animation simple au CHECK */
-    width: 59px !important;
-    /* Force la largeur à 59px après l'animation */
+/*Ajout de la rotation de l'icone*/
+.menu__check-input:checked+.menu__check .menu__check-circle .menu__check-icon {
+    transition: transform 0.5s ease-out;
+    /* Ajoute la transition pour l'icone */
+    transform: rotate(360deg);
 }
-
-.menu__item .menu__check-input:checked+.menu__check+.menu__content .menu__price {
-    animation: simpleFade 0.3s ease-out forwards;
-    /* Animation simple au CHECK */
-    transform: translateX(-59px) !important;
-    /* Force la position du prix */
-}
-
-.menu__item .menu__check-input:checked+.menu__check .fa-check {
-    opacity: 1 !important;
-    /* Affiche le checkmark */
-    transition: opacity 0.3s ease-out 0.3s;
-}
-
-.menu__item .menu__check-input:checked+.menu__check .menu__check-circle {
-    animation: simpleFade 0.5s ease forwards;
-    /* Animation simple au CHECK */
-    opacity: 1 !important;
-    /* Affiche le cercle */
-}
-
 
 // coeur
 

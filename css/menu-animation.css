@@ -1,0 +1,69 @@
+@charset "UTF-8";
+.menu__item {
+  position: relative;
+  /*  AJOUTÉ : Pour le positionnement absolu de .menu__check */
+  overflow: hidden;
+  /*  AJOUTÉ : Pour masquer le .menu__check au début */
+}
+
+/* Styles pour le .menu__check (volet vert) */
+.menu__check {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 59px;
+  height: 100%;
+  background-color: #99E2D0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  /* Initialement caché à droite */
+  transition: transform 0.5s ease-out;
+  /* Transition pour l'apparition */
+  z-index: 3;
+  /*Pour qu'il reste visible*/
+}
+
+/* Styles pour le cercle et la coche (à l'intérieur de .menu__check) */
+.menu__check-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__check-icon {
+  color: #99E2D0;
+  font-size: 12px;
+}
+
+/* Cache la checkbox par défaut */
+.menu__check-input {
+  display: none;
+}
+
+/* Styles quand la checkbox est cochée */
+.menu__check-input:checked ~ .menu__content .menu__price {
+  transform: translateX(-59px);
+  /* Décale le prix vers la gauche */
+  transition: transform 0.5s ease-out;
+  /* Ajoute la transition pour le prix */
+}
+
+.menu__check-input:checked + .menu__check {
+  transform: translateX(0);
+  /* Fait apparaître le volet vert */
+}
+
+/*Ajout de la rotation de l'icone*/
+.menu__check-input:checked + .menu__check .menu__check-circle .menu__check-icon {
+  transition: transform 0.5s ease-out;
+  /* Ajoute la transition pour l'icone */
+  transform: rotate(360deg);
+}/*# sourceMappingURL=menu-animation.css.map */
