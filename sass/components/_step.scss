@@ -1,65 +1,80 @@
-
+@import "../base/variables";
 .steps {
+    // Configuration globale
     width: 100%;
     margin-top: 3rem;
-    padding: 0 1.25rem;
-    background-color: $color-background;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px;
+    padding: 0 1.25rem;
+    background-color:$color-background ;
 
     &__title {
         margin-bottom: 1.625rem;
+        font-family: "Arial", sans-serif;
+        color:black;
     }
 
     &__list {
         display: grid;
-        width: 100%;
         gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(323px, 330px));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
     .step {
-        width: 100%;
-        min-height: 72px; // Taille adaptée (remplace la mixin step-style)
-        background-color: $color-card-background;
+        position: relative;
+        background-color: #ffffff;
         border-radius: 1.25rem;
-        box-shadow: $box-shadow-light;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         padding: 20px;
-        @include flex-center(row, 0px); // ✅ Utilisation de la mixin flex-center
-        flex-wrap: nowrap;
-        /* Empêche le passage à la ligne */
+        min-height: 72px;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
 
         .step__number {
             position: absolute;
-            left: 10px;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background-color: $color-step;
+            background-color: #9c27b0;
             color: #fff;
-            @include flex-center; // ✅ Utilisation de flex-center pour centrer l'élément
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1rem;
             font-weight: bold;
-            margin-right: 24px;
         }
 
         .step__icon {
-            width: 0.81375rem; // 13px
-            height: 1.24375rem; // 19px
-            color: $color-icon;
+            margin-left: 60px; // Espace commun à tous les icônes pour le cercle du numéro
+            margin-right: 20px; // Espace avant le texte
+            color: #333;
+
+            i {
+                font-size: 1.25rem;
+            }
         }
 
-        .step__text {
-            font-family: $font-primary; // ✅ Roboto
-            font-size:$font-size-small; // ✅ 16px
-            font-weight: $font-weight-medium; // ✅ 500
-            margin-left: 1.25rem;
-            justify-self: center;
+        // On cible l'icône de la première étape uniquement
+        .step__icon--first {
+            margin-left: 65px; // Par exemple, 5px de plus pour décaler la première icône
         }
+
+                .step__text {
+                    font-family: 'Roboto', sans-serif;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 18.75px;
+                        
+                }
     }
 }
 
+// Couleur pour l'icône "store" (3e étape)
 .step__icon__store {
-    color: $color-step;
+    color: #9c27b0;
 }
