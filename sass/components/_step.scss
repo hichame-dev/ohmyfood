@@ -1,80 +1,98 @@
 @import "../base/variables";
+
 .steps {
-    // Configuration globale
+    // Configuration globale (inchangé)
     width: 100%;
+    max-width: 375px;
     margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.25rem;
-    background-color:$color-background ;
+    background-color: $color-background;
 
     &__title {
         margin-bottom: 1.625rem;
         font-family: "Arial", sans-serif;
-        color:black;
+        color: $color-primary;
     }
 
     &__list {
         display: grid;
         gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
     }
 
     .step {
+        width: 322px;
         position: relative;
-        background-color: #ffffff;
+        background-color: $color-background;
         border-radius: 1.25rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: $box-shadow-light;
         padding: 20px;
         min-height: 72px;
 
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
-
-        .step__number {
-            position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #9c27b0;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            font-weight: bold;
-        }
-
-        .step__icon {
-            margin-left: 60px; // Espace commun à tous les icônes pour le cercle du numéro
-            margin-right: 20px; // Espace avant le texte
-            color: #333;
-
-            i {
-                font-size: 1.25rem;
-            }
-        }
-
-        // On cible l'icône de la première étape uniquement
-        .step__icon--first {
-            margin-left: 65px; // Par exemple, 5px de plus pour décaler la première icône
-        }
-
-                .step__text {
-                    font-family: 'Roboto', sans-serif;
-                        font-weight: 500;
-                        font-size: 16px;
-                        line-height: 18.75px;
-                        
-                }
+        /* Rétablir justify-content: flex-start pour l'alignement à gauche */
     }
+
+    .step__number {
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: $color-step;
+        color: $color-background;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $font-size-xxs;
+        font-weight: bold;
+    }
+
+    .step__icon {
+        margin-left: 20px;
+        /* Garder margin-left: 20px pour l'espacement initial */
+        margin-right: 20px;
+        color: $color-secondary;
+        margin-top: 0;
+        display: flex;
+        align-items: flex-start;
+
+        i {
+            font-size: 1.25rem;
+            margin-top: 2px;
+        }
+    }
+
+    /* ✨ Modification importante : Simplification de .step__icon--first ✨ */
+    .step__icon--first {
+        margin-left: 20px;
+        /* ✨ Réduire margin-left à 20px, comme les autres icônes ✨ */
+        /* ✨ Suppression de margin-left: 65px; qui causait probablement le décalage ✨ */
+    }
+
+    .step__text {
+        font-family: $font-primary;
+        font-weight: $font-weight-medium;
+        font-size: 16px;
+        line-height: 18.75px;
+        margin-top: 0;
+        padding-top: 3px;
+    }
+
 }
 
-// Couleur pour l'icône "store" (3e étape)
 .step__icon__store {
-    color: #9c27b0;
+    color: $color-step;
+}
+
+
+.steps__list .step:nth-child(1) .step__icon {
+font-size: 2.5rem;
+margin-left: 25px;
 }

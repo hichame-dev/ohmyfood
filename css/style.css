@@ -17,23 +17,43 @@ input {
   font-family: inherit;
 }
 
-.restaurant-title {
-  font-family: "Shrikhand", sans-serif;
-  font-size: 1.75rem;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 2.55rem;
-  text-align: left;
-  text-underline-position: from-font;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
+ul,
+ol {
+  list-style: none;
 }
 
-.menu__section h2 {
-  position: relative;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
+  color: #000000;
+  background-color: #FFFFFF;
+  font-size: 1.125rem;
+  line-height: 1.32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 h2 {
@@ -55,25 +75,20 @@ h3 {
           text-decoration-skip-ink: none;
 }
 
-.card__title {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 300;
-  color: #000000;
-}
-
 p {
   font-family: "Roboto", sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul,
-ol {
-  list-style: none;
+.restaurant-title {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 1.75rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 2.55rem;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 .step__text {
@@ -88,11 +103,49 @@ ol {
           text-decoration-skip-ink: none;
 }
 
+.intro {
+  margin: 0;
+  padding: 0;
+}
+
+.intro__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.55rem;
+  color: #000000;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.intro__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.32rem;
+  color: #353535;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.menu__section h2 {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 .card__title {
   width: 267px;
   height: 20px;
   font-size: 0.9375rem;
   font-weight: bold;
+  color: #000000;
 }
 
 .menu__description {
@@ -121,30 +174,6 @@ ol {
   line-height: 1.1rem;
   text-align: center;
   color: #FFFFFF;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  color: #000000;
-  background-color: #FFFFFF;
-  font-size: 1.125rem;
-  line-height: 1.32rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-main {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.intro {
-  margin: 0;
-  padding: 0;
 }
 
 @media (min-width: 1024px) {
@@ -204,7 +233,7 @@ main {
   align-items: center;
   gap: 0;
   width: 100%;
-  height: 63px;
+  height: 3.9375rem;
   background-color: #F6F6F6;
   position: relative;
 }
@@ -229,7 +258,7 @@ main {
   gap: 0;
 }
 .header .direction__icon a i {
-  font-size: 16px;
+  font-size: 1.125rem;
   color: #353535;
 }
 .header .logo__container {
@@ -301,8 +330,8 @@ main {
 .menu-container {
   position: relative;
   background-color: #F6F6F6;
-  border-radius: 2.5rem 2.5rem 0 0;
-  gap: 2.5rem;
+  border-radius: 25px 25px 0 0;
+  gap: 1.5rem;
   margin-top: -2.3125rem;
   z-index: 2;
 }
@@ -441,17 +470,18 @@ main {
   justify-content: center;
   gap: 1.0625rem;
   text-align: center;
-  padding-bottom: 20px;
-  min-height: 179px;
+  min-height: 287px;
 }
 
 .intro__content {
+  height: 287px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.0625rem;
   word-wrap: break-word;
+  overflow: hidden;
 }
 
 .intro__title {
@@ -460,9 +490,9 @@ main {
   font-weight: 700;
   line-height: 2.55rem;
   color: #000000;
-  padding-left: 40px;
-  padding-right: 58px;
-  margin-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 39.5px;
   text-align: center;
   width: 100%;
   word-wrap: break-word;
@@ -476,6 +506,7 @@ main {
   color: #353535;
   max-width: 100%;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .btn {
@@ -497,7 +528,6 @@ main {
   width: 13.625rem;
   height: 3.125rem;
   margin-bottom: 57px;
-  margin-top: 27px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -514,13 +544,13 @@ main {
 
 .restaurants {
   width: 100%;
-  padding: 0 1.125rem;
+  padding: 0 1.0625rem;
   padding-left: 1.0625rem;
   margin-top: 3rem;
   background-color: #F6F6F6;
   display: flex;
   flex-direction: column;
-  gap: 1.125rem;
+  gap: 1.0625rem;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4.125rem;
@@ -540,7 +570,7 @@ main {
   width: 100%;
   height: auto;
   position: relative;
-  margin-bottom: 1.125rem;
+  margin-bottom: 1.0625rem;
   display: flex;
   flex-direction: column;
 }
@@ -632,34 +662,38 @@ main {
 
 .steps {
   width: 100%;
+  max-width: 375px;
   margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1.25rem;
   background-color: #FFFFFF;
+  /* ✨ Modification importante : Simplification de .step__icon--first ✨ */
 }
 .steps__title {
   margin-bottom: 1.625rem;
   font-family: "Arial", sans-serif;
-  color: black;
+  color: #000000;
 }
 .steps__list {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
 }
 .steps .step {
+  width: 322px;
   position: relative;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 1.25rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
   padding: 20px;
   min-height: 72px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
+  /* Rétablir justify-content: flex-start pour l'alignement à gauche */
 }
-.steps .step .step__number {
+.steps .step__number {
   position: absolute;
   left: -10px;
   top: 50%;
@@ -667,58 +701,69 @@ main {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #9c27b0;
-  color: #fff;
+  background-color: #9356DC;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   font-weight: bold;
 }
-.steps .step .step__icon {
-  margin-left: 60px;
+.steps .step__icon {
+  margin-left: 20px;
+  /* Garder margin-left: 20px pour l'espacement initial */
   margin-right: 20px;
-  color: #333;
+  color: #353535;
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
 }
-.steps .step .step__icon i {
+.steps .step__icon i {
   font-size: 1.25rem;
+  margin-top: 2px;
 }
-.steps .step .step__icon--first {
-  margin-left: 65px;
+.steps .step__icon--first {
+  margin-left: 20px;
+  /* ✨ Réduire margin-left à 20px, comme les autres icônes ✨ */
+  /* ✨ Suppression de margin-left: 65px; qui causait probablement le décalage ✨ */
 }
-.steps .step .step__text {
+.steps .step__text {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 18.75px;
+  margin-top: 0;
+  padding-top: 3px;
 }
 
 .step__icon__store {
-  color: #9c27b0;
+  color: #9356DC;
+}
+
+.steps__list .step:nth-child(1) .step__icon {
+  font-size: 2.5rem;
+  margin-left: 25px;
 }
 
 /* SECTION MENU */
 .menu__section {
   margin-top: 2.625rem;
-  /* 42px sous le titre */
   padding: 13px;
 }
 
 .menu__section h2 {
   position: relative;
-  margin: 0 0 1.5625rem 1.0625rem;
-  /* 25px d'espace avec la première carte */
+  margin-bottom: 1.5625rem;
+  margin-left: 1.0625rem;
 }
 
 .menu__section h2::after {
   content: "";
-  width: 2.5rem;
-  /* 40px */
+  width: 1.5rem;
   border-top: 3px solid #99E2D0;
   position: relative;
   left: 0;
   top: 5px;
-  /* 27px sous le h2 */
   display: block;
 }
 
@@ -727,7 +772,7 @@ main {
   width: 100%;
   padding: 12px 0;
   border-radius: 15px;
-  box-shadow: 0px 4.01px 15.04px 0px rgba(0, 0, 0, 0.1019607843);
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -735,7 +780,7 @@ main {
   margin-bottom: 12px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease-out;
+  transition: 0.3s ease;
 }
 
 .menu__item:last-child {
@@ -754,7 +799,7 @@ main {
 
 .menu__text {
   width: 287px;
-  gap: 5px;
+  gap: 0.3125rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -764,8 +809,8 @@ main {
 }
 
 .menu__price {
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-right: 15px;
   box-sizing: border-box;
@@ -786,27 +831,27 @@ main {
   align-items: center;
   cursor: pointer;
   z-index: 1;
-  transition: width 0.3s ease-out;
+  transition: width 0.3s ease;
 }
 
 .menu__check-circle {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: white;
+  background-color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #99E2D0;
   opacity: 0;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease;
 }
 
 .menu__check .fa-check {
   font-size: 12px;
   opacity: 0;
   color: #99E2D0;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease;
 }
 
 .menu__check-input {
@@ -855,7 +900,7 @@ main {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: white;
+  background: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -878,7 +923,7 @@ main {
   margin-top: 15px;
   font-size: 1.5rem;
   font-family: "Shrikhand", sans-serif;
-  color: black;
+  color: #000000;
   animation: pulse 1.5s ease-in-out infinite;
 }
 
@@ -910,15 +955,21 @@ main {
     visibility: hidden;
   }
 }
+/* SECTION MENU */
+.menu__section {
+  margin-top: 2.625rem;
+  padding: 13px;
+}
+
 .menu__section h2 {
   margin: 0;
   position: relative;
-  margin-bottom: 2.625rem;
+  margin-bottom: 1.5625rem;
 }
 .menu__section h2::after {
   content: "";
   width: 50%;
-  width: 2.5rem;
+  width: 1.5rem;
   border-top: 3px solid #99E2D0;
   position: relative;
   left: 0;
@@ -940,7 +991,7 @@ main {
   width: 100%;
   padding: 12px 0;
   border-radius: 15px;
-  box-shadow: 0px 4.01px 15.04px 0px rgba(0, 0, 0, 0.1019607843);
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -966,7 +1017,7 @@ main {
 
 .menu__text {
   width: 287px;
-  gap: 5px;
+  gap: 0.3125rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -976,8 +1027,8 @@ main {
 }
 
 .menu__title {
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 21.09px;
   text-align: left;
@@ -988,10 +1039,10 @@ main {
 }
 
 .menu__description {
-  font-family: Roboto, sans-serif;
-  font-size: 15.04px;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.94rem;
   font-weight: 300;
-  line-height: 17.63px;
+  line-height: 1.1rem;
   text-align: left;
   text-underline-position: from-font;
   -webkit-text-decoration-skip-ink: none;
@@ -1001,8 +1052,8 @@ main {
 }
 
 .menu__price {
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-right: 15px;
   box-sizing: border-box;
@@ -1035,13 +1086,13 @@ main {
   padding: 13px 1rem;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   /* Taille du bouton */
-  width: 186px;
-  height: 50px;
+  width: 13.625rem;
+  height: 3.125rem;
   /* Au survol, on utilise un autre gradient + une ombre différente */
 }
 .btn--order:hover {
   /* Définis un gradient "un peu plus clair" à la main */
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   /* Ombre plus marquée */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
 }/*# sourceMappingURL=style.css.map */

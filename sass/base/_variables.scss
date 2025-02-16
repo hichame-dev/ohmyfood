@@ -62,9 +62,24 @@ $gap-small: 0.3125rem;
 $gap-medium: 1.0625rem;
 $gap-large: 1.5rem;
 
+$spacing-medium-horizontal: 1rem;
+$card-horizontal-spacing: 1.5rem;
+
+$spacing-small: 0.25rem;
+$spacing-medium: 0.5rem;
+
 // Marges et paddings
 $padding-section: 2rem;
 $margin-title: 1.5rem;
+// ===============================
+// 📝 Typographies - Variables ajoutées
+// ===============================
+$margin-section-menu: 2.625rem; // 
+$margin-bottom-menu-h2: 1.5625rem; // 
+// ===============================
+// 📝 Typographies - Variables ajoutées
+// ===============================
+
 
 // ===============================
 // 📐 Dimensions globales
@@ -114,3 +129,7 @@ $color-footer-links: $color-background; // Liens en blanc
 
 $footer-padding: 2rem; // Padding du footer
 $footer-gap: 1rem; // Espace entre les éléments
+
+$mobile-width: 780px;
+$tablet-width: 1024px;
+$desktop-width: 1440px;
