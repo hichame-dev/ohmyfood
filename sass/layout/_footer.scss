@@ -1,7 +1,10 @@
+@import "../base/variables";
+@import "../base/mixins";
+
 .footer {
     width: 100%;
     min-height: 186px;
-    @include flex(flex-start, center, row, 1rem);
+    @include flex(row, flex-start, center, 1rem); // Remplacement de display:flex
     position: relative;
     background-color: #353535;
     color: white; // Couleur de texte par défaut pour le footer
