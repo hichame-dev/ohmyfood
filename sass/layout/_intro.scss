@@ -4,13 +4,14 @@
     background-size: cover;
     @include flex-column-center($gap-medium); // Utilisation de la mixin
     text-align: center;
-    padding-bottom: 20px;
-    min-height: 179px;
+    min-height: 287px; // Ajustement de la hauteur
 }
 
 .intro__content {
+    height: 287px; // Fixer la hauteur
     @include flex-column-center($gap-medium); // Réutilisation de la mixin
     word-wrap: break-word;
+    overflow: hidden; // Empêcher le débordement du contenu
 }
 
 .intro__title {
@@ -19,9 +20,9 @@
     font-weight: $font-weight-bold;
     line-height: $line-height-xl;
     color: $color-primary;
-    padding-left: 40px;
-    padding-right: 58px;
-    margin-top: 30px;
+    padding-left: 20px; // Réduction du padding
+    padding-right: 20px;
+    margin-top: 39.5px; // Réduction de l'espace au-dessus
     text-align: center;
     width: 100%;
     word-wrap: break-word;
@@ -35,4 +36,5 @@
     color: $color-secondary;
     max-width: 100%;
     text-align: center;
+    margin-bottom: 10px; // Réduction de l'espace en bas si nécessaire
 }

@@ -1,65 +1,98 @@
+@import "../base/variables";
 
 .steps {
+    // Configuration globale (inchangé)
     width: 100%;
+    max-width: 375px;
     margin-top: 3rem;
-    padding: 0 1.25rem;
-    background-color: $color-background;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px;
+    padding: 0 1.25rem;
+    background-color: $color-background;
 
     &__title {
         margin-bottom: 1.625rem;
+        font-family: "Arial", sans-serif;
+        color: $color-primary;
     }
 
     &__list {
         display: grid;
-        width: 100%;
         gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(323px, 330px));
+        grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
     }
 
     .step {
-        width: 100%;
-        min-height: 72px; // Taille adaptée (remplace la mixin step-style)
-        background-color: $color-card-background;
+        width: 322px;
+        position: relative;
+        background-color: $color-background;
         border-radius: 1.25rem;
         box-shadow: $box-shadow-light;
         padding: 20px;
-        @include flex-center(row, 0px); // ✅ Utilisation de la mixin flex-center
-        flex-wrap: nowrap;
-        /* Empêche le passage à la ligne */
+        min-height: 72px;
 
-        .step__number {
-            position: absolute;
-            left: 10px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: $color-step;
-            color: #fff;
-            @include flex-center; // ✅ Utilisation de flex-center pour centrer l'élément
-            font-size: 1rem;
-            font-weight: bold;
-            margin-right: 24px;
-        }
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        /* Rétablir justify-content: flex-start pour l'alignement à gauche */
+    }
 
-        .step__icon {
-            width: 0.81375rem; // 13px
-            height: 1.24375rem; // 19px
-            color: $color-icon;
-        }
+    .step__number {
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: $color-step;
+        color: $color-background;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $font-size-xxs;
+        font-weight: bold;
+    }
 
-        .step__text {
-            font-family: $font-primary; // ✅ Roboto
-            font-size:$font-size-small; // ✅ 16px
-            font-weight: $font-weight-medium; // ✅ 500
-            margin-left: 1.25rem;
-            justify-self: center;
+    .step__icon {
+        margin-left: 20px;
+        /* Garder margin-left: 20px pour l'espacement initial */
+        margin-right: 20px;
+        color: $color-secondary;
+        margin-top: 0;
+        display: flex;
+        align-items: flex-start;
+
+        i {
+            font-size: 1.25rem;
+            margin-top: 2px;
         }
     }
+
+    /* ✨ Modification importante : Simplification de .step__icon--first ✨ */
+    .step__icon--first {
+        margin-left: 20px;
+        /* ✨ Réduire margin-left à 20px, comme les autres icônes ✨ */
+        /* ✨ Suppression de margin-left: 65px; qui causait probablement le décalage ✨ */
+    }
+
+    .step__text {
+        font-family: $font-primary;
+        font-weight: $font-weight-medium;
+        font-size: 16px;
+        line-height: 18.75px;
+        margin-top: 0;
+        padding-top: 3px;
+    }
+
 }
 
 .step__icon__store {
     color: $color-step;
+}
+
+
+.steps__list .step:nth-child(1) .step__icon {
+font-size: 2.5rem;
+margin-left: 25px;
 }

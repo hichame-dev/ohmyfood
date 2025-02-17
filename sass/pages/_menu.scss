@@ -1,30 +1,39 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+/* SECTION MENU */
+.menu__section {
+    margin-top: $margin-section-menu;
+    padding: 13px;
+}
+
 .menu__section h2 {
     margin: 0;
     position: relative;
-    margin-bottom: 2.625rem; // 42px d’espace en bas
+    margin-bottom: $margin-bottom-menu-h2;
 
 
     &::after {
         content: "";
         width: 50%;
-        width: 2.5rem; // 40px
-        border-top: 3px solid #99E2D0;
+        width: $gap-large;
+        border-top: 3px solid $color-schek;
         position: relative;
         left: 0;
-        top: 5px; // 27px sous le h2
+        top: 5px;
         display: block;
     }
 }
 
 .menu__section {
-    margin-top: 2.625rem; // 42px sous le titre
+    margin-top: $margin-section-menu;
     padding: 13px;
 
 
     h2 {
         position: relative;
-        margin-bottom: 1.5625rem; // 25px d'espace avec la première carte
-        padding-left: 1.0625rem;
+        margin-bottom: $margin-bottom-menu-h2;
+        padding-left: $gap-medium;
     }
 }
 
@@ -34,7 +43,7 @@
     width: 100%;
     padding: 12px 0;
     border-radius: 15px;
-    box-shadow: 0px 4.01px 15.04px 0px #0000001A;
+    box-shadow: $box-shadow-light;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +69,7 @@
 
 .menu__text {
     width: 287px;
-    gap: 5px;
+    gap: $gap-small;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -70,9 +79,9 @@
 }
 
 .menu__title {
-    font-family: Roboto, sans-serif;
-    font-size: 18px;
-    font-weight: 500;
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-medium;
     line-height: 21.09px;
     text-align: left;
     text-underline-position: from-font;
@@ -81,10 +90,10 @@
 }
 
 .menu__description {
-    font-family: Roboto, sans-serif;
-    font-size: 15.04px;
-    font-weight: 300;
-    line-height: 17.63px;
+    font-family: $font-primary;
+    font-size: $font-size-price;
+    font-weight: $font-weight-light;
+    line-height: $line-height-price;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
@@ -93,17 +102,13 @@
 }
 
 .menu__price {
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-medium;
     margin-right: 15px;
     box-sizing: border-box;
     align-self: flex-end;
 }
-
-
-
-
 
 .order {
     /* Hauteur fixe de 187px pour laisser un espace défini entre le menu et le footer */
@@ -119,15 +124,14 @@
     @include button-style();
 
     /* Taille du bouton */
-    width: 186px;
-    height: 50px;
+    width: $button-width;
+    height: $button-height;
 
     /* Au survol, on utilise un autre gradient + une ombre différente */
     &:hover {
         /* Définis un gradient "un peu plus clair" à la main */
         background: $color-gradient;
         /* Ombre plus marquée */
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+        box-shadow: $box-shadow-strong;
     }
 }
-

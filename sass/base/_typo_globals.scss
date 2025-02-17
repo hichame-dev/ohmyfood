@@ -1,0 +1,151 @@
+// ===============================
+// 📝 Typographies Globales
+// ===============================
+
+h2 {
+    font-family: $font-primary;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-top: 54px;
+}
+
+h3 {
+    font-family: $font-primary; // Roboto
+    font-size: $font-size-h3;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+p {
+    font-family: $font-primary;
+}
+
+.restaurant-title {
+    font-family: $font-secondary;
+    font-size: $font-size-xl;
+    font-style: italic;
+    font-weight: 400;
+    line-height: $line-height-xl;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.step__text {
+    font-family: $font-primary; // ✅ Roboto
+    font-size: $font-size-small; // ✅ 16px
+    font-weight: $font-weight-medium; // ✅ 500
+    line-height: $line-height-small; // ✅ 18.75px
+    text-align: left;
+    color: $color-primary;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+// ===============================
+// 🎯 Styles Introduction
+// ===============================
+
+.intro {
+    margin: 0; // Supprime toute marge externe
+    padding: 0; // Supprime tout padding interne
+}
+
+.intro__title {
+    font-family: $font-primary;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-xl;
+    color: $color-primary;
+    padding-left: 20px; // Réduction du padding
+    padding-right: 20px;
+    margin-top: 10px; // Réduction de l'espace au-dessus
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.intro__text {
+    font-family: $font-primary;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-light;
+    line-height: 1.32rem;
+    color: $color-secondary;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 10px; // Réduction de l'espace en bas si nécessaire
+}
+
+// ===============================
+// 🍽️ Styles spécifiques aux restaurants
+// ===============================
+
+.menu__section h2 {
+    position: relative; // ✅ Nécessaire pour bien positionner le ::after
+    font-family: $font-primary;
+    font-size: 1rem; // 16px
+    font-weight: 300;
+}
+
+// ===============================
+// 🃏 Styles pour les cartes
+// ===============================
+
+.card__title {
+    width: 267px;
+    height: 20px;
+    font-size: $font-size-xs;
+    font-weight: bold;
+    color: $color-primary;
+}
+
+.menu__description {
+    font-family: $font-primary; // Police Roboto
+    font-size: $font-size-xs; // 15px (0.9375rem)
+    font-weight: $font-weight-light; // 300
+    line-height: $line-height-small; // 17.63px
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.price {
+    font-family: $font-primary; // ✅ Roboto
+    font-size: $font-size-price;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-price;
+    text-align: center;
+}
+
+.euro {
+    font-family: $font-primary;
+    font-size: $font-size-price;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-price;
+    text-align: center;
+    color: $color-background;
+}
+
+
+
+// ===============================
+// 📱 Responsive Design (Mobile First)
+// ===============================
+
+// Tablette
+@media (min-width: $tablet-width) {
+    main {
+        width: 100%;
+    }
+}
+
+// Desktop
+@media (min-width: $desktop-width) {
+    main {
+        width: 100%;
+    }
+}
