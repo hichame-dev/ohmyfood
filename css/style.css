@@ -414,7 +414,7 @@ p {
 .footer__container {
   max-width: 375px;
   width: 375px;
-  padding: 0px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -460,11 +460,16 @@ p {
   gap: 10px;
 }
 .footer__link-item-icon {
-  width: 0.745rem;
-  height: 0.8125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.875rem;
+  height: 0.875rem;
 }
 .footer__link-item-icon i {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .intro {
@@ -1169,5 +1174,88 @@ p {
 @media screen and (min-width: 1440px) {
   .steps__container {
     max-width: 1200px;
+  }
+}
+/* ========== Responsive Tablette & Desktop (>= 768px) ========== */
+@media screen and (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    min-height: 114px;
+  }
+  .footer__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 1024px;
+    width: auto;
+  }
+  .footer__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    width: 661px;
+    height: 20px;
+  }
+  .footer__logo {
+    order: 2;
+    margin-left: 0;
+    margin-right: 25px;
+  }
+}
+/* ========== Responsive Tablette (>= 768px et <= 1023px) ========== */
+/* ========== Responsive Tablette (768px - 1023px) ========== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .restaurants {
+    width: 100%;
+    max-width: 1023px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+  .restaurants__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .card {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* ========== Responsive Desktop (1024px - 1440px) ========== */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .restaurants {
+    width: 100%;
+    max-width: 1440px;
+    padding-left: 180px;
+    padding-right: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+  .restaurants__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 95px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .card {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -13,15 +13,13 @@
     &__container {
         max-width: 375px;
         width: 375px;
-        padding: 0px;
+        padding: 0;
         @include flex(column, flex-start, column, 16px);
     }
 
     &__logo {
-        // Retrait du style ici
         width: 190px;
         display: flex;
-
     }
 
     &__logo-text {
@@ -49,16 +47,21 @@
 
     &__link-item {
         display: flex;
-        align-items: center;
+        align-items: center; // ✅ Alignement vertical des icônes avec le texte
         gap: 10px; // Espacement entre l'icône et le texte
     }
 
     &__link-item-icon {
-        width: 0.745rem;
-        height: 0.8125rem;
+        display: flex;
+        align-items: center; // ✅ Centre l'icône verticalement
+        justify-content: center;
+        width: 0.875rem; // Ajustement de la largeur
+        height: 0.875rem; // Ajustement de la hauteur
 
         i {
-            font-size: 0.8125rem;
+            font-size: 0.875rem; // Ajuste la taille de l'icône
+            line-height: 1; // ✅ Évite le décalage vertical
+            vertical-align: middle; // ✅ Assure que l'icône est bien alignée
         }
     }
 }

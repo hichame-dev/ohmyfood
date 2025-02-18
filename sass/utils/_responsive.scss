@@ -71,3 +71,101 @@
         max-width: 1200px; // ✅ Ajuste la largeur pour grands écrans
     }
 }
+
+
+
+/* ========== Responsive Tablette & Desktop (>= 768px) ========== */
+@media screen and (min-width: 768px) {
+    .footer {
+        // Ajoute bien le sélecteur parent ici
+        display: flex;
+        justify-content: flex-end; // Aligne tout le contenu à droite
+        padding: 0;
+        min-height: 114px;
+        
+
+        &__container {
+            display: flex;
+            flex-direction: row; // Passe en ligne
+            align-items: center;
+            justify-content: flex-end; // Aligne tout à droite
+            max-width: 1024px;
+            width: auto; // Laisse la largeur s'adapter au contenu
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 7px; // Espacement entre chaque élément
+            width: 661px;
+            height: 20px;
+        }
+
+        &__logo {
+            order: 2;
+            margin-left: 0; // Enlève la poussée automatique
+            margin-right: 25px; // Ajoute l'espace de 25px à droite
+        }
+    }
+}
+
+/* ========== Responsive Tablette (>= 768px et <= 1023px) ========== */
+/* ========== Responsive Tablette (768px - 1023px) ========== */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .restaurants {
+        width: 100%;
+        max-width: 1023px; // ✅ Fixe une largeur max pour éviter les bugs
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 30px;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 450px; // ✅ Empêche l'écrasement mais reste bien visible
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ========== Responsive Desktop (1024px - 1440px) ========== */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .restaurants {
+        width: 100%;
+        max-width: 1440px; // ✅ Fixe la largeur max du design
+        padding-left: 180px;
+        padding-right: 180px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 95px;
+        width: 100%;
+        max-width: 1200px; // ✅ Évite que le contenu touche les bords
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 500px; // ✅ Laisse les cartes bien proportionnées
+        height: auto;
+    }
+}
+
