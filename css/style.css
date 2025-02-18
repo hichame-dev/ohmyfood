@@ -1128,6 +1128,10 @@ p {
   }
 }
 @media screen and (min-width: 768px) {
+  .steps {
+    max-width: 900px;
+    margin: 0 auto;
+  }
   .steps__container {
     display: flex;
     flex-direction: row;
@@ -1149,12 +1153,21 @@ p {
     flex: 1;
   }
 }
-/* ✅ Ajout pour Desktop (1024px et 1440px) */
-@media screen and (min-width: 1024px), screen and (min-width: 1440px) {
+/* ✅ Version Desktop (1024px et plus) */
+@media screen and (min-width: 1024px) {
+  .steps {
+    max-width: 1053px;
+    margin: 0 auto;
+  }
   .steps__container {
     max-width: 1200px;
     grid-template-columns: 1fr 3fr;
     justify-content: space-between;
     align-items: center;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .steps__container {
+    max-width: 1200px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -22,6 +22,11 @@
 
 // setps
 @media screen and (min-width: 768px) {
+    .steps {
+        max-width: 900px; // ✅ Définit une largeur max pour éviter un affichage trop large
+        margin: 0 auto; // ✅ Centre le bloc horizontalement
+    }
+
     .steps__container {
         display: flex; // ✅ Passe en Flexbox
         flex-direction: row; // ✅ Aligne les steps en ligne
@@ -41,19 +46,28 @@
     }
 
     .step {
-      
         max-width: 335px; // ✅ Limite la largeur des steps
         flex: 1; // ✅ Permet un bon équilibre entre les steps
     }
 }
 
-/* ✅ Ajout pour Desktop (1024px et 1440px) */
-@media screen and (min-width: 1024px),
-screen and (min-width: 1440px) {
+/* ✅ Version Desktop (1024px et plus) */
+@media screen and (min-width: 1024px) {
+    .steps {
+        max-width: 1053px; // ✅ Ajuste la largeur pour desktop
+        margin: 0 auto; // ✅ Centre le bloc horizontalement
+    }
+
     .steps__container {
         max-width: 1200px; // ✅ Ajuste la largeur pour desktop
-        grid-template-columns: 1fr 3fr; // ✅ Conserve l'alignement
+        grid-template-columns: 1fr 3fr; // ✅ Aligne correctement les steps et le titre
         justify-content: space-between;
         align-items: center;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .steps__container {
+        max-width: 1200px; // ✅ Ajuste la largeur pour grands écrans
     }
 }
