@@ -61,7 +61,6 @@ h2 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #000000;
-  margin-top: 54px;
 }
 
 h3 {
@@ -674,7 +673,6 @@ p {
 
 .steps {
   width: 100%;
-  margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1.25rem;
@@ -1117,40 +1115,125 @@ p {
   box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
 }
 
-/* ✅ Media Queries pour Tablette et Desktop */
+/* ==================== BOUTONS ==================== */
+/* ✅ Media Queries pour Tablette et Desktop (>= 768px) */
 @media screen and (min-width: 768px) {
   .btn {
     margin-top: 18px;
+    /* Marge haute ajustée pour tablette et desktop */
     margin-bottom: 27px;
-    /* Réduction de la marge pour les tablettes */
+    /* Marge basse ajustée pour tablette et desktop */
   }
 }
-@media screen and (min-width: 1440px) {
-  .btn {
-    margin-top: 18px;
-    margin-bottom: 27px;
-    /* Réduction de la marge pour les desktops */
-  }
+/* ==================== STEPS ==================== */
+/* ✅ Styles de base (Mobile - par défaut, < 768px) */
+.steps {
+  width: 100%;
+  padding: 0 1.25rem;
+  /* Padding horizontal pour le contenu intérieur */
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centrage horizontal du contenu en mobile */
+  justify-content: center;
+  gap: 20px;
+  /* Espacement vertical entre titre et container */
+  margin-bottom: 40px;
+  /* Marge basse pour séparer la section des suivantes en mobile */
 }
+
+.steps__title {
+  width: 100%;
+  margin-top: 48px;
+  /* Marge haute pour espacer le titre du haut de la section */
+  font-family: "Arial", sans-serif;
+  color: #000000;
+}
+
+.steps__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  /* Espacement vertical entre les steps en mobile */
+  justify-items: center;
+  /* Centrage horizontal des steps en mobile */
+  width: 100%;
+}
+
+.steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Espacement vertical entre les steps dans la liste en mobile */
+  width: 100%;
+}
+
+.step {
+  width: 100%;
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 1.25rem;
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  /* Padding intérieur de chaque step */
+  min-height: 72px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.step__number,
+.step__icon,
+.step__icon--first,
+.step__text,
+.step__icon__store,
+.steps__list .step:nth-child(1) .step__icon {
+  /* Styles des éléments internes inchangés */
+}
+
+/* ✅ Version Tablette et Desktop (>= 768px) */
 @media screen and (min-width: 768px) {
   .steps {
-    max-width: 900px;
+    max-width: 1440px;
+    height: 228.379px;
+    width: 100%;
     margin: 0 auto;
+    /* Centrage horizontal de la section */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Alignement à gauche du contenu */
+    padding: 50px 180px;
+    /* Padding haut/bas et gauche/droite pour desktop */
+    gap: 25px;
+    /* Espacement vertical entre titre et container */
+    margin-bottom: 0;
+    /* Suppression de la marge bottom mobile pour desktop */
+  }
+  .steps__title {
+    width: 100%;
+    margin-top: 0;
+    /* Suppression du margin top mobile car padding sur .steps */
+    margin-bottom: 0;
+    text-align: left;
+    /* Alignement du texte du titre à gauche */
   }
   .steps__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1053px;
+    max-width: 100%;
     margin: 0 auto;
+    width: auto;
   }
   .steps__list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* Espacement horizontal des steps */
     flex-wrap: nowrap;
     gap: 24px;
+    /* Espacement horizontal entre les steps */
     width: 100%;
   }
   .step {
@@ -1158,25 +1241,8 @@ p {
     flex: 1;
   }
 }
-/* ✅ Version Desktop (1024px et plus) */
-@media screen and (min-width: 1024px) {
-  .steps {
-    max-width: 1053px;
-    margin: 0 auto;
-  }
-  .steps__container {
-    max-width: 1200px;
-    grid-template-columns: 1fr 3fr;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .steps__container {
-    max-width: 1200px;
-  }
-}
-/* ========== Responsive Tablette & Desktop (>= 768px) ========== */
+/* ==================== FOOTER ==================== */
+/* ✅ Responsive Tablette & Desktop (>= 768px) */
 @media screen and (min-width: 768px) {
   .footer {
     display: flex;
@@ -1202,21 +1268,23 @@ p {
   }
   .footer__logo {
     order: 2;
-    margin-left: 0;
     margin-right: 25px;
   }
 }
-/* ========== Responsive Tablette (>= 768px et <= 1023px) ========== */
-/* ========== Responsive Tablette (768px - 1023px) ========== */
+/* ==================== RESTAURANTS ==================== */
+/* ✅ Responsive Tablette (>= 768px et <= 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .restaurants {
     width: 100%;
     max-width: 1023px;
     padding-left: 50px;
     padding-right: 50px;
+    margin-top: 0;
+    /* Suppression marge top inutile */
+    margin-bottom: 0;
+    /* Suppression marge bottom inutile */
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 0;
   }
   .restaurants__grid {
     display: grid;
@@ -1234,7 +1302,7 @@ p {
     flex-direction: column;
   }
 }
-/* ========== Responsive Desktop (1024px - 1440px) ========== */
+/* ✅ Responsive Desktop (1024px - 1440px) */
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
   .restaurants {
     width: 100%;
@@ -1244,6 +1312,9 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
+    /* Suppression marge bottom inutile */
+    margin-top: 0;
+    /* Suppression marge top inutile */
   }
   .restaurants__grid {
     display: grid;
