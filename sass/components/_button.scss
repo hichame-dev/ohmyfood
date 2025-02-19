@@ -1,10 +1,13 @@
+@import "../base/variables";
+@import "../base/mixins";
+
 .btn {
     @include button-style($color-gradient, $color-button-shadow, $button-text-color, $button-radius);
     width: $button-width;
     height: $button-height;
     margin-bottom: 57px;
-    
-    @include flex-center;
+
+    @include flex(center, center); // Remplacement de flex-center
 
     &:hover {
         background-color: $color-button-hover;

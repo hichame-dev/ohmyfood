@@ -1,40 +1,46 @@
 @import "../base/variables";
+@import "../base/mixins";
 
 .steps {
     // Configuration globale (inchangé)
     width: 100%;
-    max-width: 375px;
-    margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
     padding: 0 1.25rem;
     background-color: $color-background;
 
     &__title {
+        width: 100%;
         margin-bottom: 1.625rem;
         font-family: "Arial", sans-serif;
         color: $color-primary;
     }
 
-    &__list {
+    &__container {
         display: grid;
+        grid-template-columns: 1fr;
+        /* ✅ Configuration mobile par défaut */
         gap: 20px;
-        grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
+        justify-items: center;
+    }
+
+
+    &__list {
+        max-width: 1053px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .step {
-        width: 322px;
+        width: 100%;
         position: relative;
         background-color: $color-background;
         border-radius: 1.25rem;
         box-shadow: $box-shadow-light;
         padding: 20px;
         min-height: 72px;
-
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        /* Rétablir justify-content: flex-start pour l'alignement à gauche */
+        @include flex(row, flex-start, flex-start);
     }
 
     .step__number {
@@ -47,16 +53,13 @@
         border-radius: 50%;
         background-color: $color-step;
         color: $color-background;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         font-size: $font-size-xxs;
         font-weight: bold;
+        @include flex(center, center);
     }
 
     .step__icon {
         margin-left: 20px;
-        /* Garder margin-left: 20px pour l'espacement initial */
         margin-right: 20px;
         color: $color-secondary;
         margin-top: 0;
@@ -69,14 +72,12 @@
         }
     }
 
-    /* ✨ Modification importante : Simplification de .step__icon--first ✨ */
     .step__icon--first {
         margin-left: 20px;
-        /* ✨ Réduire margin-left à 20px, comme les autres icônes ✨ */
-        /* ✨ Suppression de margin-left: 65px; qui causait probablement le décalage ✨ */
     }
 
     .step__text {
+        white-space: nowrap;
         font-family: $font-primary;
         font-weight: $font-weight-medium;
         font-size: 16px;
@@ -84,15 +85,14 @@
         margin-top: 0;
         padding-top: 3px;
     }
-
 }
 
 .step__icon__store {
     color: $color-step;
 }
 
-
 .steps__list .step:nth-child(1) .step__icon {
-font-size: 2.5rem;
-margin-left: 25px;
+    font-size: 2.5rem;
+    margin-left: 25px;
 }
+

@@ -2,7 +2,7 @@
 @import "../base/mixins";
 
 .header {
-    @include flex-center;
+    @include flex(row, center, center); // Remplacement de display: flex
     width: 100%;
     height: $header-height; // Remplacé 63px par $header-height
     background-color: $color-card-background; // Remplacé #F6F6F6 par $color-card-background
@@ -12,13 +12,13 @@
         position: absolute;
         top: 17px;
         left: 16px;
-        @include flex-center;
+        @include flex(center, center);
         width: 30px;
         height: 30px;
         color: $color-secondary; // Remplacé #353535 par $color-secondary
 
         a {
-            @include flex-center;
+            @include flex(center, center);
 
             i {
                 font-size: $font-size-medium; // Remplacé 16px par $font-size-medium (proche de 16px)
@@ -45,7 +45,7 @@
 // titre
 
 .restaurant-header {
-    @include flex-between(center);
+    @include flex(row, space-between, center);
     padding-left: $gap-medium; // Remplacé 1.0625rem par $gap-medium
     padding-right: $gap-medium; // Remplacé 1.0625rem par $gap-medium
     width: 100%;

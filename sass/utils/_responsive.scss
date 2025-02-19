@@ -1,0 +1,233 @@
+@import "../base/variables";
+@import "../base/mixins";
+
+/* ==================== BOUTONS ==================== */
+/* ✅ Media Queries pour Tablette et Desktop (>= 768px) */
+@media screen and (min-width: 768px) {
+    .btn {
+        margin-top: 18px;
+        /* Marge haute ajustée pour tablette et desktop */
+        margin-bottom: 27px;
+        /* Marge basse ajustée pour tablette et desktop */
+    }
+}
+
+/* ==================== STEPS ==================== */
+/* ✅ Styles de base (Mobile - par défaut, < 768px) */
+.steps {
+    width: 100%;
+    padding: 0 1.25rem;
+    /* Padding horizontal pour le contenu intérieur */
+    background-color: $color-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centrage horizontal du contenu en mobile */
+    justify-content: center;
+    gap: 20px;
+    /* Espacement vertical entre titre et container */
+    margin-bottom: 40px;
+    /* Marge basse pour séparer la section des suivantes en mobile */
+}
+
+.steps__title {
+    width: 100%;
+    margin-top: 48px;
+    /* Marge haute pour espacer le titre du haut de la section */
+    font-family: "Arial", sans-serif;
+    color: $color-primary;
+}
+
+.steps__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    /* Espacement vertical entre les steps en mobile */
+    justify-items: center;
+    /* Centrage horizontal des steps en mobile */
+    width: 100%;
+}
+
+.steps__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Espacement vertical entre les steps dans la liste en mobile */
+    width: 100%;
+}
+
+.step {
+    width: 100%;
+    position: relative;
+    background-color: $color-background;
+    border-radius: 1.25rem;
+    box-shadow: $box-shadow-light;
+    padding: 20px;
+    /* Padding intérieur de chaque step */
+    min-height: 72px;
+    @include flex(row, flex-start, flex-start);
+}
+
+.step__number,
+.step__icon,
+.step__icon--first,
+.step__text,
+.step__icon__store,
+.steps__list .step:nth-child(1) .step__icon {
+    /* Styles des éléments internes inchangés */
+}
+
+
+/* ✅ Version Tablette et Desktop (>= 768px) */
+@media screen and (min-width: 768px) {
+    .steps {
+        max-width: 1440px;
+        height: 228.379px;
+        width: 100%;
+        margin: 0 auto;
+        /* Centrage horizontal de la section */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* Alignement à gauche du contenu */
+        padding: 50px 180px;
+        /* Padding haut/bas et gauche/droite pour desktop */
+        gap: 25px;
+        /* Espacement vertical entre titre et container */
+        margin-bottom: 0;
+        /* Suppression de la marge bottom mobile pour desktop */
+    }
+
+    .steps__title {
+        width: 100%;
+        margin-top: 0;
+        /* Suppression du margin top mobile car padding sur .steps */
+        margin-bottom: 0;
+        text-align: left;
+        /* Alignement du texte du titre à gauche */
+    }
+
+    .steps__container {
+        max-width: 100%;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .steps__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* Espacement horizontal des steps */
+        flex-wrap: nowrap;
+        gap: 24px;
+        /* Espacement horizontal entre les steps */
+        width: 100%;
+    }
+
+    .step {
+        max-width: 335px;
+        flex: 1;
+    }
+}
+
+
+/* ==================== FOOTER ==================== */
+/* ✅ Responsive Tablette & Desktop (>= 768px) */
+@media screen and (min-width: 768px) {
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0;
+        min-height: 114px;
+
+        &__container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            max-width: 1024px;
+            width: auto;
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 7px;
+            width: 661px;
+            height: 20px;
+        }
+
+        &__logo {
+            order: 2;
+            margin-right: 25px;
+        }
+    }
+}
+
+
+/* ==================== RESTAURANTS ==================== */
+/* ✅ Responsive Tablette (>= 768px et <= 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .restaurants {
+        width: 100%;
+        max-width: 1023px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: 0;
+        /* Suppression marge top inutile */
+        margin-bottom: 0;
+        /* Suppression marge bottom inutile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 30px;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+/* ✅ Responsive Desktop (1024px - 1440px) */
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .restaurants {
+        width: 100%;
+        max-width: 1440px;
+        padding-left: 180px;
+        padding-right: 180px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+        /* Suppression marge bottom inutile */
+        margin-top: 0;
+        /* Suppression marge top inutile */
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 95px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+}
