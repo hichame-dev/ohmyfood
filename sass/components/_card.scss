@@ -2,19 +2,22 @@
 @import "../base/mixins";
 
 .restaurants {
-    width: 100%;
-    padding: 0 $gap-medium;
+    width: 100vw; // ✅ Le background prend toute la largeur
+    max-width: 1440px; // ✅ La section est limitée en largeur pour éviter qu’elle soit trop étalée
     margin: 0 auto;
+    padding: 0 $gap-medium;
     background-color: $color-card-background;
     display: flex;
     flex-direction: column;
     gap: $gap-medium;
 }
 
-.h2 restaurants__title {
-    margin-top: 0; // ✅ Évite qu'il soit trop bas
+/* ✅ Correction du sélecteur */
+.restaurants__title {
+    margin-top: 0;
     padding-left: $gap-medium;
     width: 100%;
+    margin-top: 54px;
 }
 
 .restaurants__grid {
@@ -23,92 +26,138 @@
     width: 100%;
 }
 
-    .card {
+/* ✅ Style des cartes */
+.card {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: $gap-medium;
+    display: flex;
+    flex-direction: column;
+
+    &--new {
+        @include card-with-tag;
+    }
+
+    &:not(.card--new) {
+        @include card-without-tag;
+    }
+
+    &__image-container {
+        display: flex;
+        overflow: hidden;
+        max-height: 12.5rem;
+    }
+
+    &__img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 0px $spacing-small 0.9375rem rgba(0, 0, 0, 0.1);
+    }
+
+    &__content {
+        padding-left: $spacing-medium-horizontal;
+        padding-right: $spacing-medium-horizontal;
         height: auto;
-        position: relative;
-        margin-bottom: $gap-medium;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: flex-start;
+    }
+
+    &__text {
         display: flex;
         flex-direction: column;
+    }
 
-        &--new {
-            @include card-with-tag;
-        }
+    &__title {
+        font-family: $font-primary;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-medium;
+        color: $color-primary;
+        margin-top: $spacing-medium-horizontal;
+        left: 0;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        
+    }
 
-        &:not(.card--new) {
-            @include card-without-tag;
-        }
+    &__location {
+        font-family: $font-primary;
+        font-size: $font-size-small;
+        font-weight: $font-weight-light;
+        line-height: $line-height-small;
+        color: $color-primary;
+        opacity: 1;
+        margin-top: $spacing-small;
+        margin-bottom: 0.75rem;
+    }
 
-        &__image-container {
-            display: flex;
-            overflow: hidden;
-            max-height: 12.5rem;
-        }
+    &__icon-pink {
+        width: 1.375rem;
+        height: 1.3125rem;
+        margin-top: $spacing-medium-horizontal;
+        justify-self: end;
+        align-self: start;
 
-        &__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            box-shadow: 0px $spacing-small 0.9375rem rgba(0, 0, 0, 0.1); // Utilisation de $spacing-small
-        }
-
-        &__content {
-            padding-left: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            padding-right: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            height: auto;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: flex-start;
-        }
-
-        &__text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        &__title {
-            font-family: $font-primary;
-            font-size: $font-size-medium;
-            font-weight: $font-weight-bold;
-            line-height: $line-height-medium;
-            color: $color-primary;
-            margin-top: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            left: 0;
-            text-underline-position: from-font;
-            text-decoration-skip-ink: none;
-        }
-
-        &__location {
-            font-family: $font-primary;
-            font-size: $font-size-small;
-            font-weight: $font-weight-light;
-            line-height: $line-height-small;
-            color: $color-primary;
-            opacity: 1;
-            margin-top: $spacing-small; // Utilisation de $spacing-small
-            margin-bottom: 0.75rem;
-        }
-
-        &__icon-pink {
-            width: 1.375rem;
-            height: 1.3125rem;
-            margin-top: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            justify-self: end;
-            align-self: start;
-
-            &:hover .card__icon {
-                color: $color-gradient;
-            }
-        }
-
-        &--new .card__tag {
-            position: absolute;
-            top: 0.8125rem;
-            right: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            background-color: $color-schek;
-            color: $color-background;
-            padding: 0.5rem 0.9375rem;
-            border-radius: 0.125rem;
-            font-size: 0.875rem;
+        &:hover .card__icon {
+            color: $color-gradient;
         }
     }
+
+    &--new .card__tag {
+        position: absolute;
+        top: 0.8125rem;
+        right: $spacing-medium-horizontal;
+        background-color: $color-schek;
+        color: $color-background;
+        padding: 0.5rem 0.9375rem;
+        border-radius: 0.125rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* ✅ Version Tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .restaurants {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 5%;
+        margin: 0 auto;
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ✅ Version Desktop */
+@media screen and (min-width: 1024px) {
+    .restaurants {
+        width: 100vw; // ✅ Background prend toute la largeur
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 5%;
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
