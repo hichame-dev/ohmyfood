@@ -68,14 +68,7 @@
     @include flex(row, flex-start, flex-start);
 }
 
-.step__number,
-.step__icon,
-.step__icon--first,
-.step__text,
-.step__icon__store,
-.steps__list .step:nth-child(1) .step__icon {
-    /* Styles des éléments internes inchangés */
-}
+
 
 
 /* ✅ Version Tablette et Desktop (>= 768px) */
@@ -174,12 +167,15 @@
         max-width: 1023px;
         padding-left: 50px;
         padding-right: 50px;
-        margin-top: 0;
-        /* Suppression marge top inutile */
-        margin-bottom: 0;
-        /* Suppression marge bottom inutile */
+        margin-top: 0; // ✅ Suppression marge top inutile
+        margin-bottom: 0; // ✅ Suppression marge bottom inutile
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* ✅ Correction : Cibler spécifiquement le titre */
+    .restaurants__title  {
+        margin-top: -50px; // ✅ Monte le titre de 20px
     }
 
     .restaurants__grid {
@@ -199,7 +195,6 @@
         flex-direction: column;
     }
 }
-
 
 /* ✅ Responsive Desktop (1024px - 1440px) */
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
