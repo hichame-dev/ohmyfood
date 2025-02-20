@@ -681,7 +681,6 @@ p {
   justify-content: center;
   gap: 20px;
   margin-bottom: 68px;
-  /* ✅ RAJOUTÉ : Marge inférieure de 68px pour espacement mobile */
 }
 
 .steps__title {
@@ -778,154 +777,6 @@ p {
   margin-left: 25px;
 }
 
-/* SECTION MENU */
-.menu__section {
-  margin-top: 2.625rem;
-  padding: 13px;
-}
-
-.menu__section h2 {
-  position: relative;
-  margin-bottom: 1.5625rem;
-  margin-left: 1.0625rem;
-}
-
-.menu__section h2::after {
-  content: "";
-  width: 1.5rem;
-  border-top: 3px solid #99E2D0;
-  position: relative;
-  left: 0;
-  top: 5px;
-  display: block;
-}
-
-/* MENU */
-.menu__item {
-  width: 100%;
-  padding: 12px 0;
-  border-radius: 15px;
-  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  margin-bottom: 12px;
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s ease;
-}
-
-.menu__item:last-child {
-  margin-bottom: 0;
-}
-
-.menu__content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding-right: 15px;
-  box-sizing: border-box;
-}
-
-.menu__text {
-  width: 287px;
-  gap: 0.3125rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 15px;
-  box-sizing: border-box;
-}
-
-.menu__price {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin-right: 15px;
-  box-sizing: border-box;
-  align-self: flex-end;
-}
-
-/* CHECKBOX & ANIMATION */
-.menu__check {
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #99E2D0;
-  border-radius: 0 15px 15px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1;
-  transition: width 0.3s ease;
-}
-
-.menu__check-circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #99E2D0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.menu__check .fa-check {
-  font-size: 12px;
-  opacity: 0;
-  color: #99E2D0;
-  transition: opacity 0.3s ease;
-}
-
-.menu__check-input {
-  display: none;
-}
-
-/* HOVER & CHECKED STATES */
-.menu__item:hover {
-  transform: translateX(-5px);
-}
-
-.menu__item:hover .menu__content {
-  border-right: 5px solid #99E2D0;
-}
-
-.menu__item:hover .menu__check,
-.menu__check-input:checked + .menu__check {
-  width: 59px;
-}
-
-.menu__item:hover .menu__price,
-.menu__check-input:checked + .menu__check + .menu__content .menu__price {
-  transform: translateX(-59px);
-}
-
-.menu__item:hover .menu__check .fa-check,
-.menu__item:hover .menu__check .menu__check-circle,
-.menu__check-input:checked + .menu__check .fa-check,
-.menu__check-input:checked + .menu__check .menu__check-circle {
-  opacity: 1;
-}
-
-/* ANIMATIONS */
-@keyframes simpleFade {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 /* LOADER */
 .loader-container {
   position: fixed;
@@ -989,27 +840,7 @@ p {
   }
 }
 /* SECTION MENU */
-.menu__section {
-  margin-top: 2.625rem;
-  padding: 13px;
-}
-
-.menu__section h2 {
-  margin: 0;
-  position: relative;
-  margin-bottom: 1.5625rem;
-}
-.menu__section h2::after {
-  content: "";
-  width: 50%;
-  width: 1.5rem;
-  border-top: 3px solid #99E2D0;
-  position: relative;
-  left: 0;
-  top: 5px;
-  display: block;
-}
-
+/* SECTION MENU */
 .menu__section {
   margin-top: 2.625rem;
   padding: 13px;
@@ -1019,7 +850,17 @@ p {
   margin-bottom: 1.5625rem;
   padding-left: 1.0625rem;
 }
+.menu__section h2::after {
+  content: "";
+  width: 1.5rem;
+  border-top: 3px solid #99E2D0;
+  position: relative;
+  left: 0;
+  top: 5px;
+  display: block;
+}
 
+/* MENU */
 .menu__item {
   width: 100%;
   padding: 12px 0;
@@ -1030,12 +871,12 @@ p {
   align-items: center;
   box-sizing: border-box;
   margin-bottom: 12px;
-  /* Ajout du gap entre les boîtes */
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
-
 .menu__item:last-child {
   margin-bottom: 0;
-  /* Supprime la marge du dernier élément */
 }
 
 .menu__content {
@@ -1093,10 +934,120 @@ p {
   align-self: flex-end;
 }
 
+/* CHECKBOX & ANIMATION */
+.menu__check {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #99E2D0;
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  transition: width 0.3s ease;
+}
+
+.menu__check-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #99E2D0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu__title,
+.menu__description {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menu__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.menu__text {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.menu__price-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 59px;
+  transition: width 0.4s ease-in-out;
+}
+
+.menu__price {
+  transition: transform 0.4s ease-in-out;
+}
+
+.menu__check {
+  width: 0;
+  height: 100%;
+  background-color: #99E2D0;
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  transition: width 0.4s ease-in-out;
+}
+
+.menu__check .fa-check {
+  font-size: 12px;
+  opacity: 0;
+  color: #99E2D0;
+  transition: opacity 0.3s ease;
+}
+
+.menu__check-input {
+  display: none;
+}
+
+/* HOVER & CHECKED STATES */
+.menu__item:hover {
+  transform: translateX(-5px);
+}
+
+.menu__item:hover .menu__content {
+  border-right: 5px solid #99E2D0;
+}
+
+.menu__item:hover .menu__check,
+.menu__check-input:checked + .menu__check {
+  width: 59px;
+}
+
+.menu__item:hover .menu__price,
+.menu__check-input:checked + .menu__check + .menu__content .menu__price {
+  transform: translateX(-59px);
+}
+
+.menu__item:hover .menu__check .fa-check,
+.menu__item:hover .menu__check .menu__check-circle,
+.menu__check-input:checked + .menu__check .fa-check,
+.menu__check-input:checked + .menu__check .menu__check-circle {
+  opacity: 1;
+}
+
+/* BOUTON COMMANDE */
 .order {
-  /* Hauteur fixe de 187px pour laisser un espace défini entre le menu et le footer */
   height: 187px;
-  /* On centre le bouton horizontalement et verticalement */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1118,15 +1069,11 @@ p {
   cursor: pointer;
   padding: 13px 1rem;
   transition: background 0.3s ease, box-shadow 0.3s ease;
-  /* Taille du bouton */
   width: 13.625rem;
   height: 3.125rem;
-  /* Au survol, on utilise un autre gradient + une ombre différente */
 }
 .btn--order:hover {
-  /* Définis un gradient "un peu plus clair" à la main */
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-  /* Ombre plus marquée */
   box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
 }
 
@@ -1154,7 +1101,6 @@ p {
   justify-content: center;
   gap: 20px;
   /* Espacement vertical entre titre et container */
-  margin-bottom: 40px;
   /* Marge basse pour séparer la section des suivantes en mobile */
 }
 

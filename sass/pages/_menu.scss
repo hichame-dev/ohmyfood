@@ -1,3 +1,4 @@
+/* SECTION MENU */
 @import "../base/variables";
 @import "../base/mixins";
 
@@ -5,40 +6,25 @@
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
-}
-
-.menu__section h2 {
-    margin: 0;
-    position: relative;
-    margin-bottom: $margin-bottom-menu-h2;
-
-
-    &::after {
-        content: "";
-        width: 50%;
-        width: $gap-large;
-        border-top: 3px solid $color-schek;
-        position: relative;
-        left: 0;
-        top: 5px;
-        display: block;
-    }
-}
-
-.menu__section {
-    margin-top: $margin-section-menu;
-    padding: 13px;
-
 
     h2 {
         position: relative;
         margin-bottom: $margin-bottom-menu-h2;
         padding-left: $gap-medium;
+
+        &::after {
+            content: "";
+            width: $gap-large;
+            border-top: 3px solid $color-schek;
+            position: relative;
+            left: 0;
+            top: 5px;
+            display: block;
+        }
     }
 }
 
-// menu
-
+/* MENU */
 .menu__item {
     width: 100%;
     padding: 12px 0;
@@ -49,12 +35,14 @@
     align-items: center;
     box-sizing: border-box;
     margin-bottom: 12px;
-    /* Ajout du gap entre les boîtes */
-}
+    position: relative;
+    overflow: hidden;
+    
+    transition: $transition-duration $transition-ease;
 
-.menu__item:last-child {
-    margin-bottom: 0;
-    /* Supprime la marge du dernier élément */
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .menu__content {
@@ -65,6 +53,7 @@
     width: 100%;
     padding-right: 15px;
     box-sizing: border-box;
+    
 }
 
 .menu__text {
@@ -76,6 +65,7 @@
     align-items: flex-start;
     padding-left: 15px;
     box-sizing: border-box;
+    
 }
 
 .menu__title {
@@ -110,11 +100,123 @@
     align-self: flex-end;
 }
 
-.order {
-    /* Hauteur fixe de 187px pour laisser un espace défini entre le menu et le footer */
-    height: 187px;
+/* CHECKBOX & ANIMATION */
+.menu__check {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color-schek;
+    border-radius: 0 15px 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: width $transition-duration $transition-ease;
+}
 
-    /* On centre le bouton horizontalement et verticalement */
+.menu__check-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $color-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-schek;
+    opacity: 0;
+    transition: opacity $transition-duration $transition-ease;
+}
+
+.menu__title,
+.menu__description {
+    white-space: nowrap;
+    overflow: hidden;
+    
+}
+
+
+.menu__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.menu__text {
+    flex-grow: 1; // ✅ Prend toute la place disponible
+    min-width: 0; // ✅ Évite le débordement du texte
+}
+
+.menu__price-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 59px; // ✅ Taille de l'espace tampon qui sera poussé
+    transition: width 0.4s ease-in-out;
+}
+
+.menu__price {
+    transition: transform 0.4s ease-in-out;
+}
+
+.menu__check {
+    width: 0;
+    height: 100%;
+    background-color: $color-schek;
+    border-radius: 0 15px 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: width 0.4s ease-in-out;
+}
+.menu__check .fa-check {
+    font-size: 12px;
+    opacity: 0;
+    color: $color-schek;
+    transition: opacity $transition-duration $transition-ease;
+}
+
+.menu__check-input {
+    display: none;
+}
+
+/* HOVER & CHECKED STATES */
+.menu__item:hover {
+    transform: translateX(-5px);
+}
+
+.menu__item:hover .menu__content {
+    border-right: 5px solid $color-schek;
+}
+
+.menu__item:hover .menu__check,
+.menu__check-input:checked+.menu__check {
+    width: 59px;
+}
+
+.menu__item:hover .menu__price,
+.menu__check-input:checked+.menu__check+.menu__content .menu__price {
+    transform: translateX(-59px);
+}
+
+.menu__item:hover .menu__check .fa-check,
+.menu__item:hover .menu__check .menu__check-circle,
+.menu__check-input:checked+.menu__check .fa-check,
+.menu__check-input:checked+.menu__check .menu__check-circle {
+    opacity: 1;
+}
+
+
+
+/* BOUTON COMMANDE */
+.order {
+    height: 187px; // ✅ Hauteur fixe pour laisser un espace défini entre le menu et le footer
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,16 +224,12 @@
 
 .btn--order {
     @include button-style();
-
-    /* Taille du bouton */
     width: $button-width;
     height: $button-height;
 
-    /* Au survol, on utilise un autre gradient + une ombre différente */
     &:hover {
-        /* Définis un gradient "un peu plus clair" à la main */
         background: $color-gradient;
-        /* Ombre plus marquée */
         box-shadow: $box-shadow-strong;
     }
 }
+
