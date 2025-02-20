@@ -140,3 +140,36 @@
     }
 }
 
+// // ✅ Mixin unique pour Flexbox (au lieu d’avoir plusieurs variantes)
+// @mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
+//     display: flex;
+//     flex-direction: $direction;
+//     justify-content: $justify;
+//     align-items: $align;
+//     gap: $gap;
+//     flex-wrap: $wrap;
+// }
+
+// // ✅ Simplification des alignements (au lieu de plusieurs mixins)
+// @mixin flex-center($gap: 0) {
+//     @include flex(row, center, center, $gap);
+// }
+
+// @mixin flex-between($gap: 0) {
+//     @include flex(row, space-between, center, $gap);
+// }
+
+// @mixin flex-left {
+//     @include flex(row, flex-start, center);
+// }
+
+// @mixin flex-column($justify: center, $align: center, $gap: 0) {
+//     @include flex(column, $justify, $align, $gap);
+// }
+
+// // ✅ Mixin pour Grid (généraliste)
+// @mixin grid($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
+//     display: grid;
+//     grid-template-columns: $columns;
+//     gap: $gap;
+// }
