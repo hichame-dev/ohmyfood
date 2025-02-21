@@ -175,16 +175,6 @@ p {
   color: #FFFFFF;
 }
 
-@media (min-width: 1024px) {
-  main {
-    width: 100%;
-  }
-}
-@media (min-width: 1440px) {
-  main {
-    width: 100%;
-  }
-}
 .header {
   width: 100%;
   height: 3.9375rem;
@@ -349,6 +339,7 @@ p {
 }
 
 /* ✅ Style général du bouton cœur */
+/* ✅ Style général du bouton cœur */
 .card__icon-pink {
   width: 1.375rem;
   height: 1.3125rem;
@@ -357,12 +348,10 @@ p {
   justify-content: center;
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
   /* ✅ Effet de zoom au survol */
   /* ✅ Cache l'input */
-  /* ✅ Icône du cœur vide (par défaut) */
-  /* ✅ Icône du cœur plein (cachée par défaut) */
-  /* ✅ Quand on coche, le cœur plein apparaît et le cœur vide disparaît */
+  /* ✅ Icône du cœur vide */
+  /* ✅ Icône du cœur plein */
 }
 .card__icon-pink:hover {
   transform: scale(1.1);
@@ -372,29 +361,18 @@ p {
 }
 .card__icon-pink .card__icon--empty {
   font-size: 1.375rem;
-  /* 22px */
   color: #000000;
   position: absolute;
-  transition: opacity 0.3s ease-in-out;
 }
 .card__icon-pink .card__icon--full {
   font-size: 1.375rem;
-  /* 22px */
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* ✅ Permet d'afficher le dégradé */
   position: absolute;
   opacity: 0;
-  /* Caché par défaut */
-  transition: opacity 0.3s ease-in-out;
-}
-.card__icon-pink .card__checkbox:checked ~ .card__icon--empty {
-  opacity: 0;
-}
-.card__icon-pink .card__checkbox:checked ~ .card__icon--full {
-  opacity: 1;
+  transform: scale(0.5);
 }
 
 .footer {
@@ -655,6 +633,7 @@ p {
 .card__icon-pink {
   width: 1.375rem;
   height: 1.3125rem;
+  font-weight: 300;
   margin-top: 1rem;
   justify-self: end;
   align-self: start;
@@ -673,45 +652,22 @@ p {
   font-size: 0.875rem;
 }
 
-/* ✅ Version Tablette */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .restaurants {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 5%;
-    margin: 0 auto;
-  }
-  .restaurants__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  .card {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.card__icon {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.063rem;
+  font-weight: 300;
+  color: #000000;
 }
-/* ✅ Version Desktop */
-@media screen and (min-width: 1024px) {
-  .restaurants {
-    width: 100vw;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 5%;
-  }
-  .restaurants__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+
+/* ✅ Animation du cœur au clic */
+.card__checkbox:checked ~ .card__icon--empty {
+  animation: fadeOutHeart 0.3s ease-in-out forwards;
 }
+
+.card__checkbox:checked ~ .card__icon--full {
+  animation: fadeInHeart 0.3s ease-in-out forwards;
+}
+
 /* Styles de base (Mobile - par défaut, en dessous de 768px) */
 .steps {
   width: 100%;
@@ -853,6 +809,86 @@ p {
   animation: pulse 1.5s ease-in-out infinite;
 }
 
+/* ✅ Expansion du check */
+@keyframes expandCheck {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 59px;
+  }
+}
+/* ✅ Déplacement du prix */
+@keyframes movePrice {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-59px);
+  }
+}
+/* ✅ Apparition du check */
+@keyframes fadeInCheck {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* ✅ Activation de l'ellipsis quand le check est coché */
+@keyframes applyEllipsis {
+  0% {
+    text-overflow: clip;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  100% {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+/* ✅ Suppression de l'ellipsis quand on décoche */
+@keyframes removeEllipsis {
+  0% {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  100% {
+    text-overflow: clip;
+    overflow: visible;
+    white-space: nowrap;
+  }
+}
+/* ✅ Rétraction du check */
+@keyframes collapseCheck {
+  0% {
+    width: 59px;
+  }
+  100% {
+    width: 0;
+  }
+}
+/* ✅ Remise en place du prix */
+@keyframes resetPrice {
+  0% {
+    transform: translateX(-59px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* ✅ Disparition du check */
+@keyframes fadeOutCheck {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -879,6 +915,28 @@ p {
   100% {
     opacity: 0;
     visibility: hidden;
+  }
+}
+/* ✅ Disparition du cœur vide */
+@keyframes fadeOutHeart {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+/* ✅ Apparition du cœur plein */
+@keyframes fadeInHeart {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 /* SECTION MENU */
@@ -1119,7 +1177,7 @@ p {
   box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
 }
 
-/* ✅ Forcer le 100% en mobile */
+/* ✅ MOBILE FIRST (jusqu'à 767px) */
 @media screen and (max-width: 767px) {
   .restaurants {
     width: 100%;
@@ -1132,39 +1190,72 @@ p {
   /* 🎯 STEPS */
   .steps {
     max-width: 100%;
-    padding: 0 5%;
-    margin: 0 auto 68px;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5% 10%;
+    gap: 20px;
+    margin-bottom: 0;
+  }
+  .steps__title {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .steps__container {
+    max-width: 100%;
+    margin: 0 auto;
+    width: auto;
   }
   .steps__list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
+    gap: 20px;
     width: 100%;
-    max-width: 100%;
   }
   .step {
-    flex: 1;
-    min-width: 250px;
     max-width: 30%;
-    padding: 15px;
+    flex: 1;
+    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
-  .step__text {
-    font-size: 14px;
+  .step .step__text {
     white-space: normal;
-    word-wrap: break-word;
-    text-align: center;
   }
-  .step__icon {
-    margin-right: 5px;
+  /* 🎯 RESTAURANTS */
+  .restaurants {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5%;
+    margin: 0 auto;
+  }
+  .restaurants__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .card {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
   }
 }
-/* ✅ DESKTOP : 1024px et + */
+/* ✅ DESKTOP (1024px et +) */
 @media screen and (min-width: 1024px) {
+  /* 🎯 STEPS */
   .steps {
     max-width: 1440px;
     height: 228.379px;
@@ -1205,14 +1296,27 @@ p {
     justify-content: center;
     text-align: center;
   }
+  /* 🎯 RESTAURANTS */
+  .restaurants {
+    width: 100vw;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+  .restaurants__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
-/* ==================== FOOTER ==================== */
-/* ✅ Responsive Tablette & Desktop (>= 768px) */
 @media screen and (min-width: 768px) {
   .footer {
     display: flex;
     justify-content: flex-end;
-    padding: 0;
+    align-items: center;
+    padding: 30px;
     min-height: 114px;
   }
   .footer__container {
@@ -1221,20 +1325,19 @@ p {
     align-items: center;
     justify-content: flex-end;
     max-width: 1024px;
-    width: auto;
+    width: 100%;
   }
   .footer__links {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 7px;
-    width: 661px;
-    height: 20px;
+    gap: 15px;
+    width: auto;
   }
   .footer__logo {
     order: 2;
-    margin-right: 25px;
+    margin-left: 25px;
   }
 }
-/* 🎯 MOBILE FIRST : < 768px */
-/* 🎯 MOBILE FIRST : < 768px *//*# sourceMappingURL=style.css.map */
+/*  MOBILE FIRST : < 768px */
+/*  MOBILE FIRST : < 768px *//*# sourceMappingURL=style.css.map */

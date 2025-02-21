@@ -36,6 +36,105 @@
     animation: pulse 1.5s ease-in-out infinite;
 }
 
+// chek
+
+/* ✅ Expansion du check */
+@keyframes expandCheck {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 59px;
+    }
+}
+
+/* ✅ Déplacement du prix */
+@keyframes movePrice {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-59px);
+    }
+}
+
+/* ✅ Apparition du check */
+@keyframes fadeInCheck {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ✅ Activation de l'ellipsis quand le check est coché */
+@keyframes applyEllipsis {
+    0% {
+        text-overflow: clip;
+        overflow: visible;
+        white-space: nowrap;
+    }
+
+    100% {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+/* ✅ Suppression de l'ellipsis quand on décoche */
+@keyframes removeEllipsis {
+    0% {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    100% {
+        text-overflow: clip;
+        overflow: visible;
+        white-space: nowrap;
+    }
+}
+
+/* ✅ Rétraction du check */
+@keyframes collapseCheck {
+    0% {
+        width: 59px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+/* ✅ Remise en place du prix */
+@keyframes resetPrice {
+    0% {
+        transform: translateX(-59px);
+        
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ✅ Disparition du check */
+@keyframes fadeOutCheck {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -69,5 +168,31 @@
     100% {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+/* ✅ Disparition du cœur vide */
+@keyframes fadeOutHeart {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+/* ✅ Apparition du cœur plein */
+@keyframes fadeInHeart {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }

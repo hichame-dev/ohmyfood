@@ -134,20 +134,23 @@ p {
 
 
 
+
+
+
 // ===============================
 // 📱 Responsive Design (Mobile First)
 // ===============================
 
-// Tablette
-@media (min-width: $tablet-width) {
-    main {
-        width: 100%;
-    }
-}
+// // Tablette
+// @media (min-width: $tablet-width) {
+//     main {
+//         width: 100%;
+//     }
+// }
 
-// Desktop
-@media (min-width: $desktop-width) {
-    main {
-        width: 100%;
-    }
-}
+// // Desktop
+// @media (min-width: $desktop-width) {
+//     main {
+//         width: 100%;
+//     }
+// }

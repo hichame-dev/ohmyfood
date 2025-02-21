@@ -18,6 +18,7 @@
     padding-left: $gap-medium;
     width: 100%;
     margin-top: 54px;
+    
 }
 
 .restaurants__grid {
@@ -97,6 +98,7 @@
     &__icon-pink {
         width: 1.375rem;
         height: 1.3125rem;
+        font-weight: $font-weight-light;
         margin-top: $spacing-medium-horizontal;
         justify-self: end;
         align-self: start;
@@ -118,46 +120,18 @@
     }
 }
 
-/* ✅ Version Tablette */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    .restaurants {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 5%;
-        margin: 0 auto;
-    }
-
-    .restaurants__grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        max-width: 960px;
-        margin: 0 auto;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 450px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-    }
+.card__icon {
+    font-family: $font-primary; // Utilise la même police que `.card__location`
+    font-size: $font-size-small; // Taille identique au texte
+    font-weight: $font-weight-light; // Même épaisseur de police
+    color: $color-primary; // Même couleur que le texte
 }
 
-/* ✅ Version Desktop */
-@media screen and (min-width: 1024px) {
-    .restaurants {
-        width: 100vw; // ✅ Background prend toute la largeur
-        max-width: 1440px;
-        margin: 0 auto;
-        padding: 0 5%;
-    }
+/* ✅ Animation du cœur au clic */
+.card__checkbox:checked~.card__icon--empty {
+    animation: fadeOutHeart 0.3s ease-in-out forwards;
+}
 
-    .restaurants__grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+.card__checkbox:checked~.card__icon--full {
+    animation: fadeInHeart 0.3s ease-in-out forwards;
 }
