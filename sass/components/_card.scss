@@ -226,3 +226,50 @@
         flex-direction: column;
     }
 }
+.card__icon-pink {
+    width: 1.375rem;
+    height: auto;
+    @include flexbox(row, center, center);
+    
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    .card__checkbox {
+        display: none; // ✅ Cache totalement la checkbox
+    }
+
+    .card__icon--empty {
+        font-size: 1.375rem;
+        color: $color-primary;
+        position: absolute;
+        opacity: 1; // ✅ Icône vide visible par défaut
+        transition: opacity 0.3s ease;
+    }
+
+    .card__icon--full {
+        font-size: 1.375rem;
+        background: $color-gradient;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: absolute;
+        opacity: 0; // ✅ Icône pleine invisible par défaut
+        transform: scale(0.5);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none; // Empêche interaction directe
+    }
+
+    // ✅ Lorsque la checkbox est cochée, inverse les icônes
+    .card__checkbox:checked~.card__icon--empty {
+        opacity: 0;
+    }
+
+    .card__checkbox:checked~.card__icon--full {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

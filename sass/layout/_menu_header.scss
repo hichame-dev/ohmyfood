@@ -1,6 +1,4 @@
-@import "../base/variables";
-@import "../base/mixins";
-
+// Header principal
 .header {
     @include flexbox(row, center, center);
     width: 100%;
@@ -42,8 +40,8 @@
     }
 }
 
-// titre
-
+// Restaurant Header (titre + icône cœur)
+// Restaurant Header (titre + icône cœur)
 .restaurant-header {
     @include flexbox(row, space-between, center);
     padding-left: $gap-medium;
@@ -56,48 +54,79 @@
         font-size: $font-size-xl;
         font-style: italic;
         font-weight: $font-weight-regular;
-        line-height: $line-height-xl;
+        line-height: 1; // ✅ Correction alignement vertical précis
         text-align: left;
-        width: 21.3125rem;
-        color: $color-primary;
+        display: flex;
+        align-items: center; // ✅ Alignement vertical précis avec l'icône
     }
 
     .card__icon-pink {
         width: 1.375rem;
-        height: 1.3125rem;
+        height: auto;
         @include flexbox(row, center, center);
         position: relative;
         cursor: pointer;
-        transition: transform 0.3s ease-in-out;
 
-        &:hover {
-            transform: scale(1.1);
+        .card__checkbox {
+            display: none;
         }
 
-        input {
-            display: none;
+        .card__icon--full {
+            font-size: 1.375rem;
+            background: $color-gradient;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+
+        .card__icon--empty {
+            font-size: 1.375rem;
+            color: $color-primary;
+            line-height: 1;
+        }
+    }
+}
+
+        .card__icon--full {
+            font-size: 1.375rem;
+            background: $color-gradient;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
         }
 
         .card__icon {
             font-size: 1.375rem;
             color: $color-primary;
+            line-height: 1; // ✅ Alignement vertical précis
         }
-    }
-}
+    
 
+
+// Bannière image
 .restaurant-banner {
     position: relative;
     width: 100%;
-    height: auto;
+    overflow: hidden;
+    z-index: 1;
 
     .banner-img {
         width: 100%;
-        height: $image-height;
+        height: 275px;
         object-fit: cover;
         display: block;
     }
 }
 
+// Container Menu (arrondi et chevauchement précis sur la bannière)
 .menu-container {
     position: relative;
     background-color: $color-card-background;
@@ -105,44 +134,10 @@
     gap: $gap-large;
     margin-top: -2.3125rem;
     z-index: 2;
-}
 
-.menu-container h1 {
-    font-family: $font-secondary;
-    font-style: italic;
-    font-weight: $font-weight-regular;
-}
-
-/* ✅ Style général du bouton cœur */
-.card__icon-pink {
-    width: 1.375rem;
-    height: 1.3125rem;
-    @include flexbox(row, center, center);
-    position: relative;
-    cursor: pointer;
-
-    &:hover {
-        transform: scale(1.1);
-    }
-
-    .card__checkbox {
-        display: none;
-    }
-
-    .card__icon--empty {
-        font-size: 1.375rem;
-        color: $color-primary;
-        position: absolute;
-    }
-
-    .card__icon--full {
-        font-size: 1.375rem;
-        background: $color-gradient;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        position: absolute;
-        opacity: 0;
-        transform: scale(0.5);
+    h1 {
+        font-family: $font-secondary;
+        font-style: italic;
+        font-weight: $font-weight-regular;
     }
 }

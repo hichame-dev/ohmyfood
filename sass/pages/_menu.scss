@@ -5,6 +5,13 @@
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
+    display: flex; // ✅ Active Flexbox
+    flex-direction: column; // ✅ Organise les éléments en colonne
+    justify-content: center; // ✅ Centre verticalement
+    align-items: center; // ✅ Centre horizontalement
+    width: 100%; // Prend toute la largeur disponible
+    box-sizing: border-box;
+}
 
     h2 {
         position: relative;
@@ -21,10 +28,11 @@
             display: block;
         }
     }
-}
+
 
 .menu__item {
     width: 100%;
+
     padding: 12px 0;
     border-radius: 15px;
     box-shadow: $box-shadow-light;
@@ -37,6 +45,28 @@
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    &:hover,
+    .menu__check-input:checked+.menu__check+.menu__content {
+        transform: translateX(-5px);
+
+        .menu__content {
+            border-right: 5px solid $color-schek;
+        }
+
+        .menu__check {
+            width: 59px;
+
+            .fa-check,
+            .menu__check-circle {
+                opacity: 1;
+            }
+        }
+
+        .menu__price {
+            transform: translateX(-59px);
+        }
     }
 }
 
@@ -55,17 +85,20 @@
     box-sizing: border-box;
 }
 
+.menu__title,
+.menu__description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .menu__title {
     font-family: $font-primary;
     font-size: $font-size-medium;
     font-weight: $font-weight-medium;
     line-height: 21.09px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .menu__description {
@@ -74,18 +107,14 @@
     font-weight: $font-weight-light;
     line-height: $line-height-price;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     width: 100%;
     margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .menu__price-container {
     @include flexbox(row, flex-end, center);
     width: 59px;
-    transition: width 0.4s ease-in-out;
+    transition: width $transition-duration $transition-ease;
 }
 
 .menu__price {
@@ -95,7 +124,7 @@
     margin-right: 15px;
     box-sizing: border-box;
     align-self: flex-end;
-    transition: transform 0.4s ease-in-out;
+    transition: transform $transition-duration $transition-ease;
 }
 
 .menu__check {
@@ -111,11 +140,15 @@
     z-index: 1;
     transition: width $transition-duration $transition-ease;
 
+    .fa-check,
+    .menu__check-circle {
+        opacity: 0;
+        transition: opacity $transition-duration $transition-ease;
+    }
+
     .fa-check {
         font-size: 12px;
-        opacity: 0;
         color: $color-schek;
-        transition: opacity $transition-duration $transition-ease;
     }
 }
 
@@ -126,36 +159,10 @@
     background-color: $color-background;
     @include flexbox(row, center, center);
     color: $color-schek;
-    opacity: 0;
-    transition: opacity $transition-duration $transition-ease;
 }
 
 .menu__check-input {
     display: none;
-}
-
-/* HOVER & CHECKED STATES */
-.menu__item:hover {
-    transform: translateX(-5px);
-
-    .menu__content {
-        border-right: 5px solid $color-schek;
-    }
-
-    .menu__check,
-    .menu__check-input:checked+.menu__check {
-        width: 59px;
-
-        .fa-check,
-        .menu__check-circle {
-            opacity: 1;
-        }
-    }
-
-    .menu__price,
-    .menu__check-input:checked+.menu__check+.menu__content .menu__price {
-        transform: translateX(-59px);
-    }
 }
 
 .order {
@@ -173,4 +180,33 @@
         box-shadow: $box-shadow-strong;
     }
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .menu-container {
+        width: 100%;
+        max-width: 600px; // 1055px / 2
+    }
 
+    .menu__section {
+        padding: 0 95px; // 210px / 2
+    }
+
+    .menu__item {
+        max-width: 349px; // 634px / 2
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .menu-container {
+        width: 100%;
+        max-width: 1055px; // ✅ Largeur totale du container gris clair
+    }
+
+    .menu__section {
+        padding: 0 210px; // Padding précis uniquement à gauche/droite
+    }
+
+    .menu__item {
+        max-width: 634px;
+    }
+}
