@@ -1,68 +1,3 @@
-// ===============================
-// 🎨 Mixin pour Flexbox
-// ===============================
-
-// ✅ Mixin générique pour flexbox
-@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-    gap: $gap;
-}
-
-// ✅ Mixin pour centrer avec Flexbox
-@mixin flex-center($direction: row, $gap: 0) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: center;
-    align-items: center;
-    gap: $gap;
-}
-
-// ✅ Mixin pour aligner un élément à gauche avec flexbox
-@mixin flex-left {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-// ✅ Mixin spécial pour aligner les éléments avec "space-between"
-@mixin flex-between($align: center) {
-    display: flex;
-    justify-content: space-between;
-    align-items: $align;
-}
-
-// ✅ Mixin pour une section centrée avec Flexbox
-@mixin flex-column-center($gap: 0) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: $gap;
-}
-
-// ===============================
-// 🎨 Mixin pour Grid Layout
-// ===============================
-
-@mixin grid-layout($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
-    display: grid;
-    grid-template-columns: $columns;
-    gap: $gap;
-}
-
-// ✅ Mixin spéciale pour le HEADER (Alignement Flèche + Logo)
-// ✅ Correction de la mixin flex-center pour accepter des arguments
-@mixin flex-center($direction: row, $gap: 0) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: center;
-    align-items: center;
-    gap: $gap;
-}
-
 // ✅ Mixin spécifique pour le header (logo centré, flèche alignée à gauche)
 @mixin header-flex {
     display: flex;
@@ -73,17 +8,8 @@
     height: 63px;
     background-color: $color-card-background;
 }
-
-// ✅ Mixin pour Flexbox : Aligne les éléments en ligne avec un espace entre eux
-@mixin flex-space-between($align: center) {
-    display: flex;
-    justify-content: space-between;
-    align-items: $align;
-}
-
-// ===============================
 // 🎨 Mixin pour les Boutons
-// ===============================
+
 @mixin button-style($bg-color: $color-gradient, // Dégradé par défaut
     $shadow: $box-shadow-strong, // Ombre forte par défaut
     $text-color: $button-text-color, // Couleur de texte par défaut
@@ -110,12 +36,10 @@
     background $transition-duration $transition-ease,
     box-shadow $transition-duration $transition-ease;
 }
-
-// ===============================
 // 🎨 Mixin pour les Cartes (Cards)
-// ===============================
 
-// ✅ Mixin pour les cartes avec un tag "Nouveau"
+
+//  Mixin pour les cartes avec un tag "Nouveau"
 @mixin card-with-tag {
     background-color: white;
     border-radius: 15px;
@@ -128,7 +52,7 @@
     }
 }
 
-// ✅ Mixin pour les cartes sans tag "Nouveau"
+//  Mixin pour les cartes sans tag "Nouveau"
 @mixin card-without-tag {
     background-color:$color-card-background;
     border-radius: 15px;
@@ -140,36 +64,33 @@
     }
 }
 
-// // ✅ Mixin unique pour Flexbox (au lieu d’avoir plusieurs variantes)
-// @mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
-//     display: flex;
-//     flex-direction: $direction;
-//     justify-content: $justify;
-//     align-items: $align;
-//     gap: $gap;
-//     flex-wrap: $wrap;
-// }
+// Mixin générique pour flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
 
-// // ✅ Simplification des alignements (au lieu de plusieurs mixins)
-// @mixin flex-center($gap: 0) {
-//     @include flex(row, center, center, $gap);
-// }
 
-// @mixin flex-between($gap: 0) {
-//     @include flex(row, space-between, center, $gap);
-// }
+@mixin flex-column-center($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
 
-// @mixin flex-left {
-//     @include flex(row, flex-start, center);
-// }
+// ✅ Mixin Flexbox générique (remplace toutes les mixins flex précédentes)
+@mixin flexbox($direction: row,
+    $justify: flex-start,
+    $align: stretch,
+    $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
 
-// @mixin flex-column($justify: center, $align: center, $gap: 0) {
-//     @include flex(column, $justify, $align, $gap);
-// }
-
-// // ✅ Mixin pour Grid (généraliste)
-// @mixin grid($columns: repeat(auto-fit, minmax(100px, 1fr)), $gap: 1rem) {
-//     display: grid;
-//     grid-template-columns: $columns;
-//     gap: $gap;
-// }

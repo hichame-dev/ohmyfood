@@ -2,7 +2,6 @@
 @import "../base/variables";
 @import "../base/mixins";
 
-/* SECTION MENU */
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
@@ -24,20 +23,16 @@
     }
 }
 
-/* MENU */
 .menu__item {
     width: 100%;
     padding: 12px 0;
     border-radius: 15px;
     box-shadow: $box-shadow-light;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox(row, space-between, center);
     box-sizing: border-box;
     margin-bottom: 12px;
     position: relative;
     overflow: hidden;
-    
     transition: $transition-duration $transition-ease;
 
     &:last-child {
@@ -46,26 +41,18 @@
 }
 
 .menu__content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox(row, space-between, center);
     width: 100%;
     padding-right: 15px;
     box-sizing: border-box;
-    
 }
 
 .menu__text {
-    width: 287px;
-    gap: $gap-small;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-grow: 1;
+    min-width: 0;
+    @include flexbox(column, flex-start, flex-start, $gap-small);
     padding-left: 15px;
     box-sizing: border-box;
-    
 }
 
 .menu__title {
@@ -77,6 +64,8 @@
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .menu__description {
@@ -89,6 +78,14 @@
     text-decoration-skip-ink: none;
     width: 100%;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.menu__price-container {
+    @include flexbox(row, flex-end, center);
+    width: 59px;
+    transition: width 0.4s ease-in-out;
 }
 
 .menu__price {
@@ -98,9 +95,9 @@
     margin-right: 15px;
     box-sizing: border-box;
     align-self: flex-end;
+    transition: transform 0.4s ease-in-out;
 }
 
-/* CHECKBOX & ANIMATION */
 .menu__check {
     width: 0;
     height: 100%;
@@ -109,12 +106,17 @@
     right: 0;
     background-color: $color-schek;
     border-radius: 0 15px 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexbox(row, center, center);
     cursor: pointer;
     z-index: 1;
     transition: width $transition-duration $transition-ease;
+
+    .fa-check {
+        font-size: 12px;
+        opacity: 0;
+        color: $color-schek;
+        transition: opacity $transition-duration $transition-ease;
+    }
 }
 
 .menu__check-circle {
@@ -122,64 +124,9 @@
     height: 20px;
     border-radius: 50%;
     background-color: $color-background;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexbox(row, center, center);
     color: $color-schek;
     opacity: 0;
-    transition: opacity $transition-duration $transition-ease;
-}
-
-.menu__title,
-.menu__description {
-    white-space: nowrap;
-    overflow: hidden;
-    
-}
-
-
-.menu__content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-}
-
-.menu__text {
-    flex-grow: 1; // ✅ Prend toute la place disponible
-    min-width: 0; // ✅ Évite le débordement du texte
-}
-
-.menu__price-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 59px; // ✅ Taille de l'espace tampon qui sera poussé
-    transition: width 0.4s ease-in-out;
-    
-}
-
-.menu__price {
-    transition: transform 0.4s ease-in-out;
-}
-
-.menu__check {
-    width: 0;
-    height: 100%;
-    background-color: $color-schek;
-    border-radius: 0 15px 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
-    transition: width 0.4s ease-in-out;
-}
-.menu__check .fa-check {
-    font-size: 12px;
-    opacity: 0;
-    color: $color-schek;
     transition: opacity $transition-duration $transition-ease;
 }
 
@@ -190,37 +137,30 @@
 /* HOVER & CHECKED STATES */
 .menu__item:hover {
     transform: translateX(-5px);
+
+    .menu__content {
+        border-right: 5px solid $color-schek;
+    }
+
+    .menu__check,
+    .menu__check-input:checked+.menu__check {
+        width: 59px;
+
+        .fa-check,
+        .menu__check-circle {
+            opacity: 1;
+        }
+    }
+
+    .menu__price,
+    .menu__check-input:checked+.menu__check+.menu__content .menu__price {
+        transform: translateX(-59px);
+    }
 }
 
-.menu__item:hover .menu__content {
-    border-right: 5px solid $color-schek;
-}
-
-.menu__item:hover .menu__check,
-.menu__check-input:checked+.menu__check {
-    width: 59px;
-}
-
-.menu__item:hover .menu__price,
-.menu__check-input:checked+.menu__check+.menu__content .menu__price {
-    transform: translateX(-59px);
-}
-
-.menu__item:hover .menu__check .fa-check,
-.menu__item:hover .menu__check .menu__check-circle,
-.menu__check-input:checked+.menu__check .fa-check,
-.menu__check-input:checked+.menu__check .menu__check-circle {
-    opacity: 1;
-}
-
-
-
-/* BOUTON COMMANDE */
 .order {
-    height: 187px; // ✅ Hauteur fixe pour laisser un espace défini entre le menu et le footer
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 187px;
+    @include flexbox(row, center, center);
 }
 
 .btn--order {

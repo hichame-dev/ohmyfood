@@ -2,27 +2,27 @@
 @import "../base/mixins";
 
 .header {
-    @include flex(row, center, center); // Remplacement de display: flex
+    @include flexbox(row, center, center);
     width: 100%;
-    height: $header-height; // Remplacé 63px par $header-height
-    background-color: $color-card-background; // Remplacé #F6F6F6 par $color-card-background
+    height: $header-height;
+    background-color: $color-card-background;
     position: relative;
 
     .direction__icon {
         position: absolute;
         top: 17px;
         left: 16px;
-        @include flex(center, center);
+        @include flexbox(row, center, center);
         width: 30px;
         height: 30px;
-        color: $color-secondary; // Remplacé #353535 par $color-secondary
+        color: $color-secondary;
 
         a {
-            @include flex(center, center);
+            @include flexbox(row, center, center);
 
             i {
-                font-size: $font-size-medium; // Remplacé 16px par $font-size-medium (proche de 16px)
-                color: $color-secondary; // Remplacé #353535 par $color-secondary
+                font-size: $font-size-medium;
+                color: $color-secondary;
             }
         }
     }
@@ -45,11 +45,11 @@
 // titre
 
 .restaurant-header {
-    @include flex(row, space-between, center);
-    padding-left: $gap-medium; // Remplacé 1.0625rem par $gap-medium
-    padding-right: $gap-medium; // Remplacé 1.0625rem par $gap-medium
+    @include flexbox(row, space-between, center);
+    padding-left: $gap-medium;
+    padding-right: $gap-medium;
     width: 100%;
-    margin-top: $padding-section; // Remplacé 2rem par $padding-section (ou $margin-title)
+    margin-top: $padding-section;
 
     .restaurant-title {
         font-family: $font-secondary;
@@ -65,9 +65,7 @@
     .card__icon-pink {
         width: 1.375rem;
         height: 1.3125rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flexbox(row, center, center);
         position: relative;
         cursor: pointer;
         transition: transform 0.3s ease-in-out;
@@ -87,7 +85,6 @@
     }
 }
 
-
 .restaurant-banner {
     position: relative;
     width: 100%;
@@ -103,9 +100,9 @@
 
 .menu-container {
     position: relative;
-    background-color: $color-card-background; // Remplacé #F6F6F6 par $color-card-background
-    border-radius: $button-radius $button-radius 0 0; // Remplacé 2.5rem par $button-radius
-    gap: $gap-large; // Remplacé 2.5rem par $gap-large
+    background-color: $color-card-background;
+    border-radius: $button-radius $button-radius 0 0;
+    gap: $gap-large;
     margin-top: -2.3125rem;
     z-index: 2;
 }
@@ -117,34 +114,27 @@
 }
 
 /* ✅ Style général du bouton cœur */
-/* ✅ Style général du bouton cœur */
 .card__icon-pink {
     width: 1.375rem;
     height: 1.3125rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox(row, center, center);
     position: relative;
     cursor: pointer;
 
-    /* ✅ Effet de zoom au survol */
     &:hover {
         transform: scale(1.1);
     }
 
-    /* ✅ Cache l'input */
     .card__checkbox {
         display: none;
     }
 
-    /* ✅ Icône du cœur vide */
     .card__icon--empty {
         font-size: 1.375rem;
         color: $color-primary;
         position: absolute;
     }
 
-    /* ✅ Icône du cœur plein */
     .card__icon--full {
         font-size: 1.375rem;
         background: $color-gradient;
@@ -152,8 +142,7 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
         position: absolute;
-        opacity: 0; // Caché par défaut
-        transform: scale(0.5); // Prépare l'animation d'apparition
+        opacity: 0;
+        transform: scale(0.5);
     }
 }
-
