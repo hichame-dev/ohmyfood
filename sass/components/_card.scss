@@ -229,6 +229,9 @@
 .card__icon-pink {
     width: 1.375rem;
     height: auto;
+    position: relative;
+    top: 15px;
+
     @include flexbox(row, center, center);
     
     position: relative;

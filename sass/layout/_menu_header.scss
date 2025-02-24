@@ -42,7 +42,6 @@
 }
 
 // Restaurant Header (titre + icône cœur)
-// Restaurant Header (titre + icône cœur)
 .restaurant-header {
     @include flexbox(row, center, center);
     gap: 40px; // Ajuste selon ton besoin

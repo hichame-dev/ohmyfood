@@ -5,40 +5,35 @@
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
-    display: flex; // ✅ Active Flexbox
-    flex-direction: column; // ✅ Organise les éléments en colonne
-    justify-content: center; // ✅ Centre verticalement
-    align-items: center; // ✅ Centre horizontalement
-    width: 100%; // Prend toute la largeur disponible
+    width: 100%;
     box-sizing: border-box;
 }
-
-    h2 {
-        position: relative;
-        margin-bottom: $margin-bottom-menu-h2;
-        padding-left: $gap-medium;
-
-        &::after {
-            content: "";
-            width: $gap-large;
-            border-top: 3px solid $color-schek;
-            position: relative;
-            left: 0;
-            top: 5px;
-            display: block;
-        }
-    }
+                .menu__section>h2 {
+                    position: relative;
+                    margin-bottom: $margin-bottom-menu-h2;
+                    padding-left: $gap-medium;
+                    text-align: left;
+        
+                    &::after {
+                        content: "";
+                        width: $gap-large;
+                        border-top: 3px solid $color-schek;
+                        position: relative;
+                        left: 0;
+                        top: 5px;
+                        display: block;
+                    }
+                }
 
 
 .menu__item {
     width: 100%;
-
+    max-width: 634px; // 👈 largeur maximale du plat
+    margin: 0 auto 12px auto; // ✅ Centrage horizontal précis grâce à margin auto
     padding: 12px 0;
     border-radius: 15px;
     box-shadow: $box-shadow-light;
     @include flexbox(row, space-between, center);
-    box-sizing: border-box;
-    margin-bottom: 12px;
     position: relative;
     overflow: hidden;
     transition: $transition-duration $transition-ease;
@@ -69,7 +64,6 @@
         }
     }
 }
-
 .menu__content {
     @include flexbox(row, space-between, center);
     width: 100%;
@@ -183,15 +177,15 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .menu-container {
         width: 100%;
-        max-width: 600px; // 1055px / 2
+        max-width: 600px;
     }
 
     .menu__section {
-        padding: 0 95px; // 210px / 2
+        padding: 0 95px; 
     }
 
     .menu__item {
-        max-width: 349px; // 634px / 2
+        max-width: 400px; 
     }
 }
 
