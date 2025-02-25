@@ -1,21 +1,22 @@
+/* SECTION MENU */
 @import "../base/variables";
 @import "../base/mixins";
 
-/* SECTION MENU */
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.menu__section h2 {
-    margin: 0;
+.menu__section>h2 {
     position: relative;
     margin-bottom: $margin-bottom-menu-h2;
-
+    padding-left: $gap-medium;
+    text-align: left;
 
     &::after {
         content: "";
-        width: 50%;
         width: $gap-large;
         border-top: 3px solid $color-schek;
         position: relative;
@@ -25,57 +26,66 @@
     }
 }
 
-.menu__section {
-    margin-top: $margin-section-menu;
-    padding: 13px;
-
-
-    h2 {
-        position: relative;
-        margin-bottom: $margin-bottom-menu-h2;
-        padding-left: $gap-medium;
-    }
-}
-
-// menu
 
 .menu__item {
     width: 100%;
+    max-width: 634px; // 👈 largeur maximale du plat
+    margin: 0 auto 12px auto; // ✅ Centrage horizontal précis grâce à margin auto
     padding: 12px 0;
     border-radius: 15px;
     box-shadow: $box-shadow-light;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    margin-bottom: 12px;
-    /* Ajout du gap entre les boîtes */
-}
+    @include flexbox(row, space-between, center);
+    position: relative;
+    overflow: hidden;
+    transition: $transition-duration $transition-ease;
 
-.menu__item:last-child {
-    margin-bottom: 0;
-    /* Supprime la marge du dernier élément */
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:hover,
+    .menu__check-input:checked+.menu__check+.menu__content {
+        transform: translateX(-5px);
+
+        .menu__content {
+            border-right: 5px solid $color-schek;
+        }
+
+        .menu__check {
+            width: 59px;
+
+            .fa-check,
+            .menu__check-circle {
+                opacity: 1;
+            }
+        }
+
+        .menu__price {
+            transform: translateX(-59px);
+        }
+    }
 }
 
 .menu__content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox(row, space-between, center);
     width: 100%;
     padding-right: 15px;
     box-sizing: border-box;
 }
 
 .menu__text {
-    width: 287px;
-    gap: $gap-small;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-grow: 1;
+    min-width: 0;
+    @include flexbox(column, flex-start, flex-start, $gap-small);
     padding-left: 15px;
     box-sizing: border-box;
+}
+
+.menu__title,
+.menu__description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .menu__title {
@@ -84,8 +94,6 @@
     font-weight: $font-weight-medium;
     line-height: 21.09px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     margin: 0;
 }
 
@@ -95,10 +103,14 @@
     font-weight: $font-weight-light;
     line-height: $line-height-price;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     width: 100%;
     margin: 0;
+}
+
+.menu__price-container {
+    @include flexbox(row, flex-end, center);
+    width: 59px;
+    transition: width $transition-duration $transition-ease;
 }
 
 .menu__price {
@@ -108,30 +120,93 @@
     margin-right: 15px;
     box-sizing: border-box;
     align-self: flex-end;
+    transition: transform $transition-duration $transition-ease;
+}
+
+.menu__check {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color-schek;
+    border-radius: 0 15px 15px 0;
+    @include flexbox(row, center, center);
+    cursor: pointer;
+    z-index: 1;
+    transition: width $transition-duration $transition-ease;
+
+    .fa-check,
+    .menu__check-circle {
+        opacity: 0;
+        transition: opacity $transition-duration $transition-ease;
+    }
+
+    .fa-check {
+        font-size: 12px;
+        color: $color-schek;
+    }
+}
+
+.menu__check-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $color-background;
+    @include flexbox(row, center, center);
+    color: $color-schek;
+}
+
+.menu__check-input {
+    display: none;
 }
 
 .order {
-    /* Hauteur fixe de 187px pour laisser un espace défini entre le menu et le footer */
     height: 187px;
-
-    /* On centre le bouton horizontalement et verticalement */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox(row, center, center);
 }
 
 .btn--order {
     @include button-style();
-
-    /* Taille du bouton */
     width: $button-width;
     height: $button-height;
 
-    /* Au survol, on utilise un autre gradient + une ombre différente */
     &:hover {
-        /* Définis un gradient "un peu plus clair" à la main */
         background: $color-gradient;
-        /* Ombre plus marquée */
         box-shadow: $box-shadow-strong;
+    }
+}
+.card__checkbox {
+    appearance: auto !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .menu-container {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .menu__section {
+        padding: 0 95px;
+    }
+
+    .menu__item {
+        max-width: 400px;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .menu-container {
+        width: 100%;
+        max-width: 1055px; // ✅ Largeur totale du container gris clair
+    }
+
+    .menu__section {
+        padding: 0 210px; // Padding précis uniquement à gauche/droite
+    }
+
+    .menu__item {
+        max-width: 634px;
     }
 }

@@ -12,7 +12,7 @@
     justify-content: center;
     gap: 20px;
     margin-bottom: 68px;
-    /* ✅ RAJOUTÉ : Marge inférieure de 68px pour espacement mobile */
+
 }
 
 .steps__title {
@@ -100,4 +100,158 @@
 .steps__list .step:nth-child(1) .step__icon {
     font-size: 2.5rem;
     margin-left: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    .restaurants {
+        width: 100%;
+        max-width: none;
+        padding: 0 1.25rem; // ✅ Un padding plus petit pour éviter un effet de marge
+    }
+}
+
+/* ✅ TABLETTE (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    /* 🎯 STEPS */
+    .steps {
+        max-width: 100%; // ✅ Prend la largeur du conteneur sans dépasser
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5% 10%; // ✅ Padding ajusté pour tablette
+        gap: 20px;
+        margin-bottom: 0;
+    }
+
+    .steps__title {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .steps__container {
+        max-width: 100%;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .steps__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .step {
+        max-width: 30%; // ✅ Ajusté en pourcentage pour une adaptation fluide
+        flex: 1;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        .step__text {
+            white-space: normal;
+        }
+    }
+
+    /* 🎯 RESTAURANTS */
+    .restaurants {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 5%;
+        margin: 0 auto;
+
+    }
+
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ✅ DESKTOP (1024px et +) */
+@media screen and (min-width: 1024px) {
+
+    /* 🎯 STEPS */
+    .steps {
+        max-width: 1440px;
+        height: 228.379px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 50px 180px;
+        gap: 25px;
+        margin-bottom: 0;
+    }
+
+    .steps__title {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .steps__container {
+        max-width: 100%;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .steps__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 24px;
+        width: 100%;
+    }
+
+    .step {
+        max-width: 335px;
+        flex: 1;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* 🎯 RESTAURANTS */
+    .restaurants {
+        width: 100vw; // ✅ Background prend toute la largeur
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 5%;
+    }
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }

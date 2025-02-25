@@ -7,7 +7,7 @@ h2 {
     font-size: $font-size-large;
     font-weight: $font-weight-bold;
     color: $color-primary;
-    margin-top: 54px;
+    
     
 }
 
@@ -32,7 +32,6 @@ p {
     font-weight: 400;
     line-height: $line-height-xl;
     text-align: left;
-    
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
@@ -134,20 +133,23 @@ p {
 
 
 
+
+
+
 // ===============================
 // 📱 Responsive Design (Mobile First)
 // ===============================
 
-// Tablette
-@media (min-width: $tablet-width) {
-    main {
-        width: 100%;
-    }
-}
+// // Tablette
+// @media (min-width: $tablet-width) {
+//     main {
+//         width: 100%;
+//     }
+// }
 
-// Desktop
-@media (min-width: $desktop-width) {
-    main {
-        width: 100%;
-    }
-}
+// // Desktop
+// @media (min-width: $desktop-width) {
+//     main {
+//         width: 100%;
+//     }
+// }

@@ -4,22 +4,22 @@
 .footer {
     width: 100%;
     min-height: 186px;
-    @include flex(row, flex-start, center, 1rem); // Remplacement de display:flex
+    @include flexbox(row, flex-start, center, 1rem);
     position: relative;
     background-color: #353535;
-    color: white; // Couleur de texte par défaut pour le footer
+    color: white;
     padding: 22px 25px;
 
     &__container {
         max-width: 375px;
         width: 375px;
         padding: 0;
-        @include flex(column, flex-start, column, 16px);
+        @include flexbox(column, flex-start, stretch, 16px);
     }
 
     &__logo {
         width: 190px;
-        display: flex;
+        @include flexbox();
     }
 
     &__logo-text {
@@ -31,37 +31,65 @@
         text-align: left;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
-        color: white; // Couleur de texte du logo en blanc
+        color: white;
     }
 
     &__nav {
         width: 100%;
-        @include flex(flex-start);
+        @include flexbox(row, flex-start);
     }
 
     &__links {
         list-style: none;
         padding: 0;
-        @include flex(column, flex-start, column, 0.4375rem);
+        @include flexbox(column, flex-start, stretch, 0.4375rem);
     }
 
     &__link-item {
-        display: flex;
-        align-items: center; // ✅ Alignement vertical des icônes avec le texte
-        gap: 10px; // Espacement entre l'icône et le texte
+        @include flexbox(row, flex-start, center, 10px);
     }
 
     &__link-item-icon {
-        display: flex;
-        align-items: center; // ✅ Centre l'icône verticalement
-        justify-content: center;
-        width: 0.875rem; // Ajustement de la largeur
-        height: 0.875rem; // Ajustement de la hauteur
+        @include flexbox(row, center, center);
+        width: 0.875rem;
+        height: 0.875rem;
 
         i {
-            font-size: 0.875rem; // Ajuste la taille de l'icône
-            line-height: 1; // ✅ Évite le décalage vertical
-            vertical-align: middle; // ✅ Assure que l'icône est bien alignée
+            font-size: 0.875rem;
+            line-height: 1;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 30px;
+        min-height: 114px;
+
+        &__container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            max-width: 1024px;
+            width: 100%;
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            width: auto;
+        }
+
+        &__logo {
+            order: 2;
+            margin-left: 25px;
         }
     }
 }

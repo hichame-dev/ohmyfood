@@ -2,156 +2,6 @@
 @import "../base/mixins";
 
 
-/* SECTION MENU */
-.menu__section {
-    margin-top: $margin-section-menu;
-    padding: 13px;
-}
-
-.menu__section h2 {
-    position: relative;
-    margin-bottom: $margin-bottom-menu-h2;
-    margin-left: $gap-medium;
-}
-
-.menu__section h2::after {
-    content: "";
-    width: $gap-large;
-    border-top: 3px solid $color-schek;
-    position: relative;
-    left: 0;
-    top: 5px;
-    display: block;
-}
-
-/* MENU */
-.menu__item {
-    width: 100%;
-    padding: 12px 0;
-    border-radius: 15px;
-    box-shadow: $box-shadow-light;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    margin-bottom: 12px;
-    position: relative;
-    overflow: hidden;
-    transition: $transition-duration $transition-ease;
-}
-
-.menu__item:last-child {
-    margin-bottom: 0;
-}
-
-.menu__content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding-right: 15px;
-    box-sizing: border-box;
-}
-
-.menu__text {
-    width: 287px;
-    gap: $gap-small;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-left: 15px;
-    box-sizing: border-box;
-}
-
-.menu__price {
-    font-family: $font-primary;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-medium;
-    margin-right: 15px;
-    box-sizing: border-box;
-    align-self: flex-end;
-}
-
-/* CHECKBOX & ANIMATION */
-.menu__check {
-    width: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: $color-schek;
-    border-radius: 0 15px 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1;
-    transition: width $transition-duration $transition-ease;
-}
-
-.menu__check-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: $color-background;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $color-schek;
-    opacity: 0;
-    transition: opacity $transition-duration $transition-ease;
-}
-
-.menu__check .fa-check {
-    font-size: 12px;
-    opacity: 0;
-    color: $color-schek;
-    transition: opacity $transition-duration $transition-ease;
-}
-
-.menu__check-input {
-    display: none;
-}
-
-/* HOVER & CHECKED STATES */
-.menu__item:hover {
-    transform: translateX(-5px);
-}
-
-.menu__item:hover .menu__content {
-    border-right: 5px solid $color-schek;
-}
-
-.menu__item:hover .menu__check,
-.menu__check-input:checked+.menu__check {
-    width: 59px;
-}
-
-.menu__item:hover .menu__price,
-.menu__check-input:checked+.menu__check+.menu__content .menu__price {
-    transform: translateX(-59px);
-}
-
-.menu__item:hover .menu__check .fa-check,
-.menu__item:hover .menu__check .menu__check-circle,
-.menu__check-input:checked+.menu__check .fa-check,
-.menu__check-input:checked+.menu__check .menu__check-circle {
-    opacity: 1;
-}
-
-/* ANIMATIONS */
-@keyframes simpleFade {
-    0% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
 /* LOADER */
 .loader-container {
     position: fixed;
@@ -184,6 +34,105 @@
     font-family: $font-secondary;
     color: $color-primary;
     animation: pulse 1.5s ease-in-out infinite;
+}
+
+// chek
+
+/* ✅ Expansion du check */
+@keyframes expandCheck {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 59px;
+    }
+}
+
+/* ✅ Déplacement du prix */
+@keyframes movePrice {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-59px);
+    }
+}
+
+/* ✅ Apparition du check */
+@keyframes fadeInCheck {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ✅ Activation de l'ellipsis quand le check est coché */
+@keyframes applyEllipsis {
+    0% {
+        text-overflow: clip;
+        overflow: visible;
+        white-space: nowrap;
+    }
+
+    100% {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+/* ✅ Suppression de l'ellipsis quand on décoche */
+@keyframes removeEllipsis {
+    0% {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    100% {
+        text-overflow: clip;
+        overflow: visible;
+        white-space: nowrap;
+    }
+}
+
+/* ✅ Rétraction du check */
+@keyframes collapseCheck {
+    0% {
+        width: 59px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+/* ✅ Remise en place du prix */
+@keyframes resetPrice {
+    0% {
+        transform: translateX(-59px);
+
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ✅ Disparition du check */
+@keyframes fadeOutCheck {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes spin {
@@ -220,4 +169,44 @@
         opacity: 0;
         visibility: hidden;
     }
+}
+
+
+/* ==============================
+   ANIMATIONS DU CŒUR SANS HOVER
+   ============================== */
+
+/* ✅ Disparition du cœur vide */
+@keyframes fadeOutHeart {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+/* ✅ Apparition du cœur plein */
+@keyframes fadeInHeart {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ✅ Application des animations via la checkbox */
+.card__checkbox:checked~.card__icon--empty {
+    animation: fadeOutHeart 0.4s ease forwards;
+}
+
+.card__checkbox:checked~.card__icon--full {
+    animation: fadeInHeart 0.4s ease forwards;
 }

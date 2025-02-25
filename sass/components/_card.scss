@@ -2,113 +2,246 @@
 @import "../base/mixins";
 
 .restaurants {
-    width: 100%;
-    padding: 0 $gap-medium;
+    width: 100vw; // ✅ Le background prend toute la largeur
+    max-width: 1440px; // ✅ La section est limitée en largeur pour éviter qu’elle soit trop étalée
     margin: 0 auto;
+    padding: 0 $gap-medium;
     background-color: $color-card-background;
     display: flex;
     flex-direction: column;
     gap: $gap-medium;
 }
 
-.h2 restaurants__title {
-    margin-top: 0; // ✅ Évite qu'il soit trop bas
+/* ✅ Correction du sélecteur */
+.restaurants__title {
+    margin-top: 0;
     padding-left: $gap-medium;
     width: 100%;
+    margin-top: 54px;
+    
 }
 
 .restaurants__grid {
     display: flex;
     flex-direction: column;
+    margin-bottom: 66px;
     width: 100%;
 }
 
-    .card {
+/* ✅ Style des cartes */
+.card {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-bottom: $gap-medium;
+    display: flex;
+    flex-direction: column;
+
+    &--new {
+        @include card-with-tag;
+    }
+
+    &:not(.card--new) {
+        @include card-without-tag;
+    }
+
+    &__image-container {
+        display: flex;
+        overflow: hidden;
+        max-height: 12.5rem;
+    }
+
+    &__img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 0px $spacing-small 0.9375rem rgba(0, 0, 0, 0.1);
+    }
+
+    &__content {
+        padding-left: $spacing-medium-horizontal;
+        padding-right: $spacing-medium-horizontal;
         height: auto;
-        position: relative;
-        margin-bottom: $gap-medium;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: flex-start;
+    }
+
+    &__text {
         display: flex;
         flex-direction: column;
+    }
 
-        &--new {
-            @include card-with-tag;
-        }
+    &__title {
+        font-family: $font-primary;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-medium;
+        color: $color-primary;
+        margin-top: $spacing-medium-horizontal;
+        left: 0;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        
+    }
 
-        &:not(.card--new) {
-            @include card-without-tag;
-        }
+    &__location {
+        font-family: $font-primary;
+        font-size: $font-size-small;
+        font-weight: $font-weight-light;
+        line-height: $line-height-small;
+        color: $color-primary;
+        opacity: 1;
+        margin-top: $spacing-small;
+        margin-bottom: 0.75rem;
+    }
 
-        &__image-container {
-            display: flex;
-            overflow: hidden;
-            max-height: 12.5rem;
-        }
+    &__icon-pink {
+        width: 1.375rem;
+        height: 1.3125rem;
+        font-weight: $font-weight-light;
+        margin-top: $spacing-medium-horizontal;
+        justify-self: end;
+        align-self: start;
 
-        &__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            box-shadow: 0px $spacing-small 0.9375rem rgba(0, 0, 0, 0.1); // Utilisation de $spacing-small
-        }
+    
+    }
 
-        &__content {
-            padding-left: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            padding-right: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            height: auto;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            align-items: flex-start;
-        }
+    &--new .card__tag {
+        position: absolute;
+        top: 0.8125rem;
+        right: $spacing-medium-horizontal;
+        background-color: $color-schek;
+        color: $color-background;
+        padding: 0.5rem 0.9375rem;
+        border-radius: 0.125rem;
+        font-size: 0.875rem;
+    }
+}
 
-        &__text {
-            display: flex;
-            flex-direction: column;
-        }
 
-        &__title {
-            font-family: $font-primary;
-            font-size: $font-size-medium;
-            font-weight: $font-weight-bold;
-            line-height: $line-height-medium;
-            color: $color-primary;
-            margin-top: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            left: 0;
-            text-underline-position: from-font;
-            text-decoration-skip-ink: none;
-        }
 
-        &__location {
-            font-family: $font-primary;
-            font-size: $font-size-small;
-            font-weight: $font-weight-light;
-            line-height: $line-height-small;
-            color: $color-primary;
-            opacity: 1;
-            margin-top: $spacing-small; // Utilisation de $spacing-small
-            margin-bottom: 0.75rem;
-        }
 
-        &__icon-pink {
-            width: 1.375rem;
-            height: 1.3125rem;
-            margin-top: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            justify-self: end;
-            align-self: start;
 
-            &:hover .card__icon {
-                color: $color-gradient;
-            }
-        }
 
-        &--new .card__tag {
-            position: absolute;
-            top: 0.8125rem;
-            right: $spacing-medium-horizontal; // Utilisation de $spacing-medium-horizontal
-            background-color: $color-schek;
-            color: $color-background;
-            padding: 0.5rem 0.9375rem;
-            border-radius: 0.125rem;
-            font-size: 0.875rem;
+/* ✅ MOBILE FIRST (jusqu'à 767px) */
+@media screen and (max-width: 767px) {
+    .restaurants {
+        width: 100%;
+        max-width: none;
+        padding: 0 1.25rem; // ✅ Un padding plus petit pour éviter un effet de marge
+    }
+}
+
+/* ✅ TABLETTE (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    /* 🎯 STEPS */
+    .steps {
+        max-width: 100%; // ✅ Prend la largeur du conteneur sans dépasser
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5% 10%; // ✅ Padding ajusté pour tablette
+        gap: 20px;
+        margin-bottom: 0;
+    }
+
+    .steps__title {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .steps__container {
+        max-width: 100%;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .steps__list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .step {
+        max-width: 30%; // ✅ Ajusté en pourcentage pour une adaptation fluide
+        flex: 1;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        .step__text {
+            white-space: normal;
         }
     }
+
+    /* 🎯 RESTAURANTS */
+    .restaurants {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 5%;
+        margin: 0 auto;
+
+    }
+
+
+    .restaurants__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+.card__icon-pink {
+    width: 1.375rem;
+    height: auto;
+    position: relative;
+    top: 15px;
+
+    @include flexbox(row, center, center);
+    
+    position: relative;
+    cursor: pointer;
+
+    
+    }
+
+    .card__checkbox {
+        display: none; // ✅ Cache totalement la checkbox
+    }
+
+    
+
+    .card__icon--full {
+        font-size: 1.375rem;
+        background: $color-gradient;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: absolute;
+        opacity: 0; // ✅ Icône pleine invisible par défaut
+        transform: scale(0.5);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none; // Empêche interaction directe
+    }
+
