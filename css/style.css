@@ -56,6 +56,19 @@ html {
   box-sizing: inherit;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* Added line */
+  border: 0;
+}
+
 h2 {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
@@ -657,9 +670,6 @@ p {
   justify-self: end;
   align-self: start;
 }
-.card__icon-pink:hover .card__icon {
-  color: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-}
 .card--new .card__tag {
   position: absolute;
   top: 0.8125rem;
@@ -669,22 +679,6 @@ p {
   padding: 0.5rem 0.9375rem;
   border-radius: 0.125rem;
   font-size: 0.875rem;
-}
-
-.card__icon {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.063rem;
-  font-weight: 300;
-  color: #000000;
-}
-
-/* ✅ Animation du cœur au clic */
-.card__checkbox:checked ~ .card__icon--empty {
-  animation: fadeOutHeart 0.3s ease-in-out forwards;
-}
-
-.card__checkbox:checked ~ .card__icon--full {
-  animation: fadeInHeart 0.3s ease-in-out forwards;
 }
 
 /* ✅ MOBILE FIRST (jusqu'à 767px) */
@@ -776,20 +770,12 @@ p {
   position: relative;
   cursor: pointer;
 }
-.card__icon-pink:hover {
-  transform: scale(1.1);
-}
-.card__icon-pink .card__checkbox {
+
+.card__checkbox {
   display: none;
 }
-.card__icon-pink .card__icon--empty {
-  font-size: 1.375rem;
-  color: #000000;
-  position: absolute;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-.card__icon-pink .card__icon--full {
+
+.card__icon--full {
   font-size: 1.375rem;
   background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
@@ -800,13 +786,6 @@ p {
   transform: scale(0.5);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
-}
-.card__icon-pink .card__checkbox:checked ~ .card__icon--empty {
-  opacity: 0;
-}
-.card__icon-pink .card__checkbox:checked ~ .card__icon--full {
-  opacity: 1;
-  transform: scale(1);
 }
 
 /* Styles de base (Mobile - par défaut, en dessous de 768px) */
@@ -1191,6 +1170,9 @@ p {
     visibility: hidden;
   }
 }
+/* ==============================
+   ANIMATIONS DU CŒUR SANS HOVER
+   ============================== */
 /* ✅ Disparition du cœur vide */
 @keyframes fadeOutHeart {
   0% {
@@ -1213,6 +1195,15 @@ p {
     transform: scale(1);
   }
 }
+/* ✅ Application des animations via la checkbox */
+.card__checkbox:checked ~ .card__icon--empty {
+  animation: fadeOutHeart 0.4s ease forwards;
+}
+
+.card__checkbox:checked ~ .card__icon--full {
+  animation: fadeInHeart 0.4s ease forwards;
+}
+
 /* SECTION MENU */
 .menu__section {
   margin-top: 2.625rem;
@@ -1425,6 +1416,12 @@ p {
   box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
 }
 
+.card__checkbox {
+  -webkit-appearance: auto !important;
+     -moz-appearance: auto !important;
+          appearance: auto !important;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .menu-container {
     width: 100%;
@@ -1449,5 +1446,181 @@ p {
     max-width: 634px;
   }
 }
+/* LOADER */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  animation: fadeOut 1s ease-out 3s forwards;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid transparent;
+  border-top: 6px solid #9356DC;
+  border-right: 6px solid #FF79DA;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-family: "Shrikhand", sans-serif;
+  color: #000000;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ✅ Expansion du check */
+@keyframes expandCheck {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 59px;
+  }
+}
+/* ✅ Déplacement du prix */
+@keyframes movePrice {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-59px);
+  }
+}
+/* ✅ Apparition du check */
+@keyframes fadeInCheck {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* ✅ Activation de l'ellipsis quand le check est coché */
+@keyframes applyEllipsis {
+  0% {
+    text-overflow: clip;
+    overflow: visible;
+    white-space: nowrap;
+  }
+  100% {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+/* ✅ Suppression de l'ellipsis quand on décoche */
+@keyframes removeEllipsis {
+  0% {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  100% {
+    text-overflow: clip;
+    overflow: visible;
+    white-space: nowrap;
+  }
+}
+/* ✅ Rétraction du check */
+@keyframes collapseCheck {
+  0% {
+    width: 59px;
+  }
+  100% {
+    width: 0;
+  }
+}
+/* ✅ Remise en place du prix */
+@keyframes resetPrice {
+  0% {
+    transform: translateX(-59px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* ✅ Disparition du check */
+@keyframes fadeOutCheck {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* ==============================
+   ANIMATIONS DU CŒUR SANS HOVER
+   ============================== */
+/* ✅ Disparition du cœur vide */
+@keyframes fadeOutHeart {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+/* ✅ Apparition du cœur plein */
+@keyframes fadeInHeart {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* ✅ Application des animations via la checkbox */
+.card__checkbox:checked ~ .card__icon--empty {
+  animation: fadeOutHeart 0.4s ease forwards;
+}
+
+.card__checkbox:checked ~ .card__icon--full {
+  animation: fadeInHeart 0.4s ease forwards;
+}
+
 /*  MOBILE FIRST : < 768px */
 /*  MOBILE FIRST : < 768px *//*# sourceMappingURL=style.css.map */

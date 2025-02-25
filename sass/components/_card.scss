@@ -104,9 +104,7 @@
         justify-self: end;
         align-self: start;
 
-        &:hover .card__icon {
-            color: $color-gradient;
-        }
+    
     }
 
     &--new .card__tag {
@@ -121,21 +119,9 @@
     }
 }
 
-.card__icon {
-    font-family: $font-primary; // Utilise la même police que `.card__location`
-    font-size: $font-size-small; // Taille identique au texte
-    font-weight: $font-weight-light; // Même épaisseur de police
-    color: $color-primary; // Même couleur que le texte
-}
 
-/* ✅ Animation du cœur au clic */
-.card__checkbox:checked~.card__icon--empty {
-    animation: fadeOutHeart 0.3s ease-in-out forwards;
-}
 
-.card__checkbox:checked~.card__icon--full {
-    animation: fadeInHeart 0.3s ease-in-out forwards;
-}
+
 
 
 /* ✅ MOBILE FIRST (jusqu'à 767px) */
@@ -237,21 +223,14 @@
     position: relative;
     cursor: pointer;
 
-    &:hover {
-        transform: scale(1.1);
+    
     }
 
     .card__checkbox {
         display: none; // ✅ Cache totalement la checkbox
     }
 
-    .card__icon--empty {
-        font-size: 1.375rem;
-        color: $color-primary;
-        position: absolute;
-        opacity: 1; // ✅ Icône vide visible par défaut
-        transition: opacity 0.3s ease;
-    }
+    
 
     .card__icon--full {
         font-size: 1.375rem;
@@ -266,13 +245,3 @@
         pointer-events: none; // Empêche interaction directe
     }
 
-    // ✅ Lorsque la checkbox est cochée, inverse les icônes
-    .card__checkbox:checked~.card__icon--empty {
-        opacity: 0;
-    }
-
-    .card__checkbox:checked~.card__icon--full {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
