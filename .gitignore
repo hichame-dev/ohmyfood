@@ -1,0 +1,6 @@
+# Ignorer tous les fichiers par défaut
+*
+
+# Ne PAS ignorer le dossier Ohmyfood/
+!OHMYFOOD/
+!OHMYFOOD/**  # Ne pas ignorer son contenu
