@@ -1,42 +1,48 @@
 @import "../base/variables";
 @import "../base/mixins";
 
+/* -------------------------------------------------------
+  ✅ ANIMATIONS PRIORITAIRES
+------------------------------------------------------- */
 
-/* LOADER */
-.loader-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: $color-background;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
-    animation: fadeOut 1s ease-out 3s forwards;
+/* ✅ Rotation continue */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.loader {
-    width: 60px;
-    height: 60px;
-    border: 6px solid transparent;
-    border-top: 6px solid $color-step;
-    border-right: 6px solid $color-button-hover;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+/* ✅ Effet de pulsation */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
 }
 
-.loader-text {
-    margin-top: 15px;
-    font-size: $font-size-large;
-    font-family: $font-secondary;
-    color: $color-primary;
-    animation: pulse 1.5s ease-in-out infinite;
-}
+/* ✅ Disparition progressive du loader */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
 
-// chek
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
 /* ✅ Expansion du check */
 @keyframes expandCheck {
@@ -116,7 +122,6 @@
 @keyframes resetPrice {
     0% {
         transform: translateX(-59px);
-
     }
 
     100% {
@@ -134,47 +139,6 @@
         opacity: 0;
     }
 }
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-
-/* ==============================
-   ANIMATIONS DU CŒUR SANS HOVER
-   ============================== */
 
 /* ✅ Disparition du cœur vide */
 @keyframes fadeOutHeart {
@@ -200,6 +164,50 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+/* -------------------------------------------------------
+  ✅ LOADER PRINCIPAL
+------------------------------------------------------- */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $color-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    animation: fadeOut 1s ease-out 3s forwards;
+}
+
+/* ✅ Loader animé */
+.loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid transparent;
+    border-top: 6px solid $color-step;
+    border-right: 6px solid $color-button-hover;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        box-shadow: 0px 0px 20px $color-button-hover;
+        transform: scale(1.1);
+    }
+}
+
+/* ✅ Texte sous le loader */
+.loader-text {
+    margin-top: 15px;
+    font-size: $font-size-large;
+    font-family: $font-secondary;
+    color: $color-primary;
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 /* ✅ Application des animations via la checkbox */
