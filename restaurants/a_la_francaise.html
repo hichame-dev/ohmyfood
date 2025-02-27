@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ohmyfood – Le délice des sens</title>
+    <title>Ohmyfood – À la française</title>
 
     <!-- Polices Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +13,12 @@
         href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap"
         rel="stylesheet">
 
-
-
+    <!-- Feuilles de style -->
+    <!-- Chemin d'accès adapté si besoin (ex. ../css/style.css si ce fichier est dans Restaurants/) -->
     <link rel="stylesheet" href="../css/style.css">
+
+
+
 
 
     <!-- Icônes Font Awesome -->
@@ -40,187 +43,190 @@
     <!-- MAIN -->
 
     <!-- Bannière du restaurant -->
-    <div class="restaurant-banner">
-        <img src="../Assets/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
-            alt="Image du restaurant Le délice des sens" class="banner-img">
-    </div>
+    <section class="restaurant-banner">
+        <h2 class="sr-only">Bannière du restaurant</h2> <!-- Ajout d'un titre pour la section -->
+        <img src="../assets/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
+            alt="Image du restaurant À la française" class="banner-img">
+    </section>
     <main class="menu-container">
         <!-- Titre & Favori -->
         <div class="restaurant-header">
-            <h1 class="restaurant-title">Le délice des sens</h1>
+            <h1 class="restaurant-title">À la française</h1>
             <label class="card__icon-pink">
                 <input type="checkbox" class="card__checkbox" title="Ajouter aux favoris">
 
-                <!-- ✅ Icône du cœur vide (par défaut) -->
+
                 <i class="fa-regular fa-heart card__icon card__icon--empty"></i>
 
-                <!-- ✅ Icône du cœur plein avec le dégradé -->
+
                 <i class="fa-solid fa-heart card__icon card__icon--full"></i>
             </label>
+
         </div>
 
         <!-- ENTRÉES -->
-        <div class="menu__section">
+        <section class="menu__section">
             <h2>Entrées</h2>
 
             <article class="menu__item">
                 <div class="menu__content">
                     <div class="menu__text">
-                        <h3 class="menu__title">Tartare de thon</h3>
-                        <p class="menu__description">Assaisonné au yuzu</p>
+                        <h3 class="menu__title">Ravioles de foie gras</h3>
+                        <p class="menu__description">Accompagnées de leur crème à la truffe</p>
                     </div>
                     <span class="menu__price">25€</span>
                 </div>
                 <label class="menu__check" aria-label="Plat sélectionnable">
                     <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
                         <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
+                    </span>
                 </label>
             </article>
 
             <article class="menu__item">
                 <div class="menu__content">
                     <div class="menu__text">
-                        <h3 class="menu__title">Bouchée de homard croustillant</h3>
-                        <p class="menu__description">Et sa farandole de petits légumes</p>
+                        <h3 class="menu__title">Velouté de légumes d'hiver</h3>
+                        <p class="menu__description">Châtaigne et panais</p>
                     </div>
                     <span class="menu__price">35€</span>
                 </div>
                 <label class="menu__check" aria-label="Plat sélectionnable">
                     <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
                         <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
+                    </span>
                 </label>
             </article>
 
             <article class="menu__item">
                 <div class="menu__content">
                     <div class="menu__text">
-                        <h3 class="menu__title">Velouté de cèpes</h3>
-                        <p class="menu__description">Aux truffes</p>
-                    </div>
-                    <span class="menu__price">20€</span>
-                </div>
-                <label class="menu__check" aria-label="Plat sélectionnable">
-                    <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
-                        <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
-                </label>
-            </article>
-        </div><!-- Fin des entrées -->
-
-        <!-- PLATS -->
-        <div class="menu__section">
-            <h2>Plats</h2>
-
-            <article class="menu__item">
-                <div class="menu__content">
-                    <div class="menu__text">
-                        <h3 class="menu__title">Poulet rôti aux herbes de Provence</h3>
-                        <p class="menu__description">Et sa crème de truffe</p>
-                    </div>
-                    <span class="menu__price">40€</span>
-                </div>
-                <label class="menu__check" aria-label="Plat sélectionnable">
-                    <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
-                        <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
-                </label>
-            </article>
-
-            <article class="menu__item">
-                <div class="menu__content">
-                    <div class="menu__text">
-                        <h3 class="menu__title">Langouste rôtie</h3>
-                        <p class="menu__description">Et ses légumes de saison</p>
-                    </div>
-                    <span class="menu__price">35€</span>
-                </div>
-                <label class="menu__check" aria-label="Plat sélectionnable">
-                    <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
-                        <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
-                </label>
-            </article>
-
-            <article class="menu__item">
-                <div class="menu__content">
-                    <div class="menu__text">
-                        <h3 class="menu__title">Côte de bœuf Angus</h3>
-                        <p class="menu__description">Et sa purée de panais</p>
+                        <h3 class="menu__title">Foie gras de canard cuit entier</h3>
+                        <p class="menu__description">Confiture de figue et pain toasté</p>
                     </div>
                     <span class="menu__price">44€</span>
                 </div>
                 <label class="menu__check" aria-label="Plat sélectionnable">
                     <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
                         <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
+                    </span>
                 </label>
             </article>
-        </div>
-        <!-- Fin des plats -->
+        </section><!-- Fin des plats --><!-- Fin des entrées -->
+
+        <!-- PLATS -->
+        <section class="menu__section">
+            <h2>Plats</h2>
+
+            <article class="menu__item">
+                <div class="menu__content">
+                    <div class="menu__text">
+                        <h3 class="menu__title">Filet de bœuf aux herbes</h3>
+                        <p class="menu__description">Accompagné de sa ribambelle de légumes</p>
+                    </div>
+                    <span class="menu__price">40€</span>
+                </div>
+                <label class="menu__check" aria-label="Plat sélectionnable">
+                    <input type="checkbox" class="menu__check-input">
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                        <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                    </span>
+                </label>
+            </article>
+
+            <article class="menu__item">
+                <div class="menu__content">
+                    <div class="menu__text">
+                        <h3 class="menu__title">Parmentier de queue de bœuf</h3>
+                        <p class="menu__description">À la truffe noire sur sa purée de panais</p>
+                    </div>
+                    <span class="menu__price">35€</span>
+                </div>
+                <label class="menu__check" aria-label="Plat sélectionnable">
+                    <input type="checkbox" class="menu__check-input">
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                        <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                    </span>
+                </label>
+            </article>
+
+            <article class="menu__item">
+                <div class="menu__content">
+                    <div class="menu__text">
+                        <h3 class="menu__title">Filet de turbot</h3>
+                        <p class="menu__description">Aux agrumes</p>
+                    </div>
+                    <span class="menu__price">44€</span>
+                </div>
+                <label class="menu__check" aria-label="Plat sélectionnable">
+                    <input type="checkbox" class="menu__check-input">
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                        <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
+                    </span>
+                </label>
+            </article>
+        </section><!-- Fin des plats -->
 
         <!-- DESSERTS -->
-        <div class="menu__section">
+        <section class="menu__section">
             <h2>Desserts</h2>
 
             <article class="menu__item">
                 <div class="menu__content">
                     <div class="menu__text">
-                        <h3 class="menu__title">Farandole de desserts</h3>
-                        <p class="menu__description">Du Chef</p>
+                        <h3 class="menu__title">Paris-Brest</h3>
+                        <p class="menu__description">Revisité</p>
                     </div>
                     <span class="menu__price">18€</span>
                 </div>
                 <label class="menu__check" aria-label="Plat sélectionnable">
                     <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
                         <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
+                    </span>
                 </label>
             </article>
 
             <article class="menu__item">
                 <div class="menu__content">
                     <div class="menu__text">
-                        <h3 class="menu__title">Crème brûlée revisitée</h3>
-                        <p class="menu__description">Douceur de vanille</p>
+                        <h3 class="menu__title">Fondant au chocolat</h3>
+                        <p class="menu__description">Au piment d'Espelette</p>
                     </div>
                     <span class="menu__price">22€</span>
                 </div>
                 <label class="menu__check" aria-label="Plat sélectionnable">
                     <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
                         <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
+                    </span>
                 </label>
             </article>
 
             <article class="menu__item">
                 <div class="menu__content">
                     <div class="menu__text">
-                        <h3 class="menu__title">Tiramisu</h3>
-                        <p class="menu__description">À la noisette</p>
+                        <h3 class="menu__title">Millefeuille croustillant</h3>
+                        <p class="menu__description">Myrtilles et pâte d'amande</p>
                     </div>
                     <span class="menu__price">23€</span>
                 </div>
                 <label class="menu__check" aria-label="Plat sélectionnable">
                     <input type="checkbox" class="menu__check-input">
-                    <div class="menu__check-circle"> <!-- LE CERCLE BLANC -->
+                    <span class="menu__check-circle"> <!-- LE CERCLE BLANC -->
                         <i class="fa-solid fa-check menu__check-icon"></i> <!-- LE CHECKMARK (FA-CHECK) -->
-                    </div>
+                    </span>
                 </label>
             </article>
-        </div><!-- Fin des desserts -->
+        </section>
+        <!-- Fin des desserts -->
 
         <!-- BOUTON COMMANDER -->
         <section class="order">
+            <h2 class="sr-only">Commander</h2> <!-- Ajout d'un titre pour la section -->
             <div class="order__container">
                 <button class="btn btn--order" type="button" aria-label="Commander les plats sélectionnés">
                     Commander
@@ -262,6 +268,7 @@
             </nav>
         </div>
     </footer>
+
 </body>
 
 </html>
