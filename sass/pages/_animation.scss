@@ -36,9 +36,9 @@
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-// chek
 
-/* ✅ Expansion du check */
+
+/* ✅ Effets de transition */
 @keyframes expandCheck {
     0% {
         width: 0;
@@ -49,59 +49,6 @@
     }
 }
 
-/* ✅ Déplacement du prix */
-@keyframes movePrice {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-59px);
-    }
-}
-
-/* ✅ Apparition du check */
-@keyframes fadeInCheck {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* ✅ Activation de l'ellipsis quand le check est coché */
-@keyframes applyEllipsis {
-    0% {
-        text-overflow: clip;
-        overflow: visible;
-        white-space: nowrap;
-    }
-
-    100% {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-}
-
-/* ✅ Suppression de l'ellipsis quand on décoche */
-@keyframes removeEllipsis {
-    0% {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    100% {
-        text-overflow: clip;
-        overflow: visible;
-        white-space: nowrap;
-    }
-}
-
-/* ✅ Rétraction du check */
 @keyframes collapseCheck {
     0% {
         width: 59px;
@@ -112,11 +59,19 @@
     }
 }
 
-/* ✅ Remise en place du prix */
+@keyframes movePrice {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-59px);
+    }
+}
+
 @keyframes resetPrice {
     0% {
         transform: translateX(-59px);
-
     }
 
     100% {
@@ -124,7 +79,16 @@
     }
 }
 
-/* ✅ Disparition du check */
+@keyframes fadeInCheck {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes fadeOutCheck {
     0% {
         opacity: 1;
@@ -135,6 +99,7 @@
     }
 }
 
+/* ✅ Effets de loader */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -171,12 +136,22 @@
     }
 }
 
+/* ✅ Effets des boutons */
+@keyframes shadowPulse {
+    0% {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
-/* ==============================
-   ANIMATIONS DU CŒUR SANS HOVER
-   ============================== */
+    50% {
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    }
 
-/* ✅ Disparition du cœur vide */
+    100% {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* ✅ Effets des cœurs */
 @keyframes fadeOutHeart {
     0% {
         opacity: 1;
@@ -189,7 +164,6 @@
     }
 }
 
-/* ✅ Apparition du cœur plein */
 @keyframes fadeInHeart {
     0% {
         opacity: 0;
