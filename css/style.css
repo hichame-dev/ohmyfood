@@ -394,6 +394,10 @@ p {
   opacity: 0;
 }
 
+.menu-container {
+  transform: translateY(-20px);
+}
+
 .footer {
   width: 100%;
   min-height: 186px;
