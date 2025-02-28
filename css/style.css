@@ -281,16 +281,21 @@ p {
   display: block;
 }
 
+/* -------------------------------------------------------
+  ✅ HEADER DU RESTAURANT (Titre + Cœur)
+------------------------------------------------------- */
 .restaurant-header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 0;
-  gap: 40px;
-  padding: 0.3125rem;
+  padding-left: 1.0625rem;
+  padding-right: 1.0625rem;
   width: 100%;
   margin-top: 2rem;
+  gap: 24px;
+  justify-content: center;
 }
 .restaurant-header .restaurant-title {
   font-family: "Shrikhand", sans-serif;
@@ -313,35 +318,19 @@ p {
   position: relative;
   top: -8px;
   cursor: pointer;
+  top: -5px;
 }
-.restaurant-header .card__icon-pink .card__checkbox {
+.restaurant-header .card__icon-pink input {
   display: none;
 }
-.restaurant-header .card__icon-pink .card__icon--full,
-.restaurant-header .card__icon-pink .card__icon--empty {
-  font-size: 1.375rem;
-  line-height: 1;
-  display: block;
-}
-
-.card__icon--full {
-  font-size: 1.375rem;
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.5);
-  pointer-events: none;
-}
-
-.card__icon {
+.restaurant-header .card__icon-pink .card__icon {
   font-size: 1.375rem;
   color: #000000;
-  line-height: 1;
 }
 
+/* -------------------------------------------------------
+  ✅ BANNIÈRE DU RESTAURANT
+------------------------------------------------------- */
 .restaurant-banner {
   position: relative;
   width: 100%;
@@ -356,6 +345,9 @@ p {
   display: block;
 }
 
+/* -------------------------------------------------------
+  ✅ CONTENEUR DU MENU
+------------------------------------------------------- */
 .menu-container {
   position: relative;
   background-color: #F6F6F6;
@@ -363,11 +355,42 @@ p {
   gap: 1.5rem;
   margin-top: -2.3125rem;
   z-index: 2;
+  /* -------------------------------------------------------
+    ✅ STYLE DU BOUTON CŒUR (Sans animation)
+  ------------------------------------------------------- */
 }
-.menu-container h1 {
+.menu-container .menu-container h1 {
   font-family: "Shrikhand", sans-serif;
   font-style: italic;
   font-weight: 400;
+}
+.menu-container .card__icon-pink {
+  width: 1.375rem;
+  height: 1.3125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  cursor: pointer;
+}
+.menu-container .card__icon-pink .card__checkbox {
+  display: none;
+}
+.menu-container .card__icon-pink .card__icon--empty {
+  font-size: 1.375rem;
+  color: #000000;
+  position: absolute;
+}
+.menu-container .card__icon-pink .card__icon--full {
+  font-size: 1.375rem;
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  opacity: 0;
 }
 
 .footer {
@@ -980,18 +1003,8 @@ MEDIA QUERIES (RESPONSIVE)
   }
 }
 /* -------------------------------------------------------
-  ✅ ANIMATIONS PRIORITAIRES
+  ✅ LOADER (Chargement)
 ------------------------------------------------------- */
-/* ✅ Rotation continue */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* LOADER */
 .loader-container {
   position: fixed;
   top: 0;
@@ -1000,13 +1013,15 @@ MEDIA QUERIES (RESPONSIVE)
   height: 100vh;
   background: #FFFFFF;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 0;
   z-index: 1000;
   animation: fadeOut 1s ease-out 3s forwards;
 }
 
+/* ✅ Animation du cercle de chargement */
 .loader {
   width: 60px;
   height: 60px;
@@ -1017,6 +1032,7 @@ MEDIA QUERIES (RESPONSIVE)
   animation: spin 1s linear infinite;
 }
 
+/* ✅ Texte du loader */
 .loader-text {
   margin-top: 15px;
   font-size: 1.5rem;
@@ -1025,7 +1041,43 @@ MEDIA QUERIES (RESPONSIVE)
   animation: pulse 1.5s ease-in-out infinite;
 }
 
-/* ✅ Expansion du check */
+/* -------------------------------------------------------
+  ✅ ANIMATIONS GLOBALES
+------------------------------------------------------- */
+/* ✅ Effet de rotation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ✅ Effet de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+/* ✅ Fondu de disparition */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* -------------------------------------------------------
+  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+------------------------------------------------------- */
 @keyframes expandCheck {
   0% {
     width: 0;
@@ -1074,36 +1126,10 @@ MEDIA QUERIES (RESPONSIVE)
     opacity: 0;
   }
 }
-/* ✅ Effets de loader */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-/* ✅ Effets des boutons */
+/* -------------------------------------------------------
+  ✅ EFFETS SUR LES BOUTONS & CŒURS
+------------------------------------------------------- */
+/* ✅ Effet d'ombre pulsée */
 @keyframes shadowPulse {
   0% {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -1115,152 +1141,7 @@ MEDIA QUERIES (RESPONSIVE)
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   }
 }
-/* ✅ Effets des cœurs */
-@keyframes fadeOutHeart {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
-@keyframes fadeInHeart {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-/* ✅ Application des animations via la checkbox */
-.card__checkbox:checked ~ .card__icon--empty {
-  animation: fadeOutHeart 0.4s ease forwards;
-}
-
-.card__checkbox:checked ~ .card__icon--full {
-  animation: fadeInHeart 0.4s ease forwards;
-}
-
-/* SECTION MENU */
-/* LOADER */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 3s forwards;
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* ✅ Effets de transition */
-@keyframes expandCheck {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 59px;
-  }
-}
-@keyframes collapseCheck {
-  0% {
-    width: 59px;
-  }
-  100% {
-    width: 0;
-  }
-}
-@keyframes movePrice {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-59px);
-  }
-}
-@keyframes resetPrice {
-  0% {
-    transform: translateX(-59px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes fadeInCheck {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeOutCheck {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-/* ==============================
-   ANIMATIONS DU CŒUR SANS HOVER
-   ============================== */
-/* ✅ Disparition du cœur vide */
+/* ✅ Effet d'apparition/disparition des cœurs */
 @keyframes fadeOutHeart {
   0% {
     opacity: 1;
@@ -1333,7 +1214,221 @@ MEDIA QUERIES (RESPONSIVE)
   animation: fadeInHeart 0.4s ease forwards;
 }
 
-/* SECTION MENU */
+/* -------------------------------------------------------
+  ✅ LOADER (Chargement)
+------------------------------------------------------- */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  z-index: 1000;
+  animation: fadeOut 1s ease-out 3s forwards;
+}
+
+/* ✅ Animation du cercle de chargement */
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid transparent;
+  border-top: 6px solid #9356DC;
+  border-right: 6px solid #FF79DA;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ✅ Texte du loader */
+.loader-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-family: "Shrikhand", sans-serif;
+  color: #000000;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------
+  ✅ ANIMATIONS GLOBALES
+------------------------------------------------------- */
+/* ✅ Effet de rotation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ✅ Effet de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+/* ✅ Fondu de disparition */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* -------------------------------------------------------
+  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+------------------------------------------------------- */
+@keyframes expandCheck {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 59px;
+  }
+}
+@keyframes collapseCheck {
+  0% {
+    width: 59px;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes movePrice {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-59px);
+  }
+}
+@keyframes resetPrice {
+  0% {
+    transform: translateX(-59px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInCheck {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutCheck {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* -------------------------------------------------------
+  ✅ EFFETS SUR LES BOUTONS & CŒURS
+------------------------------------------------------- */
+/* ✅ Effet d'ombre pulsée */
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+/* ✅ Effet d'apparition/disparition des cœurs */
+@keyframes fadeOutHeart {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+@keyframes fadeInHeart {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* -------------------------------------------------------
+  ✅ LOADER PRINCIPAL
+------------------------------------------------------- */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  animation: fadeOut 1s ease-out 3s forwards;
+}
+
+/* ✅ Loader animé */
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid transparent;
+  border-top: 6px solid #9356DC;
+  border-right: 6px solid #FF79DA;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+  transition: all 0.3s ease-in-out;
+}
+.loader:hover {
+  box-shadow: 0px 0px 20px #FF79DA;
+  transform: scale(1.1);
+}
+
+/* ✅ Texte sous le loader */
+.loader-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-family: "Shrikhand", sans-serif;
+  color: #000000;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ✅ Application des animations via la checkbox */
+.card__checkbox:checked ~ .card__icon--empty {
+  animation: fadeOutHeart 0.4s ease forwards;
+}
+
+.card__checkbox:checked ~ .card__icon--full {
+  animation: fadeInHeart 0.4s ease forwards;
+}
+
+/* -------------------------------------------------------
+  ✅ SECTION MENU
+------------------------------------------------------- */
 .menu__section {
   margin-top: 2.625rem;
   padding: 13px;
@@ -1426,6 +1521,8 @@ MEDIA QUERIES (RESPONSIVE)
   align-items: flex-start;
   gap: 0.3125rem;
   padding-left: 15px;
+  text-overflow: hidden;
+  text-overflow: ellipsis;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1437,6 +1534,7 @@ MEDIA QUERIES (RESPONSIVE)
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  animation-fill-mode: forwards;
 }
 
 .menu__title {
@@ -1456,6 +1554,10 @@ MEDIA QUERIES (RESPONSIVE)
   text-align: left;
   width: 100%;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation-fill-mode: forwards;
 }
 
 /* -------------------------------------------------------
@@ -1592,7 +1694,9 @@ MEDIA QUERIES (RESPONSIVE)
     max-width: 634px;
   }
 }
-/* LOADER */
+/* -------------------------------------------------------
+  ✅ LOADER (Chargement)
+------------------------------------------------------- */
 .loader-container {
   position: fixed;
   top: 0;
@@ -1601,13 +1705,15 @@ MEDIA QUERIES (RESPONSIVE)
   height: 100vh;
   background: #FFFFFF;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 0;
   z-index: 1000;
   animation: fadeOut 1s ease-out 3s forwards;
 }
 
+/* ✅ Animation du cercle de chargement */
 .loader {
   width: 60px;
   height: 60px;
@@ -1618,6 +1724,7 @@ MEDIA QUERIES (RESPONSIVE)
   animation: spin 1s linear infinite;
 }
 
+/* ✅ Texte du loader */
 .loader-text {
   margin-top: 15px;
   font-size: 1.5rem;
@@ -1626,7 +1733,43 @@ MEDIA QUERIES (RESPONSIVE)
   animation: pulse 1.5s ease-in-out infinite;
 }
 
-/* ✅ Expansion du check */
+/* -------------------------------------------------------
+  ✅ ANIMATIONS GLOBALES
+------------------------------------------------------- */
+/* ✅ Effet de rotation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ✅ Effet de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+/* ✅ Fondu de disparition */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* -------------------------------------------------------
+  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+------------------------------------------------------- */
 @keyframes expandCheck {
   0% {
     width: 0;
@@ -1675,7 +1818,22 @@ MEDIA QUERIES (RESPONSIVE)
     opacity: 0;
   }
 }
-/* ✅ Disparition du cœur vide */
+/* -------------------------------------------------------
+  ✅ EFFETS SUR LES BOUTONS & CŒURS
+------------------------------------------------------- */
+/* ✅ Effet d'ombre pulsée */
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+/* ✅ Effet d'apparition/disparition des cœurs */
 @keyframes fadeOutHeart {
   0% {
     opacity: 1;

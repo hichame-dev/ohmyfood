@@ -87,6 +87,8 @@
     max-width: calc(100% - 80px); // ✅ Ajuste la largeur dynamique sans casser la mise en page
     @include flexbox(column, flex-start, flex-start, $gap-small);
     padding-left: 15px;
+    text-overflow: hidden;
+    text-overflow: ellipsis;
     box-sizing: border-box;
     overflow: hidden; // ✅ Active l’ellipsis
     text-overflow: ellipsis; // ✅ Coupe proprement avec "..."
@@ -98,7 +100,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    animation-fill-mode: forwards;
 }
+
+
 
 .menu__title {
     font-family: $font-primary;
@@ -117,6 +122,10 @@
     text-align: left;
     width: 100%;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation-fill-mode: forwards;
 }
 
 /* -------------------------------------------------------
