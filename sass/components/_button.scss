@@ -7,15 +7,15 @@
     height: auto; // ✅ Permet d’ajuster la hauteur automatiquement
     padding: 12px 24px;
     margin-bottom: 57px;
-    transition: all 0.3s ease-in-out; // ✅ Animation fluide
+    transition: box-shadow 0.3s ease-in-out; // ✅ Garde uniquement l'effet d'ombre
 
-    @include flex(center, center);
+    @include flexbox(center, center);
 
     &:hover {
         background-color: darken($color-button-hover, 5%); // ✅ Légèrement plus foncé au survol
-        box-shadow: 0px 6px 12px 0px $color-button-shadow; // ✅ Ombre plus marquée
-        transform: scale(1.05); // ✅ Agrandissement léger
+        box-shadow: 0px 8px 16px 0px $color-button-shadow; // ✅ Ombre plus marquée avec animation
         cursor: pointer; // ✅ Change le curseur pour une meilleure UX
+        animation: shadowPulse 0.3s ease-in-out;
     }
 
     &--explore {

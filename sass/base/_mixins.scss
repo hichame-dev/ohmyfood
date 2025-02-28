@@ -14,9 +14,7 @@
     $shadow: $box-shadow-strong, // Ombre forte par défaut
     $text-color: $button-text-color, // Couleur de texte par défaut
     $radius: $button-radius, // Rayon par défaut (25px)
-    $transition-duration: 0.3s, // Durée de transition par défaut
-    $transition-ease: ease // Timing function par défaut
-
+    
 ) {
     background: $bg-color;
     border-radius: $radius;
@@ -33,7 +31,6 @@
     cursor: pointer;
     padding: 13px 1rem;
     transition:
-    background $transition-duration $transition-ease,
     box-shadow $transition-duration $transition-ease;
 }
 // 🎨 Mixin pour les Cartes (Cards)

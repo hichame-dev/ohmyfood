@@ -11,12 +11,14 @@
     width: 100vw;
     height: 100vh;
     background: $color-background;
-    @include flexbox(column, center, center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     z-index: 1000;
     animation: fadeOut 1s ease-out 3s forwards;
 }
 
-/* ✅ Animation du cercle de chargement */
 .loader {
     width: 60px;
     height: 60px;
@@ -24,10 +26,9 @@
     border-top: 6px solid $color-step;
     border-right: 6px solid $color-button-hover;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 1.2s linear infinite;
 }
 
-/* ✅ Texte du loader */
 .loader-text {
     margin-top: 15px;
     font-size: $font-size-large;
@@ -39,8 +40,6 @@
 /* -------------------------------------------------------
   ✅ ANIMATIONS GLOBALES
 ------------------------------------------------------- */
-
-/* ✅ Effet de rotation */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -51,7 +50,6 @@
     }
 }
 
-/* ✅ Effet de pulsation */
 @keyframes pulse {
 
     0%,
@@ -61,12 +59,10 @@
     }
 
     50% {
-        transform: scale(1.1);
         opacity: 0.8;
     }
 }
 
-/* ✅ Fondu de disparition */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -145,23 +141,6 @@
 /* -------------------------------------------------------
   ✅ EFFETS SUR LES BOUTONS & CŒURS
 ------------------------------------------------------- */
-
-/* ✅ Effet d'ombre pulsée */
-@keyframes shadowPulse {
-    0% {
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    50% {
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    100% {
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    }
-}
-
-/* ✅ Effet d'apparition/disparition des cœurs */
 @keyframes fadeOutHeart {
     0% {
         opacity: 1;
@@ -171,6 +150,20 @@
     100% {
         opacity: 0;
         transform: scale(1.2);
+    }
+}
+
+@keyframes shadowPulse {
+    0% {
+        box-shadow: 0px 4px 8px 0px $color-button-shadow;
+    }
+
+    50% {
+        box-shadow: 0px 6px 12px 0px $color-button-shadow;
+    }
+
+    100% {
+        box-shadow: 0px 8px 16px 0px $color-button-shadow;
     }
 }
 
@@ -184,50 +177,6 @@
         opacity: 1;
         transform: scale(1);
     }
-}
-
-/* -------------------------------------------------------
-  ✅ LOADER PRINCIPAL
-------------------------------------------------------- */
-.loader-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: $color-background;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 1000;
-    animation: fadeOut 1s ease-out 3s forwards;
-}
-
-/* ✅ Loader animé */
-.loader {
-    width: 60px;
-    height: 60px;
-    border: 6px solid transparent;
-    border-top: 6px solid $color-step;
-    border-right: 6px solid $color-button-hover;
-    border-radius: 50%;
-    animation: spin 1.2s linear infinite;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        box-shadow: 0px 0px 20px $color-button-hover;
-        transform: scale(1.1);
-    }
-}
-
-/* ✅ Texte sous le loader */
-.loader-text {
-    margin-top: 15px;
-    font-size: $font-size-large;
-    font-family: $font-secondary;
-    color: $color-primary;
-    animation: pulse 1.5s ease-in-out infinite;
 }
 
 /* ✅ Application des animations via la checkbox */
