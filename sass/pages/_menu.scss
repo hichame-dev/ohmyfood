@@ -1,43 +1,74 @@
-/* SECTION MENU */
 @import "../base/variables";
 @import "../base/mixins";
 @import "./animation";
 
+/* -------------------------------------------------------
+  ✅ SECTION MENU
+------------------------------------------------------- */
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
-    h2 {
+.menu__section>h2 {
+    position: relative;
+    margin-bottom: $margin-bottom-menu-h2;
+    padding-left: $gap-medium;
+    text-align: left;
+
+    &::after {
+        content: "";
+        width: $gap-large;
+        border-top: 3px solid $color-schek;
         position: relative;
-        margin-bottom: $margin-bottom-menu-h2;
-        padding-left: $gap-medium;
-
-        &::after {
-            content: "";
-            width: $gap-large;
-            border-top: 3px solid $color-schek;
-            position: relative;
-            left: 0;
-            top: 5px;
-            display: block;
-        }
+        left: 0;
+        top: 5px;
+        display: block;
     }
 }
 
+/* -------------------------------------------------------
+  ✅ STYLES DES ÉLÉMENTS DU MENU
+------------------------------------------------------- */
 .menu__item {
     width: 100%;
+    max-width: 634px;
+    margin: 0 auto 12px auto;
     padding: 12px 0;
     border-radius: 15px;
     box-shadow: $box-shadow-light;
     @include flexbox(row, space-between, center);
-    box-sizing: border-box;
-    margin-bottom: 12px;
     position: relative;
     overflow: hidden;
-    transition: $transition-duration $transition-ease;
+    transition: all 0.3s ease-in-out;
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    /* ✅ Effet hover dynamique */
+    &:hover,
+    .menu__check-input:checked+.menu__check+.menu__content {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); // ✅ Ombre plus marquée
+
+        .menu__content {
+            border-right: 5px solid $color-schek;
+        }
+
+        .menu__check {
+            width: 59px;
+
+            .fa-check,
+            .menu__check-circle {
+                opacity: 1;
+            }
+        }
+
+        .menu__price {
+            transform: translateX(-59px);
+        }
     }
 }
 
@@ -46,16 +77,29 @@
     width: 100%;
     padding-right: 15px;
     box-sizing: border-box;
+    gap: 10px; // ✅ Espace entre le texte et le prix
 }
 
 .menu__text {
     flex-grow: 1;
-    min-width: 0;
+    flex-shrink: 1; // ✅ Permet au texte de s'ajuster correctement sans bug
+    min-width: 0; // ✅ Nécessaire pour que l'ellipsis fonctionne bien
+    max-width: calc(100% - 80px); // ✅ Ajuste la largeur dynamique sans casser la mise en page
     @include flexbox(column, flex-start, flex-start, $gap-small);
     padding-left: 15px;
     text-overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
+    overflow: hidden; // ✅ Active l’ellipsis
+    text-overflow: ellipsis; // ✅ Coupe proprement avec "..."
+    white-space: nowrap; // ✅ Empêche le retour à la ligne
+}
+
+.menu__title,
+.menu__description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     animation-fill-mode: forwards;
 }
 
@@ -67,11 +111,7 @@
     font-weight: $font-weight-medium;
     line-height: 21.09px;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .menu__description {
@@ -80,8 +120,6 @@
     font-weight: $font-weight-light;
     line-height: $line-height-price;
     text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
     width: 100%;
     margin: 0;
     white-space: nowrap;
@@ -90,10 +128,14 @@
     animation-fill-mode: forwards;
 }
 
+/* -------------------------------------------------------
+  ✅ PRIX ET CHECKMARK
+------------------------------------------------------- */
 .menu__price-container {
     @include flexbox(row, flex-end, center);
     width: 59px;
-    transition: width 0.4s ease-in-out;
+    flex-shrink: 0; // ✅ Empêche le prix de rétrécir
+    transition: width $transition-duration $transition-ease;
 }
 
 .menu__price {
@@ -103,7 +145,8 @@
     margin-right: 15px;
     box-sizing: border-box;
     align-self: flex-end;
-    transition: transform 0.4s ease-in-out;
+    transition: transform $transition-duration $transition-ease;
+    z-index: 1;
 }
 
 .menu__check {
@@ -119,11 +162,15 @@
     z-index: 1;
     transition: width $transition-duration $transition-ease;
 
+    .fa-check,
+    .menu__check-circle {
+        opacity: 0;
+        transition: opacity $transition-duration $transition-ease;
+    }
+
     .fa-check {
         font-size: 12px;
-        opacity: 0;
         color: $color-schek;
-        transition: opacity $transition-duration $transition-ease;
     }
 }
 
@@ -134,38 +181,15 @@
     background-color: $color-background;
     @include flexbox(row, center, center);
     color: $color-schek;
-    opacity: 0;
-    transition: opacity $transition-duration $transition-ease;
 }
 
 .menu__check-input {
     display: none;
 }
 
-/* HOVER & CHECKED STATES */
-.menu__item:hover {
-    transform: translateX(-5px);
-
-    .menu__content {
-        border-right: 5px solid $color-schek;
-    }
-
-    .menu__check,
-    .menu__check-input:checked+.menu__check {
-        width: 59px;
-
-        .fa-check,
-        .menu__check-circle {
-            opacity: 1;
-        }
-    }
-
-    .menu__price,
-    .menu__check-input:checked+.menu__check+.menu__content .menu__price {
-        transform: translateX(-59px);
-    }
-}
-
+/* -------------------------------------------------------
+  ✅ BOUTON COMMANDER AVEC HOVER
+------------------------------------------------------- */
 .order {
     height: 187px;
     @include flexbox(row, center, center);
@@ -175,10 +199,47 @@
     @include button-style();
     width: $button-width;
     height: $button-height;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         background: $color-gradient;
-        box-shadow: $box-shadow-strong;
+        
     }
 }
 
+
+/* -------------------------------------------------------
+  ✅ MEDIA QUERIES (RESPONSIVE)
+------------------------------------------------------- */
+
+/* ✅ TABLETTE (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .menu-container {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .menu__section {
+        padding: 0 95px;
+    }
+
+    .menu__item {
+        max-width: 400px;
+    }
+}
+
+/* ✅ DESKTOP (1024px et +) */
+@media screen and (min-width: 1024px) {
+    .menu-container {
+        width: 100%;
+        max-width: 1055px;
+    }
+
+    .menu__section {
+        padding: 0 210px;
+    }
+
+    .menu__item {
+        max-width: 634px;
+    }
+}
