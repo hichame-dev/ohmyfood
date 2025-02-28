@@ -53,8 +53,13 @@
     min-width: 0;
     @include flexbox(column, flex-start, flex-start, $gap-small);
     padding-left: 15px;
+    text-overflow: hidden;
+    text-overflow: ellipsis;
     box-sizing: border-box;
+    animation-fill-mode: forwards;
 }
+
+
 
 .menu__title {
     font-family: $font-primary;
@@ -81,6 +86,8 @@
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    animation-fill-mode: forwards;
 }
 
 .menu__price-container {

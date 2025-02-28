@@ -1,8 +1,9 @@
 @import "../base/variables";
 @import "../base/mixins";
 
-
-/* LOADER */
+/* -------------------------------------------------------
+  ✅ LOADER (Chargement)
+------------------------------------------------------- */
 .loader-container {
     position: fixed;
     top: 0;
@@ -10,14 +11,12 @@
     width: 100vw;
     height: 100vh;
     background: $color-background;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include flexbox(column, center, center);
     z-index: 1000;
     animation: fadeOut 1s ease-out 3s forwards;
 }
 
+/* ✅ Animation du cercle de chargement */
 .loader {
     width: 60px;
     height: 60px;
@@ -28,6 +27,7 @@
     animation: spin 1s linear infinite;
 }
 
+/* ✅ Texte du loader */
 .loader-text {
     margin-top: 15px;
     font-size: $font-size-large;
@@ -36,9 +36,52 @@
     animation: pulse 1.5s ease-in-out infinite;
 }
 
+/* -------------------------------------------------------
+  ✅ ANIMATIONS GLOBALES
+------------------------------------------------------- */
 
+/* ✅ Effet de rotation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
 
-/* ✅ Effets de transition */
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ✅ Effet de pulsation */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* ✅ Fondu de disparition */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* -------------------------------------------------------
+  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+------------------------------------------------------- */
 @keyframes expandCheck {
     0% {
         width: 0;
@@ -99,44 +142,11 @@
     }
 }
 
-/* ✅ Effets de loader */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+/* -------------------------------------------------------
+  ✅ EFFETS SUR LES BOUTONS & CŒURS
+------------------------------------------------------- */
 
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/* ✅ Effets des boutons */
+/* ✅ Effet d'ombre pulsée */
 @keyframes shadowPulse {
     0% {
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -151,7 +161,7 @@
     }
 }
 
-/* ✅ Effets des cœurs */
+/* ✅ Effet d'apparition/disparition des cœurs */
 @keyframes fadeOutHeart {
     0% {
         opacity: 1;
