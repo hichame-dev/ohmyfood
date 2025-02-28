@@ -65,6 +65,7 @@
         margin: 0; // très important, supprime tout décalage supplémentaire
         display: flex;
         align-items: center;
+        margin-top: 51px;
     }
 
     .card__icon-pink {
@@ -74,7 +75,7 @@
         position: relative;
         top: -8px;
         cursor: pointer;
-        top: -5px;
+        top: 29px;
 
         input {
             display: none;
