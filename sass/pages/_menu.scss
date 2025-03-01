@@ -1,36 +1,35 @@
-@import "../base/variables";
-@import "../base/mixins";
-@import "./animation";
+@import "../base/variables"; // Assurez-vous du bon chemin
+@import "../base/mixins"; // Assurez-vous du bon chemin
 
 /* -------------------------------------------------------
-  ✅ SECTION MENU
+  SECTION MENU
 ------------------------------------------------------- */
 .menu__section {
     margin-top: $margin-section-menu;
     padding: 13px;
     width: 100%;
     box-sizing: border-box;
-}
 
-.menu__section>h2 {
-    position: relative;
-    margin-bottom: $margin-bottom-menu-h2;
-    padding-left: $gap-medium;
-    text-align: left;
-
-    &::after {
-        content: "";
-        width: $gap-large;
-        border-top: 3px solid $color-schek;
+    &>h2 {
         position: relative;
-        left: 0;
-        top: 5px;
-        display: block;
+        margin-bottom: $margin-bottom-menu-h2;
+        padding-left: $gap-medium;
+        text-align: left;
+
+        &::after {
+            content: "";
+            width: $gap-large;
+            border-top: 3px solid $color-schek;
+            position: relative;
+            left: 0;
+            top: 5px;
+            display: block;
+        }
     }
 }
 
 /* -------------------------------------------------------
-  ✅ STYLES DES ÉLÉMENTS DU MENU
+  STYLES DES ÉLÉMENTS DU MENU
 ------------------------------------------------------- */
 .menu__item {
     width: 100%;
@@ -38,36 +37,33 @@
     margin: 0 auto 12px auto;
     padding: 12px 0;
     border-radius: 15px;
-    box-shadow: $box-shadow-light;
-    @include flexbox(row, space-between, center);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    @include flexbox(row, space-between, center); // Votre mixin flexbox
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
 
     &:last-child {
         margin-bottom: 0;
     }
 
-    /* ✅ Effet hover dynamique */
-    &:hover,
-    .menu__check-input:checked+.menu__check+.menu__content {
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); // ✅ Ombre plus marquée
+    &:hover {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 
-        .menu__content {
-            border-right: 5px solid $color-schek;
+        .menu__price {
+            transform: translateX(-59px);
         }
 
         .menu__check {
             width: 59px;
 
-            .fa-check,
-            .menu__check-circle {
+            .menu__check-circle,
+            .fa-check {
                 opacity: 1;
             }
         }
 
-        .menu__price {
-            transform: translateX(-59px);
+        .menu__text {
+            max-width: calc(100% - 59px - 15px - 15px - 10px);
         }
     }
 }
@@ -77,22 +73,20 @@
     width: 100%;
     padding-right: 15px;
     box-sizing: border-box;
-    gap: 10px; // ✅ Espace entre le texte et le prix
+    gap: 10px;
 }
 
 .menu__text {
     flex-grow: 1;
-    flex-shrink: 1; // ✅ Permet au texte de s'ajuster correctement sans bug
-    min-width: 0; // ✅ Nécessaire pour que l'ellipsis fonctionne bien
-    max-width: calc(100% - 80px); // ✅ Ajuste la largeur dynamique sans casser la mise en page
-    @include flexbox(column, flex-start, flex-start, $gap-small);
+    flex-shrink: 1;
+    min-width: 0;
+    @include flexbox(column, flex-start, flex-start);
     padding-left: 15px;
-    text-overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     box-sizing: border-box;
-    overflow: hidden; // ✅ Active l’ellipsis
-    text-overflow: ellipsis; // ✅ Coupe proprement avec "..."
-    white-space: nowrap; // ✅ Empêche le retour à la ligne
+    z-index: 2; // Le texte est au-dessus du prix
 }
 
 .menu__title,
@@ -100,42 +94,32 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    animation-fill-mode: forwards;
+    width: 100%;
+    margin: 0;
 }
-
-
 
 .menu__title {
     font-family: $font-primary;
     font-size: $font-size-medium;
     font-weight: $font-weight-medium;
-    line-height: 21.09px;
+    line-height: 21.09px; // Vous pourriez utiliser une variable
     text-align: left;
-    margin: 0;
 }
 
 .menu__description {
     font-family: $font-primary;
     font-size: $font-size-price;
     font-weight: $font-weight-light;
-    line-height: $line-height-price;
+    line-height: 1.15; // Vous pourriez utiliser une variable
     text-align: left;
-    width: 100%;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    animation-fill-mode: forwards;
 }
 
 /* -------------------------------------------------------
-  ✅ PRIX ET CHECKMARK
+  PRIX ET CHECKMARK
 ------------------------------------------------------- */
 .menu__price-container {
     @include flexbox(row, flex-end, center);
-    width: 59px;
-    flex-shrink: 0; // ✅ Empêche le prix de rétrécir
-    transition: width $transition-duration $transition-ease;
+    flex-shrink: 0;
 }
 
 .menu__price {
@@ -145,8 +129,8 @@
     margin-right: 15px;
     box-sizing: border-box;
     align-self: flex-end;
-    transition: transform $transition-duration $transition-ease;
-    z-index: 1;
+    transition: transform 0.5s ease-in-out;
+    z-index: 1; // Le prix est en dessous du texte
 }
 
 .menu__check {
@@ -159,13 +143,13 @@
     border-radius: 0 15px 15px 0;
     @include flexbox(row, center, center);
     cursor: pointer;
-    z-index: 1;
-    transition: width $transition-duration $transition-ease;
+    z-index: 0; // important
+    transition: width 0.5s ease-in-out;
 
     .fa-check,
     .menu__check-circle {
         opacity: 0;
-        transition: opacity $transition-duration $transition-ease;
+        transition: opacity 0.5s ease-in-out;
     }
 
     .fa-check {
@@ -178,17 +162,31 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: $color-background;
+    background-color: white; // Vous pourriez utiliser une variable
     @include flexbox(row, center, center);
     color: $color-schek;
 }
 
+/* -------------------------------------------------------
+  CHECKBOX ET LABEL (pour le clic)
+------------------------------------------------------- */
 .menu__check-input {
     display: none;
+    pointer-events: none; // La checkbox ne réagit pas aux clics directs
+}
+
+.menu__check-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 3; // Le label recouvre tout
 }
 
 /* -------------------------------------------------------
-  ✅ BOUTON COMMANDER AVEC HOVER
+  BOUTON COMMANDER
 ------------------------------------------------------- */
 .order {
     height: 187px;
@@ -196,20 +194,39 @@
 }
 
 .btn--order {
-    @include button-style();
-    width: $button-width;
-    height: $button-height;
-    transition: all 0.3s ease-in-out;
+    @include button-style(); // 
+    width: 186px; 
+    height: 50px; 
 
     &:hover {
-        background: $color-gradient;
         
+        background: linear-gradient(to top, #A16BE0, #FF93E1); // Un peu plus clair au survol
+        box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4); // Ombre plus forte
     }
 }
 
 
+/* ✅ Application des animations via le label et la checkbox */
+
+.menu__check-input:checked+.menu__check-label+.menu__check {
+    width: 59px;
+
+    .menu__check-circle,
+    .fa-check {
+        opacity: 1;
+    }
+}
+
+.menu__check-input:checked+.menu__check-label~.menu__content .menu__price {
+    transform: translateX(-59px);
+}
+
+.menu__check-input:checked+.menu__check-label~.menu__content .menu__text {
+    max-width: calc(100% - 59px - 15px - 15px - 10px);
+}
+
 /* -------------------------------------------------------
-  ✅ MEDIA QUERIES (RESPONSIVE)
+  MEDIA QUERIES (RESPONSIVE)
 ------------------------------------------------------- */
 
 /* ✅ TABLETTE (768px - 1023px) */

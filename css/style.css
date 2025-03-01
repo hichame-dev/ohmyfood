@@ -317,9 +317,9 @@ p {
   align-items: center;
   gap: 0;
   position: relative;
-  top: -8px;
+  top: -5px;
   cursor: pointer;
-  top: 29px;
+  top: 25px;
 }
 .restaurant-header .card__icon-pink input {
   display: none;
@@ -357,7 +357,7 @@ p {
   margin-top: -2.3125rem;
   z-index: 2;
   /* -------------------------------------------------------
-    ✅ STYLE DU BOUTON CŒUR (Sans animation)
+    ✅ STYLE DU BOUTON CŒUR 
   ------------------------------------------------------- */
 }
 .menu-container .menu-container h1 {
@@ -392,6 +392,10 @@ p {
   -webkit-text-fill-color: transparent;
   position: absolute;
   opacity: 0;
+}
+
+.menu-container {
+  transform: translateY(-20px);
 }
 
 .footer {
@@ -568,12 +572,12 @@ p {
   text-decoration: none;
   cursor: pointer;
   padding: 13px 1rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   width: 13.625rem;
   height: auto;
   padding: 12px 24px;
   margin-bottom: 57px;
-  transition: all 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: center;
   justify-content: center;
@@ -582,9 +586,9 @@ p {
 }
 .btn:hover {
   background-color: #ff60d3;
-  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
-  transform: scale(1.05);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  animation: shadowPulse 0.3s ease-in-out;
 }
 .btn--explore {
   font-size: 1.125rem;
@@ -701,6 +705,18 @@ p {
 /* -------------------------------------------------------
   ✅ SECTION : ICÔNES & CHECKBOX
 ------------------------------------------------------- */
+.card--new .card__tag {
+  position: absolute;
+  top: 0.8125rem;
+  right: 1rem;
+  background-color: #99E2D0;
+  color: #FFFFFF;
+  padding: 0.5rem 0.9375rem;
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
+  z-index: 10;
+}
+
 .card__icon-pink {
   width: 1.375rem;
   height: auto;
@@ -777,6 +793,9 @@ p {
     max-width: 1200px;
     margin: 0 auto;
   }
+  .card__image-container {
+    height: 220px;
+  }
 }
 /* -------------------------------------------------------
   ✅ IMPORTS GLOBAUX
@@ -798,13 +817,11 @@ p {
 
 .steps__title {
   width: 100%;
-  margin-bottom: 1.625rem;
-  margin-top: 48px;
+  margin: 48px 0 1.625rem;
   font-family: "Roboto", sans-serif;
   color: #000000;
 }
 
-/* ✅ Conteneur des étapes */
 .steps__container {
   display: grid;
   grid-template-columns: 1fr;
@@ -813,7 +830,6 @@ p {
   width: 100%;
 }
 
-/* ✅ Liste des étapes */
 .steps__list {
   max-width: 1053px;
   display: flex;
@@ -840,30 +856,31 @@ p {
   gap: 0;
 }
 
-/* ✅ Numéro de l'étape */
+/* ✅ Changement de couleur pour les icônes des étapes */
+.steps__list .step__icon {
+  color: #7E7E7E;
+}
+
 .step__number {
   position: absolute;
-  left: -10px;
+  left: -15px;
   top: 50%;
   transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #9356DC;
   color: #FFFFFF;
   font-size: 1rem;
   font-weight: bold;
   display: flex;
-  flex-direction: center;
+  align-items: center;
   justify-content: center;
-  align-items: stretch;
-  gap: 0;
+  text-align: center;
 }
 
-/* ✅ Icône */
 .step__icon {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0 20px;
   color: #353535;
   display: flex;
   align-items: flex-start;
@@ -872,11 +889,7 @@ p {
   font-size: 1.25rem;
   margin-top: 2px;
 }
-.step__icon--first {
-  margin-left: 20px;
-}
 
-/* ✅ Texte de l'étape */
 .step__text {
   white-space: nowrap;
   font-family: "Roboto", sans-serif;
@@ -887,18 +900,15 @@ p {
   padding-top: 3px;
 }
 
-/* ✅ Icône spécifique */
 .step__icon__store {
   color: #9356DC;
 }
 
-/* ✅ Ajustement de l'icône pour la première étape */
 .steps__list .step:nth-child(1) .step__icon {
   font-size: 2.5rem;
   margin-left: 25px;
 }
 
-/* ✅ Ajout d'un style pour les images */
 .step__img {
   width: 100%;
   height: auto;
@@ -908,51 +918,35 @@ p {
 }
 
 /* -------------------------------------------------------
-MEDIA QUERIES (RESPONSIVE)
+  MEDIA QUERIES (RESPONSIVE)
 ------------------------------------------------------- */
-/*  MOBILE FIRST (jusqu'à 767px) */
 @media screen and (max-width: 767px) {
   .steps {
-    width: 100%;
     max-width: none;
-    padding: 0 1.25rem;
   }
 }
-/* ✅ TABLETTE (768px - 1023px) */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) {
   .steps {
-    width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
     flex-direction: column;
     align-items: flex-start;
     padding: 5% 10%;
     gap: 20px;
-    margin-bottom: 0;
   }
   .steps__title {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
     text-align: left;
   }
-  .steps__container {
-    max-width: 100%;
-    margin: 0 auto;
-    width: auto;
-  }
   .steps__list {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
     gap: 20px;
-    width: 100%;
   }
   .step {
     max-width: 30%;
     flex: 1;
     padding: 12px;
-    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -961,46 +955,17 @@ MEDIA QUERIES (RESPONSIVE)
     white-space: normal;
   }
 }
-/* ✅ DESKTOP (1024px et +) */
 @media screen and (min-width: 1024px) {
   .steps {
-    max-width: 1440px;
-    height: auto;
-    width: 100%;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: flex-start;
     padding: 50px 180px;
     gap: 25px;
-    margin-bottom: 0;
-  }
-  .steps__title {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: left;
-  }
-  .steps__container {
-    max-width: 100%;
-    margin: 0 auto;
-    width: auto;
   }
   .steps__list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
     gap: 24px;
-    width: 100%;
   }
   .step {
     max-width: 335px;
-    flex: 1;
     padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
   }
 }
 /* -------------------------------------------------------
@@ -1014,15 +979,13 @@ MEDIA QUERIES (RESPONSIVE)
   height: 100vh;
   background: #FFFFFF;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  flex-direction: column;
   z-index: 1000;
   animation: fadeOut 1s ease-out 3s forwards;
 }
 
-/* ✅ Animation du cercle de chargement */
 .loader {
   width: 60px;
   height: 60px;
@@ -1030,10 +993,9 @@ MEDIA QUERIES (RESPONSIVE)
   border-top: 6px solid #9356DC;
   border-right: 6px solid #FF79DA;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1.2s linear infinite;
 }
 
-/* ✅ Texte du loader */
 .loader-text {
   margin-top: 15px;
   font-size: 1.5rem;
@@ -1045,7 +1007,6 @@ MEDIA QUERIES (RESPONSIVE)
 /* -------------------------------------------------------
   ✅ ANIMATIONS GLOBALES
 ------------------------------------------------------- */
-/* ✅ Effet de rotation */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -1054,18 +1015,15 @@ MEDIA QUERIES (RESPONSIVE)
     transform: rotate(360deg);
   }
 }
-/* ✅ Effet de pulsation */
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.1);
     opacity: 0.8;
   }
 }
-/* ✅ Fondu de disparition */
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -1130,19 +1088,6 @@ MEDIA QUERIES (RESPONSIVE)
 /* -------------------------------------------------------
   ✅ EFFETS SUR LES BOUTONS & CŒURS
 ------------------------------------------------------- */
-/* ✅ Effet d'ombre pulsée */
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-}
-/* ✅ Effet d'apparition/disparition des cœurs */
 @keyframes fadeOutHeart {
   0% {
     opacity: 1;
@@ -1151,6 +1096,17 @@ MEDIA QUERIES (RESPONSIVE)
   100% {
     opacity: 0;
     transform: scale(1.2);
+  }
+}
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
   }
 }
 @keyframes fadeInHeart {
@@ -1163,49 +1119,6 @@ MEDIA QUERIES (RESPONSIVE)
     transform: scale(1);
   }
 }
-/* -------------------------------------------------------
-  ✅ LOADER PRINCIPAL
-------------------------------------------------------- */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 3s forwards;
-}
-
-/* ✅ Loader animé */
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1.2s linear infinite;
-  transition: all 0.3s ease-in-out;
-}
-.loader:hover {
-  box-shadow: 0px 0px 20px #FF79DA;
-  transform: scale(1.1);
-}
-
-/* ✅ Texte sous le loader */
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
 /* ✅ Application des animations via la checkbox */
 .card__checkbox:checked ~ .card__icon--empty {
   animation: fadeOutHeart 0.4s ease forwards;
@@ -1216,219 +1129,7 @@ MEDIA QUERIES (RESPONSIVE)
 }
 
 /* -------------------------------------------------------
-  ✅ LOADER (Chargement)
-------------------------------------------------------- */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 3s forwards;
-}
-
-/* ✅ Animation du cercle de chargement */
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-/* ✅ Texte du loader */
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* -------------------------------------------------------
-  ✅ ANIMATIONS GLOBALES
-------------------------------------------------------- */
-/* ✅ Effet de rotation */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* ✅ Effet de pulsation */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-}
-/* ✅ Fondu de disparition */
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-/* -------------------------------------------------------
-  ✅ ANIMATIONS DES CHECKMARKS (Validation)
-------------------------------------------------------- */
-@keyframes expandCheck {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 59px;
-  }
-}
-@keyframes collapseCheck {
-  0% {
-    width: 59px;
-  }
-  100% {
-    width: 0;
-  }
-}
-@keyframes movePrice {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-59px);
-  }
-}
-@keyframes resetPrice {
-  0% {
-    transform: translateX(-59px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes fadeInCheck {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeOutCheck {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-/* -------------------------------------------------------
-  ✅ EFFETS SUR LES BOUTONS & CŒURS
-------------------------------------------------------- */
-/* ✅ Effet d'ombre pulsée */
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-}
-/* ✅ Effet d'apparition/disparition des cœurs */
-@keyframes fadeOutHeart {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
-@keyframes fadeInHeart {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-/* -------------------------------------------------------
-  ✅ LOADER PRINCIPAL
-------------------------------------------------------- */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 3s forwards;
-}
-
-/* ✅ Loader animé */
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1.2s linear infinite;
-  transition: all 0.3s ease-in-out;
-}
-.loader:hover {
-  box-shadow: 0px 0px 20px #FF79DA;
-  transform: scale(1.1);
-}
-
-/* ✅ Texte sous le loader */
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* ✅ Application des animations via la checkbox */
-.card__checkbox:checked ~ .card__icon--empty {
-  animation: fadeOutHeart 0.4s ease forwards;
-}
-
-.card__checkbox:checked ~ .card__icon--full {
-  animation: fadeInHeart 0.4s ease forwards;
-}
-
-/* -------------------------------------------------------
-  ✅ SECTION MENU
+  SECTION MENU
 ------------------------------------------------------- */
 .menu__section {
   margin-top: 2.625rem;
@@ -1436,7 +1137,6 @@ MEDIA QUERIES (RESPONSIVE)
   width: 100%;
   box-sizing: border-box;
 }
-
 .menu__section > h2 {
   position: relative;
   margin-bottom: 1.5625rem;
@@ -1454,7 +1154,7 @@ MEDIA QUERIES (RESPONSIVE)
 }
 
 /* -------------------------------------------------------
-  ✅ STYLES DES ÉLÉMENTS DU MENU
+  STYLES DES ÉLÉMENTS DU MENU
 ------------------------------------------------------- */
 .menu__item {
   width: 100%;
@@ -1462,7 +1162,7 @@ MEDIA QUERIES (RESPONSIVE)
   margin: 0 auto 12px auto;
   padding: 12px 0;
   border-radius: 15px;
-  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1470,33 +1170,25 @@ MEDIA QUERIES (RESPONSIVE)
   gap: 0;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  /* ✅ Effet hover dynamique */
 }
 .menu__item:last-child {
   margin-bottom: 0;
 }
-.menu__item:hover,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content {
+.menu__item:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
-.menu__item:hover .menu__content,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__content {
-  border-right: 5px solid #99E2D0;
+.menu__item:hover .menu__price {
+  transform: translateX(-59px);
 }
-.menu__item:hover .menu__check,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__check {
+.menu__item:hover .menu__check {
   width: 59px;
 }
-.menu__item:hover .menu__check .fa-check,
 .menu__item:hover .menu__check .menu__check-circle,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__check .fa-check,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__check .menu__check-circle {
+.menu__item:hover .menu__check .fa-check {
   opacity: 1;
 }
-.menu__item:hover .menu__price,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__price {
-  transform: translateX(-59px);
+.menu__item:hover .menu__text {
+  max-width: calc(100% - 59px - 15px - 15px - 10px);
 }
 
 .menu__content {
@@ -1515,19 +1207,17 @@ MEDIA QUERIES (RESPONSIVE)
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 0;
-  max-width: calc(100% - 80px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.3125rem;
+  gap: 0;
   padding-left: 15px;
-  text-overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .menu__title,
@@ -1535,7 +1225,8 @@ MEDIA QUERIES (RESPONSIVE)
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  animation-fill-mode: forwards;
+  width: 100%;
+  margin: 0;
 }
 
 .menu__title {
@@ -1544,25 +1235,18 @@ MEDIA QUERIES (RESPONSIVE)
   font-weight: 500;
   line-height: 21.09px;
   text-align: left;
-  margin: 0;
 }
 
 .menu__description {
   font-family: "Roboto", sans-serif;
   font-size: 0.94rem;
   font-weight: 300;
-  line-height: 1.1rem;
+  line-height: 1.15;
   text-align: left;
-  width: 100%;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  animation-fill-mode: forwards;
 }
 
 /* -------------------------------------------------------
-  ✅ PRIX ET CHECKMARK
+  PRIX ET CHECKMARK
 ------------------------------------------------------- */
 .menu__price-container {
   display: flex;
@@ -1570,9 +1254,7 @@ MEDIA QUERIES (RESPONSIVE)
   justify-content: flex-end;
   align-items: center;
   gap: 0;
-  width: 59px;
   flex-shrink: 0;
-  transition: width 0.3s ease;
 }
 
 .menu__price {
@@ -1582,7 +1264,7 @@ MEDIA QUERIES (RESPONSIVE)
   margin-right: 15px;
   box-sizing: border-box;
   align-self: flex-end;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease-in-out;
   z-index: 1;
 }
 
@@ -1600,13 +1282,13 @@ MEDIA QUERIES (RESPONSIVE)
   align-items: center;
   gap: 0;
   cursor: pointer;
-  z-index: 1;
-  transition: width 0.3s ease;
+  z-index: 0;
+  transition: width 0.5s ease-in-out;
 }
 .menu__check .fa-check,
 .menu__check .menu__check-circle {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease-in-out;
 }
 .menu__check .fa-check {
   font-size: 12px;
@@ -1617,7 +1299,7 @@ MEDIA QUERIES (RESPONSIVE)
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1626,12 +1308,26 @@ MEDIA QUERIES (RESPONSIVE)
   color: #99E2D0;
 }
 
+/* -------------------------------------------------------
+  CHECKBOX ET LABEL (pour le clic)
+------------------------------------------------------- */
 .menu__check-input {
   display: none;
+  pointer-events: none;
+}
+
+.menu__check-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 3;
 }
 
 /* -------------------------------------------------------
-  ✅ BOUTON COMMANDER AVEC HOVER
+  BOUTON COMMANDER
 ------------------------------------------------------- */
 .order {
   height: 187px;
@@ -1657,17 +1353,34 @@ MEDIA QUERIES (RESPONSIVE)
   text-decoration: none;
   cursor: pointer;
   padding: 13px 1rem;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  width: 13.625rem;
-  height: 3.125rem;
-  transition: all 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease;
+  width: 186px;
+  height: 50px;
 }
 .btn--order:hover {
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  background: linear-gradient(to top, #A16BE0, #FF93E1);
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ Application des animations via le label et la checkbox */
+.menu__check-input:checked + .menu__check-label + .menu__check {
+  width: 59px;
+}
+.menu__check-input:checked + .menu__check-label + .menu__check .menu__check-circle,
+.menu__check-input:checked + .menu__check-label + .menu__check .fa-check {
+  opacity: 1;
+}
+
+.menu__check-input:checked + .menu__check-label ~ .menu__content .menu__price {
+  transform: translateX(-59px);
+}
+
+.menu__check-input:checked + .menu__check-label ~ .menu__content .menu__text {
+  max-width: calc(100% - 59px - 15px - 15px - 10px);
 }
 
 /* -------------------------------------------------------
-  ✅ MEDIA QUERIES (RESPONSIVE)
+  MEDIA QUERIES (RESPONSIVE)
 ------------------------------------------------------- */
 /* ✅ TABLETTE (768px - 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -1706,15 +1419,13 @@ MEDIA QUERIES (RESPONSIVE)
   height: 100vh;
   background: #FFFFFF;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0;
+  flex-direction: column;
   z-index: 1000;
   animation: fadeOut 1s ease-out 3s forwards;
 }
 
-/* ✅ Animation du cercle de chargement */
 .loader {
   width: 60px;
   height: 60px;
@@ -1722,10 +1433,9 @@ MEDIA QUERIES (RESPONSIVE)
   border-top: 6px solid #9356DC;
   border-right: 6px solid #FF79DA;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 1.2s linear infinite;
 }
 
-/* ✅ Texte du loader */
 .loader-text {
   margin-top: 15px;
   font-size: 1.5rem;
@@ -1737,7 +1447,6 @@ MEDIA QUERIES (RESPONSIVE)
 /* -------------------------------------------------------
   ✅ ANIMATIONS GLOBALES
 ------------------------------------------------------- */
-/* ✅ Effet de rotation */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -1746,18 +1455,15 @@ MEDIA QUERIES (RESPONSIVE)
     transform: rotate(360deg);
   }
 }
-/* ✅ Effet de pulsation */
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
     opacity: 1;
   }
   50% {
-    transform: scale(1.1);
     opacity: 0.8;
   }
 }
-/* ✅ Fondu de disparition */
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -1822,19 +1528,6 @@ MEDIA QUERIES (RESPONSIVE)
 /* -------------------------------------------------------
   ✅ EFFETS SUR LES BOUTONS & CŒURS
 ------------------------------------------------------- */
-/* ✅ Effet d'ombre pulsée */
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  }
-  100% {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-}
-/* ✅ Effet d'apparition/disparition des cœurs */
 @keyframes fadeOutHeart {
   0% {
     opacity: 1;
@@ -1843,6 +1536,17 @@ MEDIA QUERIES (RESPONSIVE)
   100% {
     opacity: 0;
     transform: scale(1.2);
+  }
+}
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
   }
 }
 @keyframes fadeInHeart {
@@ -1855,49 +1559,6 @@ MEDIA QUERIES (RESPONSIVE)
     transform: scale(1);
   }
 }
-/* -------------------------------------------------------
-  ✅ LOADER PRINCIPAL
-------------------------------------------------------- */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 3s forwards;
-}
-
-/* ✅ Loader animé */
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1.2s linear infinite;
-  transition: all 0.3s ease-in-out;
-}
-.loader:hover {
-  box-shadow: 0px 0px 20px #FF79DA;
-  transform: scale(1.1);
-}
-
-/* ✅ Texte sous le loader */
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
 /* ✅ Application des animations via la checkbox */
 .card__checkbox:checked ~ .card__icon--empty {
   animation: fadeOutHeart 0.4s ease forwards;

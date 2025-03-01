@@ -52,6 +52,9 @@
         @include card-without-tag;
     }
 
+    
+
+
     /* ✅ Correction des images */
     &__image-container {
         display: flex;
@@ -103,9 +106,22 @@
     }
 }
 
+
+
 /* -------------------------------------------------------
   ✅ SECTION : ICÔNES & CHECKBOX
 ------------------------------------------------------- */
+.card--new .card__tag {
+    position: absolute;
+    top: 0.8125rem; // ✅ Distance depuis le haut
+    right: 1rem; // ✅ Distance depuis le bord droit
+    background-color: #99E2D0;
+    color: $color-background;
+    padding: 0.5rem 0.9375rem;
+    border-radius: 0.125rem;
+    font-size: 0.875rem;
+    z-index: 10;
+}
 .card__icon-pink {
     width: 1.375rem;
     height: auto;
@@ -171,6 +187,7 @@
 
 /* ✅ DESKTOP (1024px et +) */
 @media screen and (min-width: 1024px) {
+
     .restaurants {
         width: 100vw;
         max-width: 1440px;
@@ -185,4 +202,8 @@
         max-width: 1200px;
         margin: 0 auto;
     }
+        .card__image-container {
+            height: 220px; // ✅ Ajustement pour éviter un décalage en Deskto
+}
+
 }
