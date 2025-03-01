@@ -705,6 +705,18 @@ p {
 /* -------------------------------------------------------
   ✅ SECTION : ICÔNES & CHECKBOX
 ------------------------------------------------------- */
+.card--new .card__tag {
+  position: absolute;
+  top: 0.8125rem;
+  right: 1rem;
+  background-color: #99E2D0;
+  color: #FFFFFF;
+  padding: 0.5rem 0.9375rem;
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
+  z-index: 10;
+}
+
 .card__icon-pink {
   width: 1.375rem;
   height: auto;
@@ -780,6 +792,9 @@ p {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
+  }
+  .card__image-container {
+    height: 220px;
   }
 }
 /* -------------------------------------------------------
@@ -1114,167 +1129,7 @@ p {
 }
 
 /* -------------------------------------------------------
-  ✅ LOADER (Chargement)
-------------------------------------------------------- */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 3s forwards;
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1.2s linear infinite;
-}
-
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* -------------------------------------------------------
-  ✅ ANIMATIONS GLOBALES
-------------------------------------------------------- */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-/* -------------------------------------------------------
-  ✅ ANIMATIONS DES CHECKMARKS (Validation)
-------------------------------------------------------- */
-@keyframes expandCheck {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 59px;
-  }
-}
-@keyframes collapseCheck {
-  0% {
-    width: 59px;
-  }
-  100% {
-    width: 0;
-  }
-}
-@keyframes movePrice {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-59px);
-  }
-}
-@keyframes resetPrice {
-  0% {
-    transform: translateX(-59px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes fadeInCheck {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeOutCheck {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-/* -------------------------------------------------------
-  ✅ EFFETS SUR LES BOUTONS & CŒURS
-------------------------------------------------------- */
-@keyframes fadeOutHeart {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  }
-  50% {
-    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
-  }
-  100% {
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
-  }
-}
-@keyframes fadeInHeart {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-/* ✅ Application des animations via la checkbox */
-.card__checkbox:checked ~ .card__icon--empty {
-  animation: fadeOutHeart 0.4s ease forwards;
-}
-
-.card__checkbox:checked ~ .card__icon--full {
-  animation: fadeInHeart 0.4s ease forwards;
-}
-
-/* -------------------------------------------------------
-  ✅ SECTION MENU
+  SECTION MENU
 ------------------------------------------------------- */
 .menu__section {
   margin-top: 2.625rem;
@@ -1282,7 +1137,6 @@ p {
   width: 100%;
   box-sizing: border-box;
 }
-
 .menu__section > h2 {
   position: relative;
   margin-bottom: 1.5625rem;
@@ -1300,7 +1154,7 @@ p {
 }
 
 /* -------------------------------------------------------
-  ✅ STYLES DES ÉLÉMENTS DU MENU
+  STYLES DES ÉLÉMENTS DU MENU
 ------------------------------------------------------- */
 .menu__item {
   width: 100%;
@@ -1308,7 +1162,7 @@ p {
   margin: 0 auto 12px auto;
   padding: 12px 0;
   border-radius: 15px;
-  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -1316,33 +1170,25 @@ p {
   gap: 0;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  /* ✅ Effet hover dynamique */
 }
 .menu__item:last-child {
   margin-bottom: 0;
 }
-.menu__item:hover,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content {
+.menu__item:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
-.menu__item:hover .menu__content,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__content {
-  border-right: 5px solid #99E2D0;
+.menu__item:hover .menu__price {
+  transform: translateX(-59px);
 }
-.menu__item:hover .menu__check,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__check {
+.menu__item:hover .menu__check {
   width: 59px;
 }
-.menu__item:hover .menu__check .fa-check,
 .menu__item:hover .menu__check .menu__check-circle,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__check .fa-check,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__check .menu__check-circle {
+.menu__item:hover .menu__check .fa-check {
   opacity: 1;
 }
-.menu__item:hover .menu__price,
-.menu__item .menu__check-input:checked + .menu__check + .menu__content .menu__price {
-  transform: translateX(-59px);
+.menu__item:hover .menu__text {
+  max-width: calc(100% - 59px - 15px - 15px - 10px);
 }
 
 .menu__content {
@@ -1361,19 +1207,17 @@ p {
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 0;
-  max-width: calc(100% - 80px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.3125rem;
+  gap: 0;
   padding-left: 15px;
-  text-overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
 .menu__title,
@@ -1381,7 +1225,8 @@ p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  animation-fill-mode: forwards;
+  width: 100%;
+  margin: 0;
 }
 
 .menu__title {
@@ -1390,25 +1235,18 @@ p {
   font-weight: 500;
   line-height: 21.09px;
   text-align: left;
-  margin: 0;
 }
 
 .menu__description {
   font-family: "Roboto", sans-serif;
   font-size: 0.94rem;
   font-weight: 300;
-  line-height: 1.1rem;
+  line-height: 1.15;
   text-align: left;
-  width: 100%;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  animation-fill-mode: forwards;
 }
 
 /* -------------------------------------------------------
-  ✅ PRIX ET CHECKMARK
+  PRIX ET CHECKMARK
 ------------------------------------------------------- */
 .menu__price-container {
   display: flex;
@@ -1416,9 +1254,7 @@ p {
   justify-content: flex-end;
   align-items: center;
   gap: 0;
-  width: 59px;
   flex-shrink: 0;
-  transition: width 0.3s ease;
 }
 
 .menu__price {
@@ -1428,7 +1264,7 @@ p {
   margin-right: 15px;
   box-sizing: border-box;
   align-self: flex-end;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease-in-out;
   z-index: 1;
 }
 
@@ -1446,13 +1282,13 @@ p {
   align-items: center;
   gap: 0;
   cursor: pointer;
-  z-index: 1;
-  transition: width 0.3s ease;
+  z-index: 0;
+  transition: width 0.5s ease-in-out;
 }
 .menu__check .fa-check,
 .menu__check .menu__check-circle {
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease-in-out;
 }
 .menu__check .fa-check {
   font-size: 12px;
@@ -1463,7 +1299,7 @@ p {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1472,12 +1308,26 @@ p {
   color: #99E2D0;
 }
 
+/* -------------------------------------------------------
+  CHECKBOX ET LABEL (pour le clic)
+------------------------------------------------------- */
 .menu__check-input {
   display: none;
+  pointer-events: none;
+}
+
+.menu__check-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 3;
 }
 
 /* -------------------------------------------------------
-  ✅ BOUTON COMMANDER AVEC HOVER
+  BOUTON COMMANDER
 ------------------------------------------------------- */
 .order {
   height: 187px;
@@ -1504,16 +1354,33 @@ p {
   cursor: pointer;
   padding: 13px 1rem;
   transition: box-shadow 0.3s ease;
-  width: 13.625rem;
-  height: 3.125rem;
-  transition: all 0.3s ease-in-out;
+  width: 186px;
+  height: 50px;
 }
 .btn--order:hover {
-  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  background: linear-gradient(to top, #A16BE0, #FF93E1);
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ Application des animations via le label et la checkbox */
+.menu__check-input:checked + .menu__check-label + .menu__check {
+  width: 59px;
+}
+.menu__check-input:checked + .menu__check-label + .menu__check .menu__check-circle,
+.menu__check-input:checked + .menu__check-label + .menu__check .fa-check {
+  opacity: 1;
+}
+
+.menu__check-input:checked + .menu__check-label ~ .menu__content .menu__price {
+  transform: translateX(-59px);
+}
+
+.menu__check-input:checked + .menu__check-label ~ .menu__content .menu__text {
+  max-width: calc(100% - 59px - 15px - 15px - 10px);
 }
 
 /* -------------------------------------------------------
-  ✅ MEDIA QUERIES (RESPONSIVE)
+  MEDIA QUERIES (RESPONSIVE)
 ------------------------------------------------------- */
 /* ✅ TABLETTE (768px - 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
