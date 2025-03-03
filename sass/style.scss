@@ -1,8 +1,4 @@
-@import "base/index";
-@import "layout/index";
-@import "components/index";
-@import "pages/index";
-@import "pages/animation" ;
-
-/*  MOBILE FIRST : < 768px */
-/*  MOBILE FIRST : < 768px */
+@use 'base' as *;
+@use 'components' as *;
+@use 'layout' as *;
+@use 'pages' as *;

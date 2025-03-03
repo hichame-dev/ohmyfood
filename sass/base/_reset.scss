@@ -1,3 +1,5 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
 // ===============================
 // 🔄 Reset CSS Global
 // ===============================
@@ -37,7 +39,7 @@ a {
 body {
     margin: 0;
     padding: 0;
-    font-family: $font-primary; // Police principale
+    font-family: $font-primary;
     color: $color-primary; // Couleur principale du texte
     background-color: $color-background; // Fond global
     font-size: $font-size-medium; // Taille de texte par défaut

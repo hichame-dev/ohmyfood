@@ -1,3 +1,5 @@
+@use '../base/variables' as *;
+
 // ✅ Mixin spécifique pour le header (logo centré, flèche alignée à gauche)
 @mixin header-flex {
     display: flex;

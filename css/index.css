@@ -1,0 +1,663 @@
+@charset "UTF-8";
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.32rem;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+.restaurant-title {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 1.75rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 2.55rem;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+.step__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.063rem;
+  font-weight: 500;
+  line-height: 1.245rem;
+  text-align: left;
+  color: #000000;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+.intro {
+  margin: 0;
+  padding: 0;
+}
+
+.intro__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.55rem;
+  color: #000000;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.intro__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.32rem;
+  color: #353535;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.menu__section h2 {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.card__title {
+  width: 267px;
+  height: 20px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.menu__description {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.245rem;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
+.price {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.1rem;
+  text-align: center;
+}
+
+.euro {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.1rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input {
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: #000000;
+  background-color: #FFFFFF;
+  font-size: 1.125rem;
+  line-height: 1.32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* Added line */
+  border: 0;
+}
+
+/* -------------------------------------------------------
+  ✅ LOADER (Chargement)
+------------------------------------------------------- */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  animation: fadeOut 1s ease-out 2s forwards;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid transparent;
+  border-top: 6px solid #9356DC;
+  border-right: 6px solid #FF79DA;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-family: "Shrikhand", sans-serif;
+  color: #000000;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------
+  ✅ ANIMATIONS GLOBALES
+------------------------------------------------------- */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* -------------------------------------------------------
+  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+------------------------------------------------------- */
+@keyframes expandCheck {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 59px;
+  }
+}
+@keyframes collapseCheck {
+  0% {
+    width: 59px;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes movePrice {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-59px);
+  }
+}
+@keyframes resetPrice {
+  0% {
+    transform: translateX(-59px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInCheck {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutCheck {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* ✅ Application des animations via la checkbox */
+.card__checkbox:checked ~ .card__icon--empty {
+  animation: fadeOutCheck 0.4s ease forwards;
+}
+
+.card__checkbox:checked ~ .card__icon--full {
+  animation: fadeInCheck 0.4s ease forwards;
+}
+
+/* -------------------------------------------------------
+  ✅ EFFETS SUR LES BOUTONS & CŒURS
+------------------------------------------------------- */
+@keyframes fadeOutHeart {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  }
+  50% {
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+@keyframes fadeInHeart {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* ✅ Application des animations pour le cœur */
+.card__checkbox:checked ~ .card__icon--empty {
+  animation: fadeOutHeart 0.4s ease forwards;
+}
+
+.card__checkbox:checked ~ .card__icon--full {
+  animation: fadeInHeart 0.4s ease forwards;
+}
+
+/* -------------------------------------------------------
+  ✅ ANIMATION DU TEXTE AVEC ELLIPSIS
+------------------------------------------------------- */
+.texte-ellipsis {
+  display: block;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* ✅ Application de l'animation sans casser l’ellipsis */
+.texte-ellipsis {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* -------------------------------------------------------
+  SECTION MENU
+------------------------------------------------------- */
+.menu__section {
+  margin-top: 2.625rem;
+  padding: 13px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.menu__section > h2 {
+  position: relative;
+  margin-bottom: 1.5625rem;
+  padding-left: 1.0625rem;
+  text-align: left;
+}
+.menu__section > h2::after {
+  content: "";
+  width: 1.5rem;
+  border-top: 3px solid #99E2D0;
+  position: relative;
+  left: 0;
+  top: 5px;
+  display: block;
+}
+
+/* -------------------------------------------------------
+  STYLES DES ÉLÉMENTS DU MENU
+------------------------------------------------------- */
+.menu__item {
+  width: 100%;
+  max-width: 634px;
+  margin: 0 auto 12px auto;
+  padding: 12px 0;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+.menu__item:last-child {
+  margin-bottom: 0;
+}
+.menu__item:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.menu__item:hover .menu__price {
+  transform: translateX(-59px);
+}
+.menu__item:hover .menu__check {
+  width: 59px;
+}
+.menu__item:hover .menu__check .menu__check-circle,
+.menu__item:hover .menu__check .fa-check {
+  opacity: 1;
+}
+.menu__item:hover .menu__text {
+  max-width: calc(100% - 59px - 15px - 15px - 10px);
+}
+
+.menu__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  padding-right: 15px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+
+.menu__text {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  padding-left: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.menu__title,
+.menu__description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  margin: 0;
+}
+
+.menu__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 21.09px;
+  text-align: left;
+}
+
+.menu__description {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 300;
+  line-height: 1.15;
+  text-align: left;
+}
+
+/* -------------------------------------------------------
+  PRIX ET CHECKMARK
+------------------------------------------------------- */
+.menu__price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.menu__price {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-right: 15px;
+  box-sizing: border-box;
+  align-self: flex-end;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.menu__check {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #99E2D0;
+  border-radius: 0 15px 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  z-index: 0;
+  transition: width 0.5s ease-in-out;
+}
+.menu__check .fa-check,
+.menu__check .menu__check-circle {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.menu__check .fa-check {
+  font-size: 12px;
+  color: #99E2D0;
+}
+
+.menu__check-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  color: #99E2D0;
+}
+
+/* -------------------------------------------------------
+  CHECKBOX ET LABEL (pour le clic)
+------------------------------------------------------- */
+.menu__check-input {
+  display: none;
+  pointer-events: none;
+}
+
+.menu__check-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* -------------------------------------------------------
+  BOUTON COMMANDER
+------------------------------------------------------- */
+.order {
+  height: 187px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+.btn--order {
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  border-radius: 25px;
+  box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 13px 1rem;
+  transition: box-shadow 0.3s ease;
+  width: 186px;
+  height: 50px;
+}
+.btn--order:hover {
+  background: linear-gradient(to top, #A16BE0, #FF93E1);
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ Application des animations via le label et la checkbox */
+.menu__check-input:checked + .menu__check-label + .menu__check {
+  width: 59px;
+}
+.menu__check-input:checked + .menu__check-label + .menu__check .menu__check-circle,
+.menu__check-input:checked + .menu__check-label + .menu__check .fa-check {
+  opacity: 1;
+}
+
+.menu__check-input:checked + .menu__check-label ~ .menu__content .menu__price {
+  transform: translateX(-59px);
+}
+
+.menu__check-input:checked + .menu__check-label ~ .menu__content .menu__text {
+  max-width: calc(100% - 59px - 15px - 15px - 10px);
+}
+
+/* -------------------------------------------------------
+  MEDIA QUERIES (RESPONSIVE)
+------------------------------------------------------- */
+/* ✅ TABLETTE (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .menu-container {
+    width: 100%;
+    max-width: 600px;
+  }
+  .menu__section {
+    padding: 0 95px;
+  }
+  .menu__item {
+    max-width: 400px;
+  }
+}
+/* ✅ DESKTOP (1024px et +) */
+@media screen and (min-width: 1024px) {
+  .menu-container {
+    width: 100%;
+    max-width: 1055px;
+  }
+  .menu__section {
+    padding: 0 210px;
+  }
+  .menu__item {
+    max-width: 634px;
+  }
+}/*# sourceMappingURL=index.css.map */

@@ -1,5 +1,4 @@
-@import "../base/variables";
-@import "../base/mixins";
+@use '../base' as *; // ✅ Chargement des variables et mixins
 
 /* -------------------------------------------------------
   ✅ LOADER (Chargement)
@@ -138,6 +137,15 @@
     }
 }
 
+/* ✅ Application des animations via la checkbox */
+.card__checkbox:checked~.card__icon--empty {
+    animation: fadeOutCheck 0.4s ease forwards;
+}
+
+.card__checkbox:checked~.card__icon--full {
+    animation: fadeInCheck 0.4s ease forwards;
+}
+
 /* -------------------------------------------------------
   ✅ EFFETS SUR LES BOUTONS & CŒURS
 ------------------------------------------------------- */
@@ -179,7 +187,7 @@
     }
 }
 
-/* ✅ Application des animations via la checkbox */
+/* ✅ Application des animations pour le cœur */
 .card__checkbox:checked~.card__icon--empty {
     animation: fadeOutHeart 0.4s ease forwards;
 }
@@ -188,6 +196,9 @@
     animation: fadeInHeart 0.4s ease forwards;
 }
 
+/* -------------------------------------------------------
+  ✅ ANIMATION DU TEXTE AVEC ELLIPSIS
+------------------------------------------------------- */
 .texte-ellipsis {
     display: block;
     width: 200px; // Ajuste selon la taille du conteneur
@@ -206,7 +217,7 @@
     }
 }
 
-// ✅ Application de l'animation sans casser l’ellipsis
+/* ✅ Application de l'animation sans casser l’ellipsis */
 .texte-ellipsis {
     animation: fadeIn 0.5s ease-in-out forwards;
 }

@@ -1,6 +1,4 @@
-@import "../base/variables"; // Assurez-vous du bon chemin
-@import "../base/mixins"; // Assurez-vous du bon chemin
-
+@use '../base' as *;
 /* -------------------------------------------------------
   SECTION MENU
 ------------------------------------------------------- */

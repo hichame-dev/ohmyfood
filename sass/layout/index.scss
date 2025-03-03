@@ -1,0 +1,5 @@
+@use '../base' as *;
+@forward 'footer';
+@forward 'header';
+@forward 'intro';
+@forward 'menu_header';

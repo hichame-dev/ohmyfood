@@ -1,5 +1,4 @@
-@import "../base/variables";
-@import "../base/mixins";
+@use '../base' as *;
 
 .btn {
     @include button-style($color-gradient, $color-button-shadow, $button-text-color, $button-radius);
