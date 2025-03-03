@@ -124,6 +124,10 @@ p {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -183,8 +187,9 @@ html {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   white-space: nowrap;
-  /* Added line */
   border: 0;
 }
 
