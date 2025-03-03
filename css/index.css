@@ -56,8 +56,7 @@ p {
   font-weight: 700;
   line-height: 2.55rem;
   color: #000000;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
   margin-top: 10px;
   text-align: center;
   width: 100%;
@@ -101,7 +100,8 @@ p {
           text-decoration-skip-ink: none;
 }
 
-.price {
+.price,
+.euro {
   font-family: "Roboto", sans-serif;
   font-size: 0.94rem;
   font-weight: 700;
@@ -110,18 +110,27 @@ p {
 }
 
 .euro {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.94rem;
-  font-weight: 700;
-  line-height: 1.1rem;
-  text-align: center;
   color: #FFFFFF;
 }
 
+@media (min-width: 1024px) {
+  main {
+    width: 100%;
+  }
+}
+@media (min-width: 1440px) {
+  main {
+    width: 100%;
+  }
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 img {
@@ -183,401 +192,381 @@ html {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   white-space: nowrap;
-  /* Added line */
   border: 0;
 }
 
-/* -------------------------------------------------------
-  ✅ LOADER (Chargement)
-------------------------------------------------------- */
-.loader-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-  animation: fadeOut 1s ease-out 2s forwards;
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 6px solid transparent;
-  border-top: 6px solid #9356DC;
-  border-right: 6px solid #FF79DA;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-.loader-text {
-  margin-top: 15px;
-  font-size: 1.5rem;
-  font-family: "Shrikhand", sans-serif;
-  color: #000000;
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* -------------------------------------------------------
-  ✅ ANIMATIONS GLOBALES
-------------------------------------------------------- */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-/* -------------------------------------------------------
-  ✅ ANIMATIONS DES CHECKMARKS (Validation)
-------------------------------------------------------- */
-@keyframes expandCheck {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 59px;
-  }
-}
-@keyframes collapseCheck {
-  0% {
-    width: 59px;
-  }
-  100% {
-    width: 0;
-  }
-}
-@keyframes movePrice {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-59px);
-  }
-}
-@keyframes resetPrice {
-  0% {
-    transform: translateX(-59px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes fadeInCheck {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fadeOutCheck {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-/* ✅ Application des animations via la checkbox */
-.card__checkbox:checked ~ .card__icon--empty {
-  animation: fadeOutCheck 0.4s ease forwards;
-}
-
-.card__checkbox:checked ~ .card__icon--full {
-  animation: fadeInCheck 0.4s ease forwards;
-}
-
-/* -------------------------------------------------------
-  ✅ EFFETS SUR LES BOUTONS & CŒURS
-------------------------------------------------------- */
-@keyframes fadeOutHeart {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  }
-  50% {
-    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.25);
-  }
-  100% {
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
-  }
-}
-@keyframes fadeInHeart {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-/* ✅ Application des animations pour le cœur */
-.card__checkbox:checked ~ .card__icon--empty {
-  animation: fadeOutHeart 0.4s ease forwards;
-}
-
-.card__checkbox:checked ~ .card__icon--full {
-  animation: fadeInHeart 0.4s ease forwards;
-}
-
-/* -------------------------------------------------------
-  ✅ ANIMATION DU TEXTE AVEC ELLIPSIS
-------------------------------------------------------- */
-.texte-ellipsis {
-  display: block;
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/* ✅ Application de l'animation sans casser l’ellipsis */
-.texte-ellipsis {
-  animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-/* -------------------------------------------------------
-  SECTION MENU
-------------------------------------------------------- */
-.menu__section {
-  margin-top: 2.625rem;
-  padding: 13px;
+.footer {
   width: 100%;
-  box-sizing: border-box;
-}
-.menu__section > h2 {
-  position: relative;
-  margin-bottom: 1.5625rem;
-  padding-left: 1.0625rem;
-  text-align: left;
-}
-.menu__section > h2::after {
-  content: "";
-  width: 1.5rem;
-  border-top: 3px solid #99E2D0;
-  position: relative;
-  left: 0;
-  top: 5px;
-  display: block;
-}
-
-/* -------------------------------------------------------
-  STYLES DES ÉLÉMENTS DU MENU
-------------------------------------------------------- */
-.menu__item {
-  width: 100%;
-  max-width: 634px;
-  margin: 0 auto 12px auto;
-  padding: 12px 0;
-  border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 186px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 0;
+  gap: 1rem;
   position: relative;
-  overflow: hidden;
+  background-color: #353535;
+  color: white;
+  padding: 22px 25px;
 }
-.menu__item:last-child {
-  margin-bottom: 0;
-}
-.menu__item:hover {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-.menu__item:hover .menu__price {
-  transform: translateX(-59px);
-}
-.menu__item:hover .menu__check {
-  width: 59px;
-}
-.menu__item:hover .menu__check .menu__check-circle,
-.menu__item:hover .menu__check .fa-check {
-  opacity: 1;
-}
-.menu__item:hover .menu__text {
-  max-width: calc(100% - 59px - 15px - 15px - 10px);
-}
-
-.menu__content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0;
-  width: 100%;
-  padding-right: 15px;
-  box-sizing: border-box;
-  gap: 10px;
-}
-
-.menu__text {
-  flex-grow: 1;
-  flex-shrink: 1;
-  min-width: 0;
+.footer__container {
+  max-width: 375px;
+  width: 375px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
+  gap: 16px;
+}
+.footer__logo {
+  width: 190px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
   gap: 0;
-  padding-left: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  box-sizing: border-box;
-  z-index: 2;
 }
-
-.menu__title,
-.menu__description {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.footer__logo-text {
+  font-family: "Shrikhand", cursive;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 26.24px;
+  text-align: left;
+  text-underline-position: from-font;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: white;
+}
+.footer__nav {
   width: 100%;
-  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+}
+.footer__links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0.4375rem;
+}
+.footer__link-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.footer__link-item-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+.footer__link-item-icon i {
+  font-size: 0.875rem;
+  line-height: 1;
+  vertical-align: middle;
 }
 
-.menu__title {
+@media screen and (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px;
+    min-height: 114px;
+  }
+  .footer__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 1024px;
+    width: 100%;
+  }
+  .footer__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: auto;
+  }
+  .footer__logo {
+    order: 2;
+    margin-left: 25px;
+  }
+}
+.header {
+  width: 100%;
+  height: 3.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  background-color: #FFFFFF;
+}
+.header .logo {
+  width: auto;
+  height: 36px;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 1.0625rem;
+}
+.header__location {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.0625rem;
+  padding: 0 7.406rem;
+  background-color: #EAEAEA;
+  box-shadow: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
+}
+.header__location .location__icon {
+  font-size: 0.9375rem;
+  color: #000000;
+}
+.header__location .location__text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.063rem;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.intro {
+  width: 100%;
+  background-color: #F6F6F6;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0625rem;
+  text-align: center;
+  min-height: 287px;
+}
+
+.intro__content {
+  height: 287px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0625rem;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.intro__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.55rem;
+  color: #000000;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 39.5px;
+  text-align: center;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.intro__text {
   font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 21.09px;
-  text-align: left;
+  font-weight: 300;
+  line-height: 1.32rem;
+  color: #353535;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.menu__description {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.94rem;
-  font-weight: 300;
-  line-height: 1.15;
-  text-align: left;
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  height: 3.9375rem;
+  background-color: #F6F6F6;
+  position: relative;
+}
+.header .direction__icon {
+  position: absolute;
+  top: 17px;
+  left: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: 30px;
+  height: 30px;
+  color: #353535;
+}
+.header .direction__icon a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+.header .direction__icon a i {
+  font-size: 1.125rem;
+  color: #353535;
+}
+.header .logo__container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 5px;
+}
+.header .logo__container img {
+  width: auto;
+  height: 36px;
+  display: block;
 }
 
 /* -------------------------------------------------------
-  PRIX ET CHECKMARK
+  ✅ HEADER DU RESTAURANT (Titre + Cœur)
 ------------------------------------------------------- */
-.menu__price-container {
+.restaurant-header {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 0;
-  flex-shrink: 0;
+  padding-left: 1.0625rem;
+  padding-right: 1.0625rem;
+  width: 100%;
+  margin-top: 2rem;
+  gap: 24px;
+  justify-content: center;
+}
+.restaurant-header .restaurant-title {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 1.75rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 51px;
+}
+.restaurant-header .card__icon-pink {
+  width: 1.375rem;
+  height: 1.375rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  top: -5px;
+  cursor: pointer;
+  top: 25px;
+}
+.restaurant-header .card__icon-pink input {
+  display: none;
+}
+.restaurant-header .card__icon-pink .card__icon {
+  font-size: 1.375rem;
+  color: #000000;
 }
 
-.menu__price {
-  font-family: "Roboto", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin-right: 15px;
-  box-sizing: border-box;
-  align-self: flex-end;
-  transition: transform 0.5s ease-in-out;
+/* -------------------------------------------------------
+  ✅ BANNIÈRE DU RESTAURANT
+------------------------------------------------------- */
+.restaurant-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   z-index: 1;
 }
-
-.menu__check {
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #99E2D0;
-  border-radius: 0 15px 15px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  cursor: pointer;
-  z-index: 0;
-  transition: width 0.5s ease-in-out;
-}
-.menu__check .fa-check,
-.menu__check .menu__check-circle {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-.menu__check .fa-check {
-  font-size: 12px;
-  color: #99E2D0;
-}
-
-.menu__check-circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  color: #99E2D0;
+.restaurant-banner .banner-img {
+  width: 100%;
+  height: 275px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
 }
 
 /* -------------------------------------------------------
-  CHECKBOX ET LABEL (pour le clic)
+  ✅ CONTENEUR DU MENU
 ------------------------------------------------------- */
-.menu__check-input {
+.menu-container {
+  position: relative;
+  background-color: #F6F6F6;
+  border-radius: 25px 25px 0 0;
+  gap: 1.5rem;
+  margin-top: -2.3125rem;
+  z-index: 2;
+  /* -------------------------------------------------------
+    ✅ STYLE DU BOUTON CŒUR 
+  ------------------------------------------------------- */
+}
+.menu-container .menu-container h1 {
+  font-family: "Shrikhand", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.menu-container .card__icon-pink {
+  width: 1.375rem;
+  height: 1.3125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  cursor: pointer;
+}
+.menu-container .card__icon-pink .card__checkbox {
   display: none;
-  pointer-events: none;
+}
+.menu-container .card__icon-pink .card__icon--empty {
+  font-size: 1.375rem;
+  color: #000000;
+  position: absolute;
+}
+.menu-container .card__icon-pink .card__icon--full {
+  font-size: 1.375rem;
+  background: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  opacity: 0;
 }
 
-.menu__check-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  z-index: 3;
-}
+.menu-container {
+  transform: translateY(-20px);
+}/*# sourceMappingURL=index.css.map */;
+
 
 /* -------------------------------------------------------
   BOUTON COMMANDER
