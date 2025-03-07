@@ -38,6 +38,10 @@ p {
   font-size: 1.063rem;
   font-weight: 500;
   line-height: 1.245rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.063rem;
+  font-weight: 500;
+  line-height: 1.245rem;
   text-align: left;
   color: #000000;
   text-underline-position: from-font;
@@ -100,8 +104,7 @@ p {
           text-decoration-skip-ink: none;
 }
 
-.price,
-.euro {
+.price {
   font-family: "Roboto", sans-serif;
   font-size: 0.94rem;
   font-weight: 700;
@@ -113,16 +116,6 @@ p {
   color: #FFFFFF;
 }
 
-@media (min-width: 1024px) {
-  main {
-    width: 100%;
-  }
-}
-@media (min-width: 1440px) {
-  main {
-    width: 100%;
-  }
-}
 * {
   margin: 0;
   padding: 0;
