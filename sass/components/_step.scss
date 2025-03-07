@@ -1,10 +1,9 @@
 @use '../base' as *;
-/* -------------------------------------------------------
-  ✅ IMPORTS GLOBAUX
 
 
+
 /* -------------------------------------------------------
-  ✅ SECTION : STEPS (ÉTAPES)
+   SECTION : STEPS (ÉTAPES)
 ------------------------------------------------------- */
 .steps {
     width: 100%;
@@ -42,7 +41,7 @@
 }
 
 /* -------------------------------------------------------
-  ✅ STYLE DES ÉTAPES (STEP)
+   STYLE DES ÉTAPES (STEP)
 ------------------------------------------------------- */
 .step {
     width: 100%;
@@ -55,7 +54,7 @@
     @include flexbox(row, flex-start, flex-start);
 }
 
-/* ✅ Changement de couleur pour les icônes des étapes */
+/*  Changement de couleur pour les icônes des étapes */
 .steps__list .step__icon {
     color: $color-icon;
 }

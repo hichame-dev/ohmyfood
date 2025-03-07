@@ -226,10 +226,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ IMPORTS GLOBAUX
-------------------------------------------------------- */
-/* -------------------------------------------------------
-  ✅ SECTION : RESTAURANTS
+ SECTION : RESTAURANTS
 ------------------------------------------------------- */
 .restaurants {
   width: 100vw;
@@ -242,14 +239,14 @@ html {
   gap: 1.0625rem;
 }
 
-/* ✅ Titre de la section Restaurants */
+/*  Titre de la section Restaurants */
 .restaurants__title {
   width: 100%;
   padding-left: 1.0625rem;
   margin-top: 54px;
 }
 
-/* ✅ Grille des restaurants */
+/*  Grille des restaurants */
 .restaurants__grid {
   display: flex;
   flex-direction: column;
@@ -258,7 +255,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ SECTION : CARTES (CORRECTION DES IMAGES)
+   SECTION : CARTES (CORRECTION DES IMAGES)
 ------------------------------------------------------- */
 .card {
   width: 100%;
@@ -267,7 +264,7 @@ html {
   margin-bottom: 1.0625rem;
   display: flex;
   flex-direction: column;
-  /* ✅ Correction des images */
+  /*  Correction des images */
   /* ✅ Contenu des cartes */
 }
 .card--new {
@@ -334,7 +331,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ SECTION : ICÔNES & CHECKBOX
+   SECTION : ICÔNES & CHECKBOX
 ------------------------------------------------------- */
 .card--new .card__tag {
   position: absolute;
@@ -379,9 +376,9 @@ html {
 }
 
 /*------------------------------------------------------
-  ✅ MEDIA QUERIES
+   MEDIA QUERIES
 ------------------------------------------------------- */
-/* ✅ MOBILE FIRST (jusqu'à 767px) */
+/*  MOBILE FIRST (jusqu'à 767px) */
 @media screen and (max-width: 767px) {
   .restaurants {
     width: 100%;
@@ -389,7 +386,7 @@ html {
     padding: 0 1.25rem;
   }
 }
-/* ✅ TABLETTE (768px - 1023px) */
+/*  TABLETTE (768px - 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .restaurants {
     width: 100%;
@@ -409,7 +406,7 @@ html {
     max-width: 450px;
   }
 }
-/* ✅ DESKTOP (1024px et +) */
+/*  DESKTOP (1024px et +) */
 @media screen and (min-width: 1024px) {
   .restaurants {
     width: 100vw;
@@ -429,11 +426,7 @@ html {
   }
 }
 /* -------------------------------------------------------
-  ✅ IMPORTS GLOBAUX
-
-
-/* -------------------------------------------------------
-  ✅ SECTION : STEPS (ÉTAPES)
+   SECTION : STEPS (ÉTAPES)
 ------------------------------------------------------- */
 .steps {
   width: 100%;
@@ -471,7 +464,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ STYLE DES ÉTAPES (STEP)
+   STYLE DES ÉTAPES (STEP)
 ------------------------------------------------------- */
 .step {
   width: 100%;
@@ -488,7 +481,7 @@ html {
   gap: 0;
 }
 
-/* ✅ Changement de couleur pour les icônes des étapes */
+/*  Changement de couleur pour les icônes des étapes */
 .steps__list .step__icon {
   color: #7E7E7E;
 }
@@ -853,7 +846,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ HEADER DU RESTAURANT (Titre + Cœur)
+ HEADER DU RESTAURANT (Titre + Cœur)
 ------------------------------------------------------- */
 .restaurant-header {
   display: flex;
@@ -901,7 +894,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ BANNIÈRE DU RESTAURANT
+   BANNIÈRE DU RESTAURANT
 ------------------------------------------------------- */
 .restaurant-banner {
   position: relative;
@@ -918,7 +911,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ CONTENEUR DU MENU
+   CONTENEUR DU MENU
 ------------------------------------------------------- */
 .menu-container {
   position: relative;
@@ -928,7 +921,7 @@ html {
   margin-top: -2.3125rem;
   z-index: 2;
   /* -------------------------------------------------------
-    ✅ STYLE DU BOUTON CŒUR 
+     STYLE DU BOUTON CŒUR 
   ------------------------------------------------------- */
 }
 .menu-container .menu-container h1 {
@@ -970,7 +963,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ LOADER (Chargement)
+   LOADER (Chargement)
 ------------------------------------------------------- */
 .loader-container {
   position: fixed;
@@ -1006,7 +999,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ ANIMATIONS GLOBALES
+   ANIMATIONS GLOBALES
 ------------------------------------------------------- */
 @keyframes spin {
   0% {
@@ -1035,8 +1028,8 @@ html {
     visibility: hidden;
   }
 }
-/* -------------------------------------------------------
-  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+/* ------------------------------------------------------
+   ANIMATIONS DES CHECKMARKS (Validation)
 ------------------------------------------------------- */
 @keyframes expandCheck {
   0% {
@@ -1139,7 +1132,7 @@ html {
 }
 
 /* -------------------------------------------------------
-  ✅ ANIMATION DU TEXTE AVEC ELLIPSIS
+   ANIMATION DU TEXTE AVEC ELLIPSIS
 ------------------------------------------------------- */
 .texte-ellipsis {
   display: block;
@@ -1157,7 +1150,7 @@ html {
     opacity: 1;
   }
 }
-/* ✅ Application de l'animation sans casser l’ellipsis */
+/*  Application de l'animation sans casser l’ellipsis */
 .texte-ellipsis {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
@@ -1396,7 +1389,7 @@ html {
   box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.4);
 }
 
-/* ✅ Application des animations via le label et la checkbox */
+/*  Application des animations via le label et la checkbox */
 .menu__check-input:checked + .menu__check-label + .menu__check {
   width: 59px;
 }
@@ -1416,7 +1409,7 @@ html {
 /* -------------------------------------------------------
   MEDIA QUERIES (RESPONSIVE)
 ------------------------------------------------------- */
-/* ✅ TABLETTE (768px - 1023px) */
+/*  TABLETTE (768px - 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .menu-container {
     width: 100%;
@@ -1429,7 +1422,7 @@ html {
     max-width: 400px;
   }
 }
-/* ✅ DESKTOP (1024px et +) */
+/*  DESKTOP (1024px et +) */
 @media screen and (min-width: 1024px) {
   .menu-container {
     width: 100%;

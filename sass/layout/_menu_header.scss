@@ -46,10 +46,10 @@
 
 
 /* -------------------------------------------------------
-  ✅ HEADER DU RESTAURANT (Titre + Cœur)
+ HEADER DU RESTAURANT (Titre + Cœur)
 ------------------------------------------------------- */
 .restaurant-header {
-    @include flexbox(row, flex-start, center); // ✅ Alignement vertical du titre et du cœur
+    @include flexbox(row, flex-start, center); //  Alignement vertical du titre et du cœur
     padding-left: $gap-medium;
     padding-right: $gap-medium;
     width: 100%;
@@ -90,7 +90,7 @@
 }
 
 /* -------------------------------------------------------
-  ✅ BANNIÈRE DU RESTAURANT
+   BANNIÈRE DU RESTAURANT
 ------------------------------------------------------- */
 .restaurant-banner {
     position: relative;
@@ -107,7 +107,7 @@
 }
 
 /* -------------------------------------------------------
-  ✅ CONTENEUR DU MENU
+   CONTENEUR DU MENU
 ------------------------------------------------------- */
 .menu-container {
     position: relative;
@@ -124,7 +124,7 @@
     }
 
     /* -------------------------------------------------------
-  ✅ STYLE DU BOUTON CŒUR 
+   STYLE DU BOUTON CŒUR 
 ------------------------------------------------------- */
     .card__icon-pink {
         width: 1.375rem;

@@ -1,7 +1,7 @@
-@use '../base' as *; // ✅ Chargement des variables et mixins
+@use '../base' as *; 
 
 /* -------------------------------------------------------
-  ✅ LOADER (Chargement)
+   LOADER (Chargement)
 ------------------------------------------------------- */
 .loader-container {
     position: fixed;
@@ -37,7 +37,7 @@
 }
 
 /* -------------------------------------------------------
-  ✅ ANIMATIONS GLOBALES
+   ANIMATIONS GLOBALES
 ------------------------------------------------------- */
 @keyframes spin {
     0% {
@@ -74,8 +74,8 @@
     }
 }
 
-/* -------------------------------------------------------
-  ✅ ANIMATIONS DES CHECKMARKS (Validation)
+/* ------------------------------------------------------
+   ANIMATIONS DES CHECKMARKS (Validation)
 ------------------------------------------------------- */
 @keyframes expandCheck {
     0% {
@@ -197,7 +197,7 @@
 }
 
 /* -------------------------------------------------------
-  ✅ ANIMATION DU TEXTE AVEC ELLIPSIS
+   ANIMATION DU TEXTE AVEC ELLIPSIS
 ------------------------------------------------------- */
 .texte-ellipsis {
     display: block;
@@ -217,7 +217,7 @@
     }
 }
 
-/* ✅ Application de l'animation sans casser l’ellipsis */
+/*  Application de l'animation sans casser l’ellipsis */
 .texte-ellipsis {
     animation: fadeIn 0.5s ease-in-out forwards;
 }

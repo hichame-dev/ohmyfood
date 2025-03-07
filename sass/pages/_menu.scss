@@ -204,7 +204,7 @@
 }
 
 
-/* ✅ Application des animations via le label et la checkbox */
+/*  Application des animations via le label et la checkbox */
 
 .menu__check-input:checked+.menu__check-label+.menu__check {
     width: 59px;
@@ -227,7 +227,7 @@
   MEDIA QUERIES (RESPONSIVE)
 ------------------------------------------------------- */
 
-/* ✅ TABLETTE (768px - 1023px) */
+/*  TABLETTE (768px - 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .menu-container {
         width: 100%;
@@ -243,7 +243,7 @@
     }
 }
 
-/* ✅ DESKTOP (1024px et +) */
+/*  DESKTOP (1024px et +) */
 @media screen and (min-width: 1024px) {
     .menu-container {
         width: 100%;

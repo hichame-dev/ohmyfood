@@ -1,5 +1,5 @@
 // ===============================
-// 🎨 Couleurs principales
+//  Couleurs principales
 // ===============================
 $color-primary: #000000; // Noir pour le texte principal
 $color-secondary: #353535; // Gris foncé pour les éléments secondaires
@@ -8,7 +8,7 @@ $color-card-background: #F6F6F6; // Fond des cartes
 $color-location: #EAEAEA; // Fond pour la localisation
 $color-icon: #7E7E7E; // Couleur des icônes
 
-// 🌈 Couleurs d'accent
+//  Couleurs d'accent
 $color-gradient: linear-gradient(193.33deg, #9356DC -11.44%, #FF79DA 123.93%);
 $color-button-hover: #FF79DA;
 $color-step: #9356DC;
@@ -18,7 +18,7 @@ $color-schek:#99E2D0;
 
 
 // ===============================
-// 📝 Typographies
+//  Typographies
 // ===============================
 // Polices
 $font-primary: 'Roboto', sans-serif;
@@ -39,11 +39,11 @@ $font-size-large: 1.5rem;
 $font-size-xl: 1.75rem;
 $font-size-h3: 1.125rem; // 18px
 $font-weight-h3: 500;
-// ✅ Typographie du prix et symbole euro
+//  Typographie du prix et symbole euro
 $font-size-price: 0.94rem; // 15.04px
 $line-height-price: 1.1rem; // 17.63px
 
-// ✅ Couleur de fond du prix
+// Couleur de fond du prix
 
 
 
@@ -58,7 +58,7 @@ $line-height-large: 1.75rem;
 $line-height-xl: 2.55rem;
 
 // ===============================
-// 📏 Espacements
+//  Espacements
 // ===============================
 $gap-small: 0.3125rem;
 $gap-medium: 1.0625rem;
@@ -74,24 +74,24 @@ $spacing-medium: 0.5rem;
 $padding-section: 2rem;
 $margin-title: 1.5rem;
 // ===============================
-// 📝 Typographies - Variables ajoutées
+//  Typographies - Variables ajoutées
 // ===============================
 $margin-section-menu: 2.625rem; // 
 $margin-bottom-menu-h2: 1.5625rem; // 
 // ===============================
-// 📝 Typographies - Variables ajoutées
+//  Typographies - Variables ajoutées
 // ===============================
 
 
 // ===============================
-// 📐 Dimensions globales
+//  Dimensions globales
 // ===============================
 $header-height: 3.9375rem;
 $card-width: 18.75rem;
 $button-width: 13.625rem;
 $button-height: 3.125rem;
 // ===============================
-// 📐 Dimensions des boutons
+//  Dimensions des boutons
 // ===============================
 
 // Dimensions des images
@@ -99,7 +99,7 @@ $image-width: 23.4375rem;
 $image-height: 17.1875rem;
 
 // ===============================
-// 💡 Ombres et transitions
+//  Ombres et transitions
 // ===============================
 $box-shadow-light: 0px 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
 $box-shadow-strong: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.25);
@@ -110,20 +110,20 @@ $transition-duration: 0.3s;
 $transition-ease: ease;
 
 // ===============================
-// 📱 Breakpoints (Mobile First)
+//  Breakpoints (Mobile First)
 // ===============================
 $mobile-width: 780px;
 $tablet-width: 1024px;
 $desktop-width: 1440px;
 
 // ===============================
-// 🎛 Boutons
+//  Boutons
 // ===============================
 $button-radius: 25px;
 $button-text-color: #FFFFFF;
 
 // ===============================
-// 🌍 Footer
+//  Footer
 // ===============================
 $color-footer-background: $color-primary; // Fond du footer en noir
 $color-footer-text: $color-background; // Texte en blanc

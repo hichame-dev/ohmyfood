@@ -1,7 +1,7 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
 // ===============================
-// 📝 Typographies Globales
+//  Typographies Globales
 // ===============================
 
 h2 {
@@ -39,10 +39,10 @@ p {
 }
 
 .step__text {
-    font-family: $font-primary; // ✅ Roboto
-    font-size: $font-size-small; // ✅ 16px
-    font-weight: $font-weight-medium; // ✅ 500
-    line-height: $line-height-small; // ✅ 18.75px
+    font-family: $font-primary; // Roboto
+    font-size: $font-size-small; // 16px
+    font-weight: $font-weight-medium; //  500
+    line-height: $line-height-small; //  18.75px
     text-align: left;
     color: $color-primary;
     text-underline-position: from-font;
@@ -50,7 +50,7 @@ p {
 }
 
 // ===============================
-// 🎯 Styles Introduction
+//  Styles Introduction
 // ===============================
 
 .intro {
@@ -88,7 +88,7 @@ p {
 // ===============================
 
 .menu__section h2 {
-    position: relative; // ✅ Nécessaire pour bien positionner le ::after
+    position: relative; //  Nécessaire pour bien positionner le ::after
     font-family: $font-primary;
     font-size: 1rem; // 16px
     font-weight: 300;
@@ -117,7 +117,7 @@ p {
 }
 
 .price {
-    font-family: $font-primary; // ✅ Roboto
+    font-family: $font-primary; //  Roboto
     font-size: $font-size-price;
     font-weight: $font-weight-bold;
     line-height: $line-height-price;
@@ -135,23 +135,3 @@ p {
 
 
 
-
-
-
-// ===============================
-// 📱 Responsive Design (Mobile First)
-// ===============================
-
-// // Tablette
-// @media (min-width: $tablet-width) {
-//     main {
-//         width: 100%;
-//     }
-// }
-
-// // Desktop
-// @media (min-width: $desktop-width) {
-//     main {
-//         width: 100%;
-//     }
-// }
