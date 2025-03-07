@@ -1,5 +1,6 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
+
 // ===============================
 //  Typographies Globales
 // ===============================
@@ -9,12 +10,10 @@ h2 {
     font-size: $font-size-large;
     font-weight: $font-weight-bold;
     color: $color-primary;
-    
-    
 }
 
 h3 {
-    font-family: $font-primary; // Roboto
+    font-family: $font-primary;
     font-size: $font-size-h3;
     font-weight: $font-weight-medium;
     line-height: $line-height-medium;
@@ -39,10 +38,10 @@ p {
 }
 
 .step__text {
-    font-family: $font-primary; // Roboto
-    font-size: $font-size-small; // 16px
-    font-weight: $font-weight-medium; //  500
-    line-height: $line-height-small; //  18.75px
+    font-family: $font-primary;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-small;
     text-align: left;
     color: $color-primary;
     text-underline-position: from-font;
@@ -54,8 +53,8 @@ p {
 // ===============================
 
 .intro {
-    margin: 0; // Supprime toute marge externe
-    padding: 0; // Supprime tout padding interne
+    margin: 0;
+    padding: 0;
 }
 
 .intro__title {
@@ -64,9 +63,8 @@ p {
     font-weight: $font-weight-bold;
     line-height: $line-height-xl;
     color: $color-primary;
-    padding-left: 20px; // Réduction du padding
-    padding-right: 20px;
-    margin-top: 10px; // Réduction de l'espace au-dessus
+    padding: 0 20px;
+    margin-top: 10px;
     text-align: center;
     width: 100%;
     word-wrap: break-word;
@@ -80,7 +78,7 @@ p {
     color: $color-secondary;
     max-width: 100%;
     text-align: center;
-    margin-bottom: 10px; // Réduction de l'espace en bas si nécessaire
+    margin-bottom: 10px;
 }
 
 // ===============================
@@ -88,9 +86,9 @@ p {
 // ===============================
 
 .menu__section h2 {
-    position: relative; //  Nécessaire pour bien positionner le ::after
+    position: relative; // ✅ Nécessaire pour bien positionner le ::after
     font-family: $font-primary;
-    font-size: 1rem; // 16px
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -107,17 +105,17 @@ p {
 }
 
 .menu__description {
-    font-family: $font-primary; // Police Roboto
-    font-size: $font-size-xs; // 15px (0.9375rem)
-    font-weight: $font-weight-light; // 300
-    line-height: $line-height-small; // 17.63px
+    font-family: $font-primary;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-light;
+    line-height: $line-height-small;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
 
 .price {
-    font-family: $font-primary; //  Roboto
+    font-family: $font-primary; // ✅ Roboto
     font-size: $font-size-price;
     font-weight: $font-weight-bold;
     line-height: $line-height-price;
@@ -125,13 +123,28 @@ p {
 }
 
 .euro {
-    font-family: $font-primary;
-    font-size: $font-size-price;
-    font-weight: $font-weight-bold;
-    line-height: $line-height-price;
-    text-align: center;
     color: $color-background;
 }
 
 
 
+
+
+
+// ===============================
+// 📱 Responsive Design (Mobile First)
+// ===============================
+
+// // Tablette
+// @media (min-width: $tablet-width) {
+//     main {
+//         width: 100%;
+//     }
+// }
+
+// // Desktop
+// @media (min-width: $desktop-width) {
+//     main {
+//         width: 100%;
+//     }
+// }

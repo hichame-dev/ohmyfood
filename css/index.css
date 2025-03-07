@@ -38,6 +38,10 @@ p {
   font-size: 1.063rem;
   font-weight: 500;
   line-height: 1.245rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.063rem;
+  font-weight: 500;
+  line-height: 1.245rem;
   text-align: left;
   color: #000000;
   text-underline-position: from-font;
@@ -56,8 +60,7 @@ p {
   font-weight: 700;
   line-height: 2.55rem;
   color: #000000;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
   margin-top: 10px;
   text-align: center;
   width: 100%;
@@ -110,11 +113,6 @@ p {
 }
 
 .euro {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.94rem;
-  font-weight: 700;
-  line-height: 1.1rem;
-  text-align: center;
   color: #FFFFFF;
 }
 
@@ -122,6 +120,10 @@ p {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 img {
@@ -183,8 +185,9 @@ html {
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   white-space: nowrap;
-  /* Added line */
   border: 0;
 }
 
