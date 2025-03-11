@@ -1,4 +1,4 @@
-@use '../base' as *; 
+@use '../base' as *;
 
 /* -------------------------------------------------------
    LOADER (Chargement)
@@ -34,6 +34,21 @@
     font-family: $font-secondary;
     color: $color-primary;
     animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------
+   ANIMATIONS banniere 
+------------------------------------------------------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0.5;
+        /* Opacité de départ */
+    }
+
+    to {
+        opacity: 1;
+        /* Opacité finale */
+    }
 }
 
 /* -------------------------------------------------------

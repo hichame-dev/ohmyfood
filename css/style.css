@@ -918,6 +918,8 @@ html {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  opacity: 0.5;
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 /* -------------------------------------------------------
@@ -1008,6 +1010,19 @@ html {
   animation: pulse 1.5s ease-in-out infinite;
 }
 
+/* -------------------------------------------------------
+   ANIMATIONS banniere 
+------------------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+    /* Opacité de départ */
+  }
+  to {
+    opacity: 1;
+    /* Opacité finale */
+  }
+}
 /* -------------------------------------------------------
    ANIMATIONS GLOBALES
 ------------------------------------------------------- */

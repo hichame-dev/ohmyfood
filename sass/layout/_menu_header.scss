@@ -1,4 +1,5 @@
 @use '../base' as *;
+
 // Header principal
 .header {
     @include flexbox(row, center, center);
@@ -103,8 +104,13 @@
         height: 275px;
         object-fit: cover;
         display: block;
+        opacity: 0.5;
+        animation: fadeIn 1.5s ease-in-out forwards;
+    
     }
 }
+
+
 
 /* -------------------------------------------------------
    CONTENEUR DU MENU
