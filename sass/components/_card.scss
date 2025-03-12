@@ -115,7 +115,7 @@
     top: 0.8125rem; //  Distance depuis le haut
     right: 1rem; // Distance depuis le bord droit
     background-color: #99E2D0;
-    color: $color-background;
+    color: $color-span-card;
     padding: 0.5rem 0.9375rem;
     border-radius: 0.125rem;
     font-size: 0.875rem;
@@ -132,6 +132,7 @@
     right: 25px;
     z-index: 11;
 }
+
 .card__checkbox {
     display: none; //  Cache totalement la checkbox
 }
